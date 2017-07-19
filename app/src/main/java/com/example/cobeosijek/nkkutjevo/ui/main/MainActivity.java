@@ -21,11 +21,11 @@ import com.example.cobeosijek.nkkutjevo.ui.fragments.TeamFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    DrawerLayout drawerLayout;
-    ActionBarDrawerToggle actionBarDrawerToggle;
-    Toolbar toolbar;
-    FragmentTransaction fragmentTransaction;
-    NavigationView navigationView;
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    private Toolbar toolbar;
+    private FragmentTransaction fragmentTransaction;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         initUI();
         setupHomeFragment();
     }
-
 
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
@@ -87,46 +86,48 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.commit();
     }
 
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        // presenter.onItemSelected(item.getItemId());
+
         switch (item.getItemId()) {
 
             case R.id.nav_home:
                 replaceFragments(R.id.main_container, new HomeFragment());
                 setActionBarTitle(R.string.nav_home_title);
-                item.setChecked(true);
-                drawerLayout.closeDrawers();
                 break;
 
             case R.id.nav_header_news:
                 replaceFragments(R.id.main_container, new NewsFragment());
                 setActionBarTitle(R.string.nav_news_title);
-                item.setChecked(true);
-                drawerLayout.closeDrawers();
                 break;
 
             case R.id.nav_header_gallery:
                 replaceFragments(R.id.main_container, new GalleryFragment());
                 setActionBarTitle(R.string.nav_gallery_title);
-                item.setChecked(true);
-                drawerLayout.closeDrawers();
                 break;
 
             case R.id.nav_header_team:
                 replaceFragments(R.id.main_container, new TeamFragment());
                 setActionBarTitle(R.string.nav_team_title);
-                item.setChecked(true);
-                drawerLayout.closeDrawers();
                 break;
 
             case R.id.nav_header_schedule:
                 replaceFragments(R.id.main_container, new ScheduleFragment());
                 setActionBarTitle(R.string.nav_schedule_title);
-                item.setChecked(true);
-                drawerLayout.closeDrawers();
                 break;
         }
+
+        item.setChecked(true);
         return true;
+    }
+
+    public void closeNavigationDrawer() {
+        drawerLayout.closeDrawers();
+    }
+
+    public void showHomeScreen() {
+
     }
 }
