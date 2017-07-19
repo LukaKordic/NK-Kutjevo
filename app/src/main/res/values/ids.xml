@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="content_layout" type="id" />
+    <item name="drawer_list" type="id" />
+    <item name="navigation_view" type="id" />
+    <item name="drawer_layout" type="id" />
+    <item name="nav_header_image" type="id" />
+    <item name="nav_home" type="id" />
+    <item name="nav_header_title" type="id" />
+    <item name="nav_header_news" type="id" />
+    <item name="nav_header_gallery" type="id" />
+    <item name="nav_header_team" type="id" />
+    <item name="nav_header_schedule" type="id" />
+    <item name="home_fragment_title" type="id" />
+    <item name="content_main" type="id"/>
+    <item name="toolbar" type="id"/>
+    <item name="toolbar_image" type="id"/>
+
+</resources>
