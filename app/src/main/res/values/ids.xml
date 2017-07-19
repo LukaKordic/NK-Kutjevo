@@ -14,6 +14,6 @@
     <item name="home_fragment_title" type="id" />
     <item name="content_main" type="id"/>
     <item name="toolbar" type="id"/>
-    <item name="toolbar_image" type="id"/>
+    <item name="main_container" type="id"/>
 
 </resources>
