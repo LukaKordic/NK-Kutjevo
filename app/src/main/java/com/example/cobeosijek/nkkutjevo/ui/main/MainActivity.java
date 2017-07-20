@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,27 +12,29 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.cobeosijek.nkkutjevo.R;
-import com.example.cobeosijek.nkkutjevo.ui.fragments.GalleryFragment;
-import com.example.cobeosijek.nkkutjevo.ui.fragments.HomeFragment;
-import com.example.cobeosijek.nkkutjevo.ui.fragments.NewsFragment;
-import com.example.cobeosijek.nkkutjevo.ui.fragments.ScheduleFragment;
-import com.example.cobeosijek.nkkutjevo.ui.fragments.TeamFragment;
+import com.example.cobeosijek.nkkutjevo.ui.gallery.GalleryFragment;
+import com.example.cobeosijek.nkkutjevo.ui.home.HomeFragment;
+import com.example.cobeosijek.nkkutjevo.ui.news.NewsFragment;
+import com.example.cobeosijek.nkkutjevo.ui.schedule.ScheduleFragment;
+import com.example.cobeosijek.nkkutjevo.ui.team.fragments.TeamFragment;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, MainView {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private Toolbar toolbar;
-    private FragmentTransaction fragmentTransaction;
-    private NavigationView navigationView;
+
+    private final MainPresenter presenter = new MainPresenterImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        presenter.setView(this);
         initUI();
-        setupHomeFragment();
+
+        presenter.onViewReady();
     }
 
     @Override
@@ -48,13 +49,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         initDrawerToggle();
     }
 
-    private void setupHomeFragment() {
-        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.main_container, new HomeFragment());
-        fragmentTransaction.commit();
-        setActionBarTitle(R.string.nav_home_title);
-    }
-
     private void initToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -62,11 +56,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void initNavDrawer() {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
 
         navigationView.setNavigationItemSelectedListener(this);
     }
-
 
     private void initDrawerToggle() {
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
@@ -81,53 +74,49 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void replaceFragments(int id, Fragment fragment) {
-        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(id, fragment);
-        fragmentTransaction.commit();
+        getSupportFragmentManager().beginTransaction()
+                .replace(id, fragment)
+                .commit();
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-        // presenter.onItemSelected(item.getItemId());
-
-        switch (item.getItemId()) {
-
-            case R.id.nav_home:
-                replaceFragments(R.id.main_container, new HomeFragment());
-                setActionBarTitle(R.string.nav_home_title);
-                break;
-
-            case R.id.nav_header_news:
-                replaceFragments(R.id.main_container, new NewsFragment());
-                setActionBarTitle(R.string.nav_news_title);
-                break;
-
-            case R.id.nav_header_gallery:
-                replaceFragments(R.id.main_container, new GalleryFragment());
-                setActionBarTitle(R.string.nav_gallery_title);
-                break;
-
-            case R.id.nav_header_team:
-                replaceFragments(R.id.main_container, new TeamFragment());
-                setActionBarTitle(R.string.nav_team_title);
-                break;
-
-            case R.id.nav_header_schedule:
-                replaceFragments(R.id.main_container, new ScheduleFragment());
-                setActionBarTitle(R.string.nav_schedule_title);
-                break;
-        }
-
-        item.setChecked(true);
+        presenter.onItemSelected(item.getItemId());
         return true;
     }
 
-    public void closeNavigationDrawer() {
-        drawerLayout.closeDrawers();
+    @Override
+    public void showScreenTitle(int screenTitle) {
+        setActionBarTitle(screenTitle);
     }
 
-    public void showHomeScreen() {
+    @Override
+    public void showGalleryScreen() {
+        replaceFragments(R.id.main_container, GalleryFragment.newInstance());
+    }
 
+    @Override
+    public void showHomeScreen() {
+        replaceFragments(R.id.main_container, HomeFragment.newInstance());
+    }
+
+    @Override
+    public void showNewsScreen() {
+        replaceFragments(R.id.main_container, NewsFragment.newInstance());
+    }
+
+    @Override
+    public void showTeamScreen() {
+        replaceFragments(R.id.main_container, TeamFragment.newInstance());
+    }
+
+    @Override
+    public void showScheduleScreen() {
+        replaceFragments(R.id.main_container, ScheduleFragment.newInstance());
+    }
+
+    @Override
+    public void closeDrawer() {
+        drawerLayout.closeDrawers();
     }
 }

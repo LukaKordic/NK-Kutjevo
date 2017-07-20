@@ -1,4 +1,4 @@
-package com.example.cobeosijek.nkkutjevo.ui.fragments;
+package com.example.cobeosijek.nkkutjevo.ui.home;
 
 
 import android.os.Bundle;
@@ -11,10 +11,13 @@ import com.example.cobeosijek.nkkutjevo.R;
 
 public class HomeFragment extends Fragment {
 
+    public static HomeFragment newInstance() {
+        HomeFragment homeFragment = new HomeFragment();
 
-    public HomeFragment() {
+        Bundle args = new Bundle();
+        homeFragment.setArguments(args);
+        return homeFragment;
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

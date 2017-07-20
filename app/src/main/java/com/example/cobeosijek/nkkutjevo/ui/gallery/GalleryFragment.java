@@ -1,4 +1,4 @@
-package com.example.cobeosijek.nkkutjevo.ui.fragments;
+package com.example.cobeosijek.nkkutjevo.ui.gallery;
 
 
 import android.os.Bundle;
@@ -9,11 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.R;
-import com.example.cobeosijek.nkkutjevo.data_objects.Player;
-
-import java.util.List;
-
-import io.realm.Realm;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,13 +33,13 @@ public class GalleryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        //tutorial
-        Realm instance = Realm.getDefaultInstance();
-
-        List<Player> players = instance.copyFromRealm(instance.where(Player.class).equalTo("name", "Luka").findAll());
-
-        instance.beginTransaction();
-        instance.where(Player.class).lessThan("age", 20);
-        instance.commitTransaction();
+//        //tutorial
+//        Realm instance = Realm.getDefaultInstance();
+//
+//        List<Player> players = instance.copyFromRealm(instance.where(Player.class).equalTo("name", "Luka").findAll());
+//
+//        instance.beginTransaction();
+//        instance.where(Player.class).lessThan("age", 20);
+//        instance.commitTransaction();
     }
 }

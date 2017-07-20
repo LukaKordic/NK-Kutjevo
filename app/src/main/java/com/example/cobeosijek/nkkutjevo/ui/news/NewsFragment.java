@@ -1,4 +1,4 @@
-package com.example.cobeosijek.nkkutjevo.ui.fragments;
+package com.example.cobeosijek.nkkutjevo.ui.news;
 
 
 import android.os.Bundle;
@@ -14,15 +14,15 @@ import com.example.cobeosijek.nkkutjevo.R;
  */
 public class NewsFragment extends Fragment {
 
-
-    public NewsFragment() {
+    public static NewsFragment newInstance() {
+        NewsFragment newsFragment = new NewsFragment();
+        Bundle args = new Bundle();
+        newsFragment.setArguments(args);
+        return newsFragment;
     }
-
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_news, container, false);
     }
-
 }

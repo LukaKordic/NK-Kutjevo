@@ -5,7 +5,7 @@
     <item name="navigation_view" type="id" />
     <item name="drawer_layout" type="id" />
     <item name="nav_header_image" type="id" />
-    <item name="nav_home" type="id" />
+    <item name="nav_header_home" type="id" />
     <item name="nav_header_title" type="id" />
     <item name="nav_header_news" type="id" />
     <item name="nav_header_gallery" type="id" />
@@ -15,5 +15,11 @@
     <item name="content_main" type="id"/>
     <item name="toolbar" type="id"/>
     <item name="main_container" type="id"/>
+    <item name="team_recycler_view" type="id"/>
+    <item name="player_image" type="id"/>
+    <item name="player_name" type="id"/>
+    <item name="player_surname" type="id"/>
+    <item name="player_age" type="id"/>
+    <item name="player_position" type="id"/>
 
 </resources>

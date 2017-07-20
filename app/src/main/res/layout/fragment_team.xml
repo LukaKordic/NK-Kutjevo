@@ -2,13 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cobeosijek.nkkutjevo.ui.fragments.TeamFragment">
+    tools:context="com.example.cobeosijek.nkkutjevo.ui.team.fragments.TeamFragment">
 
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@id/team_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Team Fragment"/>
-
+        android:layout_height="match_parent"/>
 </FrameLayout>

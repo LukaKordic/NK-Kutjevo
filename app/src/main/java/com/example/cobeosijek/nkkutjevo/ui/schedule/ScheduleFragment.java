@@ -1,4 +1,4 @@
-package com.example.cobeosijek.nkkutjevo.ui.fragments;
+package com.example.cobeosijek.nkkutjevo.ui.schedule;
 
 
 import android.os.Bundle;
@@ -14,17 +14,16 @@ import com.example.cobeosijek.nkkutjevo.R;
  */
 public class ScheduleFragment extends Fragment {
 
+    public static ScheduleFragment newInstance() {
+        ScheduleFragment scheduleFragment = new ScheduleFragment();
 
-    public ScheduleFragment() {
-
+        Bundle args = new Bundle();
+        scheduleFragment.setArguments(args);
+        return scheduleFragment;
     }
-
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_schedule, container, false);
     }
-
 }
