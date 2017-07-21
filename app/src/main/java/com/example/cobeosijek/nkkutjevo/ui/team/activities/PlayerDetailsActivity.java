@@ -3,12 +3,18 @@ package com.example.cobeosijek.nkkutjevo.ui.team.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.utils.Constants;
 import com.example.cobeosijek.nkkutjevo.data_objects.Player;
 
+import butterknife.BindView;
+
 public class PlayerDetailsActivity extends AppCompatActivity {
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +26,11 @@ public class PlayerDetailsActivity extends AppCompatActivity {
 
     private void initUI() {
         receiveIntent();
+        initToolbar();
+    }
+
+    private void initToolbar() {
+        setSupportActionBar(toolbar);
     }
 
     //activity i fragment -> activity nikad nema null intent ali fragment moze imati null bundle

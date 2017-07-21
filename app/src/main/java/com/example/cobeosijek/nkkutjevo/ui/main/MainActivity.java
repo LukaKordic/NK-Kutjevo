@@ -18,13 +18,23 @@ import com.example.cobeosijek.nkkutjevo.ui.news.NewsFragment;
 import com.example.cobeosijek.nkkutjevo.ui.schedule.ScheduleFragment;
 import com.example.cobeosijek.nkkutjevo.ui.team.fragments.TeamFragment;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, MainView {
 
-    private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle actionBarDrawerToggle;
-    private Toolbar toolbar;
-
     private final MainPresenter presenter = new MainPresenterImpl();
+
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawerLayout;
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
+    @BindView(R.id.navigation_view)
+    NavigationView navigationView;
+
+    private ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,20 +54,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initUI() {
+        ButterKnife.bind(this);
         initToolbar();
         initNavDrawer();
         initDrawerToggle();
     }
 
     private void initToolbar() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
 
     private void initNavDrawer() {
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
-
         navigationView.setNavigationItemSelectedListener(this);
     }
 

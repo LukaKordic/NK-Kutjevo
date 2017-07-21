@@ -21,5 +21,6 @@
     <item name="player_surname" type="id"/>
     <item name="player_age" type="id"/>
     <item name="player_position" type="id"/>
+    <item name="header_icon" type="id"/>
 
 </resources>
