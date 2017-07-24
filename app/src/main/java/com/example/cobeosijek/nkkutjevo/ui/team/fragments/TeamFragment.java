@@ -20,12 +20,18 @@ import com.example.cobeosijek.nkkutjevo.ui.team.activities.PlayerDetailsActivity
 import com.example.cobeosijek.nkkutjevo.ui.team.adapters.TeamRecyclerViewAdapter;
 import com.example.cobeosijek.nkkutjevo.ui.team.listeners.ItemClickListener;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class TeamFragment extends Fragment implements ItemClickListener {
 
     private final TeamRecyclerViewAdapter teamRecyclerViewAdapter = new TeamRecyclerViewAdapter();
+
+    @BindView(R.id.team_recycler_view)
+    RecyclerView teamRecyclerView;
 
     public static TeamFragment newInstance() {
         TeamFragment teamFragment = new TeamFragment();
@@ -43,13 +49,13 @@ public class TeamFragment extends Fragment implements ItemClickListener {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ButterKnife.bind(this, view);
 
-        RecyclerView playerRecyclerView = view.findViewById(R.id.team_recycler_view);
-        playerRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        playerRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        teamRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        teamRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         teamRecyclerViewAdapter.setItemClickListener(this);
-        playerRecyclerView.setAdapter(teamRecyclerViewAdapter);
+        teamRecyclerView.setAdapter(teamRecyclerViewAdapter);
         teamRecyclerViewAdapter.setPlayerList(DataUtils.loadPlayers());
     }
 

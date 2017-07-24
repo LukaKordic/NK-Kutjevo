@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="drawer_listview_width">240dp</dimen>
     <dimen name="nav_header_title_size">24sp</dimen>
 </resources>

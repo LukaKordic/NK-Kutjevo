@@ -10,6 +10,7 @@ import com.example.cobeosijek.nkkutjevo.common.utils.Constants;
 import com.example.cobeosijek.nkkutjevo.data_objects.Player;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class PlayerDetailsActivity extends AppCompatActivity {
 
@@ -21,6 +22,7 @@ public class PlayerDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_details);
 
+        ButterKnife.bind(this);
         initUI();
     }
 
@@ -30,7 +32,9 @@ public class PlayerDetailsActivity extends AppCompatActivity {
     }
 
     private void initToolbar() {
-        setSupportActionBar(toolbar);
+        if(getSupportActionBar() != null) {
+            setSupportActionBar(toolbar);
+        }
     }
 
     //activity i fragment -> activity nikad nema null intent ali fragment moze imati null bundle

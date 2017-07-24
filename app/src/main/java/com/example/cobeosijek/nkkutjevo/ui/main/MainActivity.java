@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ButterKnife.bind(this);
+
         presenter.setView(this);
         initUI();
 
@@ -54,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initUI() {
-        ButterKnife.bind(this);
         initToolbar();
         initNavDrawer();
         initDrawerToggle();

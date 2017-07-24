@@ -11,13 +11,26 @@ import com.example.cobeosijek.nkkutjevo.data_objects.Player;
 import com.example.cobeosijek.nkkutjevo.ui.team.listeners.ItemClickListener;
 import com.squareup.picasso.Picasso;
 
-public class PlayerHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-    private final TextView playerName;
-    private final TextView playerSurname;
-    private final TextView playerAge;
-    private final TextView playerPosition;
-    private final ImageView playerImage;
+public class PlayerHolder extends RecyclerView.ViewHolder {
+
+    @BindView(R.id.player_name)
+    TextView playerName;
+
+    @BindView(R.id.player_surname)
+    TextView playerSurname;
+
+    @BindView(R.id.player_age)
+    TextView playerAge;
+
+    @BindView(R.id.player_position)
+    TextView playerPosition;
+
+    @BindView(R.id.player_image)
+    ImageView playerImage;
 
     private final ItemClickListener itemClickListener;
 
@@ -30,17 +43,11 @@ public class PlayerHolder extends RecyclerView.ViewHolder implements View.OnClic
     public PlayerHolder(View itemView, final ItemClickListener itemClickListener) {
         super(itemView);
         this.itemClickListener = itemClickListener;
-
-        playerName = itemView.findViewById(R.id.player_name);
-        playerSurname = itemView.findViewById(R.id.player_surname);
-        playerAge = itemView.findViewById(R.id.player_age);
-        playerPosition = itemView.findViewById(R.id.player_position);
-        playerImage = itemView.findViewById(R.id.player_image);
+        ButterKnife.bind(this, itemView);
     }
 
     public void showPlayerDetails() {
         if (player != null) {
-            itemView.setOnClickListener(this);
             playerName.setText(player.getName());
             playerSurname.setText(player.getSurname());
             playerAge.setText(String.valueOf(player.getAge()));
@@ -49,8 +56,8 @@ public class PlayerHolder extends RecyclerView.ViewHolder implements View.OnClic
         }
     }
 
-    @Override
-    public void onClick(View view) {
+    @OnClick
+    public void onClick() {
         if (itemClickListener != null) {
             itemClickListener.onItemClick(player);
         }
