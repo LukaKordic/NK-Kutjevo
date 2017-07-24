@@ -23,12 +23,6 @@ public class PlayerHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.player_surname)
     TextView playerSurname;
 
-    @BindView(R.id.player_age)
-    TextView playerAge;
-
-    @BindView(R.id.player_position)
-    TextView playerPosition;
-
     @BindView(R.id.player_image)
     ImageView playerImage;
 
@@ -50,8 +44,6 @@ public class PlayerHolder extends RecyclerView.ViewHolder {
         if (player != null) {
             playerName.setText(player.getName());
             playerSurname.setText(player.getSurname());
-            playerAge.setText(String.valueOf(player.getAge()));
-            playerPosition.setText(player.getPosition());
             Picasso.with(itemView.getContext()).load(player.getImage()).into(playerImage);
         }
     }

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#ABC">
+    android:background="@color/recycler_item_background">
 
     <ImageView
         android:id="@id/player_image"
@@ -19,7 +19,6 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="2dp"
         android:layout_toEndOf="@id/player_image"
-        android:text="Luka"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
 
@@ -31,35 +30,9 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="2dp"
-        android:layout_toEndOf="@id/player_name"
-        android:text="Kordic"
+        android:layout_toEndOf="@id/player_image"
+        android:layout_below="@id/player_name"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
-
-    <TextView
-        android:id="@id/player_age"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/player_name"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="2dp"
-        android:layout_toEndOf="@id/player_image"
-        android:text="22.god"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="15sp" />
-
-    <TextView
-        android:id="@id/player_position"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/player_name"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="2dp"
-        android:layout_toEndOf="@id/player_age"
-        android:text="CMF"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="15sp" />
 
 </RelativeLayout>

@@ -8,4 +8,12 @@
     <string name="nav_schedule_title">Schedule</string>
     <string name="drawer_open">Drawer open</string>
     <string name="drawer_close">Drawer close</string>
+    <string name="player_image_content_description">Player image</string>
+    <string name="label_age_text">Age:</string>
+    <string name="label_position_text">Position:</string>
+    <string name="label_appearances_text">Appearances:</string>
+    <string name="label_minutes_played_text">Minutes played:</string>
+    <string name="label_goals_scored_text">Goals scored:</string>
+    <string name="label_yellow_cards">Yellow cards:</string>
+    <string name="label_red_cards_text">Red cards:</string>
 </resources>

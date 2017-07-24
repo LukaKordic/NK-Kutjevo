@@ -34,7 +34,7 @@ public class DataUtils {
         List<Player> list = new ArrayList<>();
 
         list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-        list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
+        list.add(new Player("Stipo", "Jelusic", 27, "LWB", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
         list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
         list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
         list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
@@ -51,4 +51,6 @@ public class DataUtils {
 
         return list;
     }
+
+
 }

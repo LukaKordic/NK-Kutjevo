@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.R;
 
+import io.realm.Realm;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -34,6 +36,7 @@ public class GalleryFragment extends Fragment {
 
 
 //        //tutorial
+        Realm.init(view.getContext());
 //        Realm instance = Realm.getDefaultInstance();
 //
 //        List<Player> players = instance.copyFromRealm(instance.where(Player.class).equalTo("name", "Luka").findAll());

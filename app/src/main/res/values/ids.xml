@@ -22,5 +22,22 @@
     <item name="player_age" type="id"/>
     <item name="player_position" type="id"/>
     <item name="header_icon" type="id"/>
+    <item name="player_details_name" type="id"/>
+    <item name="player_details_surname" type="id"/>
+    <item name="player_details_age" type="id"/>
+    <item name="player_details_position" type="id"/>
+    <item name="player_details_image" type="id"/>
+    <item name="label_age" type="id"/>
+    <item name="label_position" type="id"/>
+    <item name="label_appearance" type="id"/>
+    <item name="label_minutes_played" type="id"/>
+    <item name="label_goals_scored" type="id"/>
+    <item name="label_yellow_cards" type="id"/>
+    <item name="label_red_cards" type="id"/>
+    <item name="player_details_appearance" type="id"/>
+    <item name="player_details_minutes_played" type="id"/>
+    <item name="player_details_goals_scored" type="id"/>
+    <item name="player_details_yellow_cards" type="id"/>
+    <item name="player_details_red_cards" type="id"/>
 
 </resources>
