@@ -2,12 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cobeosijek.nkkutjevo.ui.gallery.GalleryFragment">
+    tools:context="com.example.cobeosijek.nkkutjevo.ui.gallery.fragments.GalleryFragment">
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@id/gallery_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Gallery Fragment" />
-
+        android:layout_height="match_parent" />
 </FrameLayout>

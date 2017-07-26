@@ -1,7 +1,5 @@
 package com.example.cobeosijek.nkkutjevo.data_objects;
 
-import com.example.cobeosijek.nkkutjevo.common.utils.DataUtils;
-
 import java.io.Serializable;
 
 import io.realm.RealmObject;

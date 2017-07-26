@@ -7,10 +7,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cobeosijek.nkkutjevo.R;
-import com.example.cobeosijek.nkkutjevo.common.utils.DataUtils;
+import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.Player;
 import com.example.cobeosijek.nkkutjevo.ui.team.listeners.ItemClickListener;
-import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,7 +44,7 @@ public class PlayerHolder extends RecyclerView.ViewHolder {
         if (player != null) {
             playerName.setText(player.getName());
             playerSurname.setText(player.getSurname());
-            Picasso.with(itemView.getContext()).load(player.getImage()).into(playerImage);
+            ImageUtils.loadImage(playerImage, player.getImage());
         }
     }
 

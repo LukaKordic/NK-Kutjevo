@@ -4,4 +4,8 @@ package com.example.cobeosijek.nkkutjevo.common.utils;
 public class Constants {
 
     public static final String KEY_PLAYER = "PLAYER";
+    public static final String PREFERENCES = "preferences";
+    public static final String SAVED = "save";
+    public static final String KEY_IMAGE = "IMAGE";
+
 }

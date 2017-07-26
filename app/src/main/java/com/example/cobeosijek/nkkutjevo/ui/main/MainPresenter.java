@@ -7,4 +7,6 @@ public interface MainPresenter {
     void onItemSelected(int id);
 
     void onViewReady();
+
+    void saveDataIntoRealm();
 }

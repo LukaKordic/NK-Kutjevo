@@ -1,7 +1,6 @@
 package com.example.cobeosijek.nkkutjevo.ui.team.activities;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -11,14 +10,10 @@ import android.widget.TextView;
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.utils.Constants;
 import com.example.cobeosijek.nkkutjevo.data_objects.Player;
-
-import org.w3c.dom.Text;
-
-import java.util.List;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.Realm;
 
 public class PlayerDetailsActivity extends AppCompatActivity {
 
@@ -86,7 +81,7 @@ public class PlayerDetailsActivity extends AppCompatActivity {
     }
 
     private void loadPlayerDetails() {
-        image.setImageResource(R.drawable.ic_player);
+        Picasso.with(this).load(player.getImage()).into(image);
         name.setText(player.getName());
         surname.setText(player.getSurname());
         age.setText(String.valueOf(player.getAge()));

@@ -12,7 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.cobeosijek.nkkutjevo.R;
-import com.example.cobeosijek.nkkutjevo.ui.gallery.GalleryFragment;
+import com.example.cobeosijek.nkkutjevo.ui.gallery.fragments.GalleryFragment;
 import com.example.cobeosijek.nkkutjevo.ui.home.HomeFragment;
 import com.example.cobeosijek.nkkutjevo.ui.news.NewsFragment;
 import com.example.cobeosijek.nkkutjevo.ui.schedule.ScheduleFragment;
@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         initUI();
 
         presenter.onViewReady();
+
+        presenter.saveDataIntoRealm();
     }
 
     @Override
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initUI() {
+        getWindow().setStatusBarColor(getResources().getColor(R.color.recycler_item_background));
         initToolbar();
         initNavDrawer();
         initDrawerToggle();

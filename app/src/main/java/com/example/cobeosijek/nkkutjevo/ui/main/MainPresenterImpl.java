@@ -61,4 +61,10 @@ public class MainPresenterImpl implements MainPresenter {
             mainView.showScreenTitle(screenTitle);
         }
     }
+
+    @Override
+    public void saveDataIntoRealm() {
+        DataUtils.savePlayersIntoRealm();
+
+    }
 }
