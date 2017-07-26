@@ -35,14 +35,6 @@ public class GalleryFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-//        //tutorial
-        Realm.init(view.getContext());
-//        Realm instance = Realm.getDefaultInstance();
-//
-//        List<Player> players = instance.copyFromRealm(instance.where(Player.class).equalTo("name", "Luka").findAll());
-//
-//        instance.beginTransaction();
-//        instance.where(Player.class).lessThan("age", 20);
-//        instance.commitTransaction();
+
     }
 }

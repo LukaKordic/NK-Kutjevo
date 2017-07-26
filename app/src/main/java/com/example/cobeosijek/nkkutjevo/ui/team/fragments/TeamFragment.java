@@ -53,7 +53,7 @@ public class TeamFragment extends Fragment implements ItemClickListener {
 
         teamRecyclerViewAdapter.setItemClickListener(this);
         teamRecyclerView.setAdapter(teamRecyclerViewAdapter);
-        teamRecyclerViewAdapter.setPlayerList(DataUtils.loadPlayers());
+        teamRecyclerViewAdapter.setPlayerList(DataUtils.loadPlayers(view.getContext()));
     }
 
     @Override

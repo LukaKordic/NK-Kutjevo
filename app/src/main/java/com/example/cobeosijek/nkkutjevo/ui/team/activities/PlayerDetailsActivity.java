@@ -14,8 +14,11 @@ import com.example.cobeosijek.nkkutjevo.data_objects.Player;
 
 import org.w3c.dom.Text;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.Realm;
 
 public class PlayerDetailsActivity extends AppCompatActivity {
 
@@ -38,6 +41,21 @@ public class PlayerDetailsActivity extends AppCompatActivity {
 
     @BindView(R.id.player_details_position)
     TextView position;
+
+    @BindView(R.id.player_details_appearance)
+    TextView appearance;
+
+    @BindView(R.id.player_details_minutes_played)
+    TextView minutesPlayed;
+
+    @BindView(R.id.player_details_goals_scored)
+    TextView goalsScored;
+
+    @BindView(R.id.player_details_yellow_cards)
+    TextView yellowCards;
+
+    @BindView(R.id.player_details_red_cards)
+    TextView redCards;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,5 +91,10 @@ public class PlayerDetailsActivity extends AppCompatActivity {
         surname.setText(player.getSurname());
         age.setText(String.valueOf(player.getAge()));
         position.setText(player.getPosition());
+        appearance.setText(String.valueOf(player.getAppearances()));
+        minutesPlayed.setText(String.valueOf(player.getMinutesPlayed()));
+        goalsScored.setText(String.valueOf(player.getGoalsScored()));
+        yellowCards.setText(String.valueOf(player.getYellowCards()));
+        redCards.setText(String.valueOf(player.getRedCards()));
     }
 }

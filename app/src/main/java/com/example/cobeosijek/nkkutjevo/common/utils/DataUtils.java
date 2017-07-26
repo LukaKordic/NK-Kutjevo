@@ -1,10 +1,15 @@
 package com.example.cobeosijek.nkkutjevo.common.utils;
 
+import android.content.Context;
+import com.example.cobeosijek.nkkutjevo.App;
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.data_objects.Player;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import io.realm.Realm;
+
+import static com.example.cobeosijek.nkkutjevo.App.getRealm;
 
 public class DataUtils {
 
@@ -30,27 +35,28 @@ public class DataUtils {
         }
     }
 
-    public static List<Player> loadPlayers() {
-        List<Player> list = new ArrayList<>();
+    public static List<Player> loadPlayers(Context context) {
+        Realm realm = App.getRealm();
+        List<Player> players = realm.where(Player.class).findAll();
+        System.out.println(players.size());
 
-        list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-        list.add(new Player("Stipo", "Jelusic", 27, "LWB", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-        list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-        list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-        list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-        list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-        list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-        list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-        list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-        list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-        list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-        list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-        list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-        list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-        list.add(new Player("Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png"));
-
-        return list;
+        return players;
     }
 
-
+    public static void savePlayerIntoRealm(Context context, Player player) {
+        Realm realm = App.getRealm();
+        realm.beginTransaction();
+        player = realm.createObject(Player.class);
+        player.setImage(player.getImage());
+        player.setName(player.getName());
+        player.setSurname(player.getSurname());
+        player.setAge(player.getAge());
+        player.setPosition(player.getPosition());
+        player.setAppearances(player.getAppearances());
+        player.setMinutesPlayed(player.getMinutesPlayed());
+        player.setGoalsScored(player.getGoalsScored());
+        player.setYellowCards(player.getYellowCards());
+        player.setRedCards(player.getRedCards());
+        realm.commitTransaction();
+    }
 }

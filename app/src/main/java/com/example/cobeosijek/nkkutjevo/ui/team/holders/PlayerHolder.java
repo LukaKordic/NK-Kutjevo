@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cobeosijek.nkkutjevo.R;
+import com.example.cobeosijek.nkkutjevo.common.utils.DataUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.Player;
 import com.example.cobeosijek.nkkutjevo.ui.team.listeners.ItemClickListener;
 import com.squareup.picasso.Picasso;
