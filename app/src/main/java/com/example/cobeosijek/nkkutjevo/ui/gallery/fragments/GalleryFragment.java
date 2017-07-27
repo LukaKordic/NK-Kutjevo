@@ -47,7 +47,7 @@ public class GalleryFragment extends Fragment implements GalleryClickListener {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 3);
 
         galleryRecyclerView.setLayoutManager(gridLayoutManager);
         galleryRecyclerView.setItemAnimator(new DefaultItemAnimator());

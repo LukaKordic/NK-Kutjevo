@@ -49,4 +49,13 @@
     <item name="away_team_image" type="id" />
     <item name="next_game_text" type="id" />
     <item name="vs" type="id" />
+    <item name="table_header_team" type="id" />
+    <item name="table_header_games_played" type="id" />
+    <item name="table_header_won" type="id" />
+    <item name="table_header_lost" type="id" />
+    <item name="table_header_draw" type="id" />
+    <item name="table_header_goals_for" type="id" />
+    <item name="table_header_goals_against" type="id" />
+    <item name="table_header_goal_difference" type="id" />
+
 </resources>

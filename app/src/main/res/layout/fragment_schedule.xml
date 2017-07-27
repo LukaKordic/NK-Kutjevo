@@ -1,101 +1,72 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.example.cobeosijek.nkkutjevo.ui.schedule.ScheduleFragment">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:scrollbarStyle="insideInset"
-        android:scrollbars="vertical">
+    <TextView
+        android:id="@id/table_header_team"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:text="@string/table_header_team_text"
+        android:textSize="15sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <TextView
+        android:id="@id/table_header_games_played"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/table_header_team"
+        android:text="@string/games_played" />
 
-            <TableLayout
-                android:layout_width="wrap_content"
-                android:layout_height="300dp">
+    <TextView
+        android:id="@id/table_header_won"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/table_header_games_played"
+        android:text="@string/won" />
 
-                <TableRow android:layout_margin="10dp">
+    <TextView
+        android:id="@id/table_header_lost"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/table_header_won"
+        android:text="@string/games_lost" />
 
-                    <TextView android:text="@string/kutjevo" />
-                </TableRow>
+    <TextView
+        android:id="@id/table_header_draw"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/table_header_lost"
+        android:text="@string/games_draw" />
 
-                <TableRow android:layout_margin="10dp">
+    <TextView
+        android:id="@id/table_header_goals_for"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/table_header_draw"
+        android:text="@string/goals_for" />
 
-                    <TextView android:text="@string/pozega" />
-                </TableRow>
+    <TextView
+        android:id="@id/table_header_goals_against"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/table_header_goals_for"
+        android:text="@string/goals_for" />
 
-                <TableRow android:layout_margin="10dp">
-
-                    <TextView android:text="@string/jaksic" />
-                </TableRow>
-
-                <TableRow android:layout_margin="10dp">
-
-                    <TextView android:text="@string/mihaljevci" />
-                </TableRow>
-
-                <TableRow android:layout_margin="10dp">
-
-                    <TextView android:text="@string/kaptol" />
-                </TableRow>
-
-                <TableRow android:layout_margin="10dp">
-
-                    <TextView android:text="@string/buk" />
-                </TableRow>
-
-                <TableRow android:layout_margin="10dp">
-
-                    <TextView android:text="@string/pavlovci" />
-                </TableRow>
-
-                <TableRow android:layout_margin="10dp">
-
-                    <TextView android:text="@string/lipik" />
-                </TableRow>
-
-                <TableRow android:layout_margin="10dp">
-
-                    <TextView android:text="@string/papuk_velika" />
-                </TableRow>
-
-                <TableRow android:layout_margin="10dp">
-
-                    <TextView android:text="@string/kuzmica" />
-                </TableRow>
-
-                <TableRow android:layout_margin="10dp">
-
-                    <TextView android:text="@string/vidovci" />
-                </TableRow>
-
-                <TableRow android:layout_margin="10dp">
-
-                    <TextView android:text="@string/gradac" />
-                </TableRow>
-
-            </TableLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="260dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/calendar" />
-    </RelativeLayout>
+    <TextView
+        android:id="@id/table_header_goal_difference"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/table_header_goals_against"
+        android:text="@string/goal_difference" />
 
 
-</LinearLayout>
+
+</RelativeLayout>

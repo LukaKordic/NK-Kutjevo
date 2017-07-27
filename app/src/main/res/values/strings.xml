@@ -18,17 +18,12 @@
     <string name="label_red_cards_text">Red cards:</string>
     <string name="vs_text">VS</string>
     <string name="next_game_text">Next Game</string>
-    <string name="kutjevo">Kutjevo</string>
-    <string name="pozega">Pozega</string>
-    <string name="jaksic">Jaksic</string>
-    <string name="mihaljevci">Mihaljevci</string>
-    <string name="kaptol">Kaptol</string>
-    <string name="buk">Buk</string>
-    <string name="pavlovci">Pavlovci</string>
-    <string name="lipik">Lipik</string>
-    <string name="papuk_velika">Papuk Velika</string>
-    <string name="kuzmica">Kuzmica</string>
-    <string name="vidovci">Vidovci</string>
-    <string name="gradac">Gradac</string>
     <string name="calendar">Kalendar</string>
+    <string name="table_header_team_text">Team</string>
+    <string name="games_played">GP</string>
+    <string name="won">W</string>
+    <string name="games_lost">L</string>
+    <string name="games_draw">D</string>
+    <string name="goals_for">GF</string>
+    <string name="goal_difference">GD</string>
 </resources>
