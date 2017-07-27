@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.utils.Constants;
-import com.example.cobeosijek.nkkutjevo.common.utils.DataUtils;
+import com.example.cobeosijek.nkkutjevo.common.utils.DatabaseUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.Player;
 import com.example.cobeosijek.nkkutjevo.ui.team.activities.PlayerDetailsActivity;
 import com.example.cobeosijek.nkkutjevo.ui.team.adapters.TeamRecyclerViewAdapter;
@@ -53,7 +53,7 @@ public class TeamFragment extends Fragment implements ItemClickListener {
 
         teamRecyclerViewAdapter.setItemClickListener(this);
         teamRecyclerView.setAdapter(teamRecyclerViewAdapter);
-        teamRecyclerViewAdapter.setPlayerList(DataUtils.loadPlayers());
+        teamRecyclerViewAdapter.setPlayerList(DatabaseUtils.loadPlayers());
     }
 
     @Override

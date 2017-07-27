@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,19 +14,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.R;
-import com.example.cobeosijek.nkkutjevo.common.utils.DataUtils;
-import com.example.cobeosijek.nkkutjevo.data_objects.Player;
+import com.example.cobeosijek.nkkutjevo.common.utils.Constants;
+import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
+import com.example.cobeosijek.nkkutjevo.ui.gallery.GalleryClickListener;
 import com.example.cobeosijek.nkkutjevo.ui.gallery.activities.ImageDetailsActivity;
 import com.example.cobeosijek.nkkutjevo.ui.gallery.adapters.GalleryRecyclerViewAdapter;
-import com.example.cobeosijek.nkkutjevo.ui.team.listeners.ItemClickListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class GalleryFragment extends Fragment implements ItemClickListener {
+public class GalleryFragment extends Fragment implements GalleryClickListener {
 
     private final GalleryRecyclerViewAdapter galleryRecyclerViewAdapter = new GalleryRecyclerViewAdapter();
 
@@ -49,17 +47,22 @@ public class GalleryFragment extends Fragment implements ItemClickListener {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 2);
 
-        galleryRecyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
+        galleryRecyclerView.setLayoutManager(gridLayoutManager);
         galleryRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        galleryRecyclerViewAdapter.setGalleryClickListener(this);
+        DividerItemDecoration decoration = new DividerItemDecoration(view.getContext(), gridLayoutManager.getOrientation());
+        galleryRecyclerView.addItemDecoration(decoration);
         galleryRecyclerView.setAdapter(galleryRecyclerViewAdapter);
-        galleryRecyclerViewAdapter.setImageModelList(DataUtils.loadImages());
-
-
+        galleryRecyclerViewAdapter.setImageModelList(ImageUtils.loadImages());
+        //TODO: put borders around images
     }
 
     @Override
-    public void onItemClick(Player player) {
-        Intent intent = new Intent(getActivity(), ImageDetailsActivity.class);
+    public void onItemClick(String uri) {
+        Intent intent = new Intent(galleryRecyclerView.getContext(), ImageDetailsActivity.class);
+        intent.putExtra(Constants.KEY_IMAGE, uri);
+        startActivity(intent);
     }
 }

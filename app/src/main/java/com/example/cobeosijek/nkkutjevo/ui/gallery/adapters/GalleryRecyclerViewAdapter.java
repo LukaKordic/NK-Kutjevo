@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.data_objects.ImageModel;
+import com.example.cobeosijek.nkkutjevo.ui.gallery.GalleryClickListener;
 import com.example.cobeosijek.nkkutjevo.ui.gallery.holders.ImageHolder;
 
 import java.util.ArrayList;
@@ -14,7 +15,12 @@ import java.util.List;
 
 public class GalleryRecyclerViewAdapter extends RecyclerView.Adapter<ImageHolder> {
 
+    private GalleryClickListener galleryClickListener;
     private final List<ImageModel> imageModelList = new ArrayList<>();
+
+    public void setGalleryClickListener(GalleryClickListener galleryClickListener) {
+        this.galleryClickListener = galleryClickListener;
+    }
 
     public void setImageModelList(List<ImageModel> list){
         imageModelList.clear();
@@ -26,7 +32,7 @@ public class GalleryRecyclerViewAdapter extends RecyclerView.Adapter<ImageHolder
     public ImageHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gallery_recycler_view_item, parent, false);
 
-        return new ImageHolder(view);
+        return new ImageHolder(view, galleryClickListener);
     }
 
     @Override

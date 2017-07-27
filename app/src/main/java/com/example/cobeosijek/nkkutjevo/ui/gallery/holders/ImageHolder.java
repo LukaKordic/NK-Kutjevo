@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.ImageModel;
+import com.example.cobeosijek.nkkutjevo.ui.gallery.GalleryClickListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -15,13 +16,15 @@ import butterknife.OnClick;
 
 public class ImageHolder extends RecyclerView.ViewHolder {
 
-    @BindView(R.id.gallery_image_details)
-    ImageView galleryImageDetails;
+    @BindView(R.id.gallery_item_image)
+    ImageView galleryItemImage;
 
     private ImageModel imageModel;
+    private final GalleryClickListener galleryClickListener;
 
-    public ImageHolder(View itemView) {
+    public ImageHolder(View itemView, final GalleryClickListener galleryClickListener) {
         super(itemView);
+        this.galleryClickListener = galleryClickListener;
 
         ButterKnife.bind(this, itemView);
     }
@@ -32,12 +35,14 @@ public class ImageHolder extends RecyclerView.ViewHolder {
 
     public void showImage() {
         if (imageModel != null) {
-            ImageUtils.loadImage(galleryImageDetails, imageModel.getUri());
+            ImageUtils.loadImage(galleryItemImage, imageModel.getUri());
         }
     }
 
-    @OnClick
+    @OnClick(R.id.gallery_item_image)
     public void onImageClick() {
-
+        if(galleryClickListener != null){
+            galleryClickListener.onItemClick(imageModel.getUri());
+        }
     }
 }

@@ -48,7 +48,7 @@ public class PlayerHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    @OnClick
+    @OnClick(R.id.team_rec_view_item_layout)
     public void onClick() {
         if (itemClickListener != null) {
             itemClickListener.onItemClick(player);

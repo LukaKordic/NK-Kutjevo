@@ -93,3 +93,4 @@ public class PlayerDetailsActivity extends AppCompatActivity {
         redCards.setText(String.valueOf(player.getRedCards()));
     }
 }
+//TODO: Make a chart for displaying player attributes

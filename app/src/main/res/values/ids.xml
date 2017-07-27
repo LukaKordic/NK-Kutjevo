@@ -40,6 +40,13 @@
     <item name="player_details_yellow_cards" type="id" />
     <item name="player_details_red_cards" type="id" />
     <item name="gallery_recycler_view" type="id" />
-    <item name="gallery_image_details" type="id"/>
-    <item name="gallery_item_image" type="id"/>
+    <item name="gallery_image_details" type="id" />
+    <item name="gallery_item_image" type="id" />
+    <item name="team_rec_view_item_layout" type="id" />
+    <item name="home_view_pager" type="id" />
+    <item name="next_game_layout" type="id" />
+    <item name="home_team_image" type="id" />
+    <item name="away_team_image" type="id" />
+    <item name="next_game_text" type="id" />
+    <item name="vs" type="id" />
 </resources>

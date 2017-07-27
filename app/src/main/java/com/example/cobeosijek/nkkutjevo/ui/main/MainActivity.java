@@ -58,11 +58,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initUI() {
-        getWindow().setStatusBarColor(getResources().getColor(R.color.recycler_item_background));
+        changeStatusBarColor();
         initToolbar();
         initNavDrawer();
         initDrawerToggle();
     }
+
 
     private void initToolbar() {
         setSupportActionBar(toolbar);
@@ -76,6 +77,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
+    }
+
+    private void changeStatusBarColor() {
+        getWindow().setStatusBarColor(getResources().getColor(R.color.statusBarColor));
     }
 
     private void setActionBarTitle(int title) {

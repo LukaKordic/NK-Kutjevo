@@ -2,6 +2,7 @@ package com.example.cobeosijek.nkkutjevo.ui.main;
 
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.utils.DataUtils;
+import com.example.cobeosijek.nkkutjevo.common.utils.DatabaseUtils;
 
 public class MainPresenterImpl implements MainPresenter {
 
@@ -64,7 +65,7 @@ public class MainPresenterImpl implements MainPresenter {
 
     @Override
     public void saveDataIntoRealm() {
-        DataUtils.savePlayersIntoRealm();
+        DatabaseUtils.savePlayersIntoRealm();
 
     }
 }

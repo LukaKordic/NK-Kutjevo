@@ -1,13 +1,101 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.cobeosijek.nkkutjevo.ui.schedule.ScheduleFragment">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Schedule Fragment" />
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="300dp">
+
+                <TableRow android:layout_margin="10dp">
+
+                    <TextView android:text="@string/kutjevo" />
+                </TableRow>
+
+                <TableRow android:layout_margin="10dp">
+
+                    <TextView android:text="@string/pozega" />
+                </TableRow>
+
+                <TableRow android:layout_margin="10dp">
+
+                    <TextView android:text="@string/jaksic" />
+                </TableRow>
+
+                <TableRow android:layout_margin="10dp">
+
+                    <TextView android:text="@string/mihaljevci" />
+                </TableRow>
+
+                <TableRow android:layout_margin="10dp">
+
+                    <TextView android:text="@string/kaptol" />
+                </TableRow>
+
+                <TableRow android:layout_margin="10dp">
+
+                    <TextView android:text="@string/buk" />
+                </TableRow>
+
+                <TableRow android:layout_margin="10dp">
+
+                    <TextView android:text="@string/pavlovci" />
+                </TableRow>
+
+                <TableRow android:layout_margin="10dp">
+
+                    <TextView android:text="@string/lipik" />
+                </TableRow>
+
+                <TableRow android:layout_margin="10dp">
+
+                    <TextView android:text="@string/papuk_velika" />
+                </TableRow>
+
+                <TableRow android:layout_margin="10dp">
+
+                    <TextView android:text="@string/kuzmica" />
+                </TableRow>
+
+                <TableRow android:layout_margin="10dp">
+
+                    <TextView android:text="@string/vidovci" />
+                </TableRow>
+
+                <TableRow android:layout_margin="10dp">
+
+                    <TextView android:text="@string/gradac" />
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="260dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/calendar" />
+    </RelativeLayout>
+
+
+</LinearLayout>
