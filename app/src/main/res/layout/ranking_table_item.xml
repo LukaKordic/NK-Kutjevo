@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/ranking_linear_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@id/ranking_team_name"
+        android:layout_width="100dp"
+        android:layout_height="20dp" />
+
+    <TextView
+        android:id="@id/ranking_games_played"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp" />
+
+    <TextView
+        android:id="@id/ranking_won"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp" />
+
+    <TextView
+        android:id="@id/ranking_lost"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp" />
+
+    <TextView
+        android:id="@id/ranking_draw"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp" />
+
+    <TextView
+        android:id="@id/ranking_goals_for"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp" />
+
+    <TextView
+        android:id="@id/ranking_goals_against"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp" />
+
+    <TextView
+        android:id="@id/ranking_goal_difference"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="20dp" />
+</LinearLayout>

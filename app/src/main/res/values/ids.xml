@@ -57,5 +57,16 @@
     <item name="table_header_goals_for" type="id" />
     <item name="table_header_goals_against" type="id" />
     <item name="table_header_goal_difference" type="id" />
+    <item name="ranking_recycler_view" type="id" />
+    <item name="ranking_team_name" type="id" />
+    <item name="ranking_games_played" type="id" />
+    <item name="ranking_won" type="id" />
+    <item name="ranking_lost" type="id" />
+    <item name="ranking_draw" type="id" />
+    <item name="ranking_goals_for" type="id" />
+    <item name="ranking_goals_against" type="id" />
+    <item name="ranking_goal_difference" type="id" />
+    <item name="ranking_linear_layout" type="id" />
+    <item name="schedule_relative_layout" type="id"/>
 
 </resources>

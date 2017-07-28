@@ -5,7 +5,7 @@ import java.io.Serializable;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Player extends RealmObject implements Serializable {
+public class PlayerModel extends RealmObject implements Serializable {
 
     @PrimaryKey
     private int playerId;
@@ -21,7 +21,7 @@ public class Player extends RealmObject implements Serializable {
     private int yellowCards;
     private int redCards;
 
-    public Player(int playerId, String name, String surname, int age, String position, String image, int appearances, int minutesPlayed, int goalsScored, int yellowCards, int redCards) {
+    public PlayerModel(int playerId, String name, String surname, int age, String position, String image, int appearances, int minutesPlayed, int goalsScored, int yellowCards, int redCards) {
         this.playerId = playerId;
         this.name = name;
         this.surname = surname;
@@ -35,7 +35,7 @@ public class Player extends RealmObject implements Serializable {
         this.redCards = redCards;
     }
 
-    public Player() {
+    public PlayerModel() {
     }
 
     public int getPlayerId() {

@@ -15,7 +15,7 @@ import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.ui.gallery.fragments.GalleryFragment;
 import com.example.cobeosijek.nkkutjevo.ui.home.HomeFragment;
 import com.example.cobeosijek.nkkutjevo.ui.news.NewsFragment;
-import com.example.cobeosijek.nkkutjevo.ui.schedule.ScheduleFragment;
+import com.example.cobeosijek.nkkutjevo.ui.schedule.fragments.ScheduleFragment;
 import com.example.cobeosijek.nkkutjevo.ui.team.fragments.TeamFragment;
 
 import butterknife.BindView;

@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.utils.Constants;
-import com.example.cobeosijek.nkkutjevo.data_objects.Player;
+import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 
 public class PlayerDetailsActivity extends AppCompatActivity {
 
-    Player player;
+    PlayerModel playerModel;
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -71,7 +71,7 @@ public class PlayerDetailsActivity extends AppCompatActivity {
     private void receiveIntent() {
         Intent intent = getIntent();
 
-        player = (Player) intent.getSerializableExtra(Constants.KEY_PLAYER);
+        playerModel = (PlayerModel) intent.getSerializableExtra(Constants.KEY_PLAYER);
     }
 
     private void initToolbar() {
@@ -81,16 +81,16 @@ public class PlayerDetailsActivity extends AppCompatActivity {
     }
 
     private void loadPlayerDetails() {
-        Picasso.with(this).load(player.getImage()).into(image);
-        name.setText(player.getName());
-        surname.setText(player.getSurname());
-        age.setText(String.valueOf(player.getAge()));
-        position.setText(player.getPosition());
-        appearance.setText(String.valueOf(player.getAppearances()));
-        minutesPlayed.setText(String.valueOf(player.getMinutesPlayed()));
-        goalsScored.setText(String.valueOf(player.getGoalsScored()));
-        yellowCards.setText(String.valueOf(player.getYellowCards()));
-        redCards.setText(String.valueOf(player.getRedCards()));
+        Picasso.with(this).load(playerModel.getImage()).into(image);
+        name.setText(playerModel.getName());
+        surname.setText(playerModel.getSurname());
+        age.setText(String.valueOf(playerModel.getAge()));
+        position.setText(playerModel.getPosition());
+        appearance.setText(String.valueOf(playerModel.getAppearances()));
+        minutesPlayed.setText(String.valueOf(playerModel.getMinutesPlayed()));
+        goalsScored.setText(String.valueOf(playerModel.getGoalsScored()));
+        yellowCards.setText(String.valueOf(playerModel.getYellowCards()));
+        redCards.setText(String.valueOf(playerModel.getRedCards()));
     }
 }
-//TODO: Make a chart for displaying player attributes
+//TODO: Make a chart for displaying playerModel attributes

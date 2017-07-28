@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
-import com.example.cobeosijek.nkkutjevo.data_objects.Player;
+import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
 import com.example.cobeosijek.nkkutjevo.ui.team.listeners.ItemClickListener;
 
 import butterknife.BindView;
@@ -28,10 +28,10 @@ public class PlayerHolder extends RecyclerView.ViewHolder {
 
     private final ItemClickListener itemClickListener;
 
-    private Player player;
+    private PlayerModel playerModel;
 
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setPlayerModel(PlayerModel playerModel) {
+        this.playerModel = playerModel;
     }
 
     public PlayerHolder(View itemView, final ItemClickListener itemClickListener) {
@@ -41,17 +41,17 @@ public class PlayerHolder extends RecyclerView.ViewHolder {
     }
 
     public void showPlayerDetails() {
-        if (player != null) {
-            playerName.setText(player.getName());
-            playerSurname.setText(player.getSurname());
-            ImageUtils.loadImage(playerImage, player.getImage());
+        if (playerModel != null) {
+            playerName.setText(playerModel.getName());
+            playerSurname.setText(playerModel.getSurname());
+            ImageUtils.loadImage(playerImage, playerModel.getImage());
         }
     }
 
     @OnClick(R.id.team_rec_view_item_layout)
     public void onClick() {
         if (itemClickListener != null) {
-            itemClickListener.onItemClick(player);
+            itemClickListener.onItemClick(playerModel);
         }
     }
 }
