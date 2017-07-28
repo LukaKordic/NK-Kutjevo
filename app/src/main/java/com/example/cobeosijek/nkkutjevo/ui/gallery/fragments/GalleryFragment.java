@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.utils.Constants;
-import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
+import com.example.cobeosijek.nkkutjevo.common.helpers.DataHelper;
 import com.example.cobeosijek.nkkutjevo.ui.gallery.GalleryClickListener;
 import com.example.cobeosijek.nkkutjevo.ui.gallery.activities.ImageDetailsActivity;
 import com.example.cobeosijek.nkkutjevo.ui.gallery.adapters.GalleryRecyclerViewAdapter;
@@ -47,7 +47,7 @@ public class GalleryFragment extends Fragment implements GalleryClickListener {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 3);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 2);
 
         galleryRecyclerView.setLayoutManager(gridLayoutManager);
         galleryRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -55,8 +55,8 @@ public class GalleryFragment extends Fragment implements GalleryClickListener {
         DividerItemDecoration decoration = new DividerItemDecoration(view.getContext(), gridLayoutManager.getOrientation());
         galleryRecyclerView.addItemDecoration(decoration);
         galleryRecyclerView.setAdapter(galleryRecyclerViewAdapter);
-        galleryRecyclerViewAdapter.setImageModelList(ImageUtils.loadImages());
-        //TODO: put borders around images
+        galleryRecyclerViewAdapter.setImageModelList(DataHelper.loadImages());
+        //TODO: put borders around images, transfer image loading to background thread, enable zooming
     }
 
     @Override

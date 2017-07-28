@@ -44,7 +44,7 @@ public class PlayerHolder extends RecyclerView.ViewHolder {
         if (playerModel != null) {
             playerName.setText(playerModel.getName());
             playerSurname.setText(playerModel.getSurname());
-            ImageUtils.loadImage(playerImage, playerModel.getImage());
+            ImageUtils.loadSmallImage(playerImage, playerModel.getImage());
         }
     }
 

@@ -7,5 +7,6 @@
     <color name="statusBarColor">#008600</color>
     <color name="recyclerItemBackground">#97ef97</color>
     <color name="imageDetailsBackground">#000</color>
+    <color name="tableHeaderColor">#000</color>
 
 </resources>

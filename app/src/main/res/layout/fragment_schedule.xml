@@ -10,6 +10,7 @@
         android:layout_width="100dp"
         android:layout_height="20dp"
         android:text="@string/table_header_team_text"
+        android:textColor="@color/tableHeaderColor"
         android:textSize="15sp" />
 
     <TextView
@@ -18,7 +19,9 @@
         android:layout_height="20dp"
         android:layout_marginStart="20dp"
         android:layout_toEndOf="@id/table_header_team"
-        android:text="@string/games_played" />
+        android:text="@string/games_played"
+        android:textColor="@color/tableHeaderColor"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/table_header_won"
@@ -26,7 +29,9 @@
         android:layout_height="20dp"
         android:layout_marginStart="20dp"
         android:layout_toEndOf="@id/table_header_games_played"
-        android:text="@string/won" />
+        android:text="@string/won"
+        android:textColor="@color/tableHeaderColor"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/table_header_lost"
@@ -34,7 +39,9 @@
         android:layout_height="20dp"
         android:layout_marginStart="20dp"
         android:layout_toEndOf="@id/table_header_won"
-        android:text="@string/games_lost" />
+        android:text="@string/games_lost"
+        android:textColor="@color/tableHeaderColor"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/table_header_draw"
@@ -42,7 +49,9 @@
         android:layout_height="20dp"
         android:layout_marginStart="20dp"
         android:layout_toEndOf="@id/table_header_lost"
-        android:text="@string/games_draw" />
+        android:text="@string/games_draw"
+        android:textColor="@color/tableHeaderColor"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/table_header_goals_for"
@@ -50,7 +59,9 @@
         android:layout_height="20dp"
         android:layout_marginStart="20dp"
         android:layout_toEndOf="@id/table_header_draw"
-        android:text="@string/goals_for" />
+        android:text="@string/goals_for"
+        android:textColor="@color/tableHeaderColor"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/table_header_goals_against"
@@ -58,7 +69,9 @@
         android:layout_height="20dp"
         android:layout_marginStart="20dp"
         android:layout_toEndOf="@id/table_header_goals_for"
-        android:text="@string/goals_for" />
+        android:text="@string/goals_for"
+        android:textColor="@color/tableHeaderColor"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/table_header_goal_difference"
@@ -66,24 +79,23 @@
         android:layout_height="20dp"
         android:layout_marginStart="20dp"
         android:layout_toEndOf="@id/table_header_goals_against"
-        android:text="@string/goal_difference" />
+        android:text="@string/goal_difference"
+        android:textColor="@color/tableHeaderColor"
+        android:textSize="15sp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@id/ranking_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_below="@id/table_header_team" />
+        android:layout_height="200dp"
+        android:layout_below="@id/table_header_team"
+        android:background="@color/recyclerItemBackground" />
 
-    <LinearLayout
+    <CalendarView
+        android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ranking_recycler_view">
-
-        <CalendarView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/ranking_recycler_view" />
 
 
 </RelativeLayout>

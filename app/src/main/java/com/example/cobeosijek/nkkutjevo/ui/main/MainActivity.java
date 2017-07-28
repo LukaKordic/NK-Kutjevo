@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void changeStatusBarColor() {
-        getWindow().setStatusBarColor(getResources().getColor(R.color.statusBarColor));
+        //getWindow().setStatusBarColor(getResources().getColor(R.color.statusBarColor));
     }
 
     private void setActionBarTitle(int title) {

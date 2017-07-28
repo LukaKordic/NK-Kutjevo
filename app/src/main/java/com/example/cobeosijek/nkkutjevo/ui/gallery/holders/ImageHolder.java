@@ -35,7 +35,7 @@ public class ImageHolder extends RecyclerView.ViewHolder {
 
     public void showImage() {
         if (imageModel != null) {
-            ImageUtils.loadImage(galleryItemImage, imageModel.getUri());
+            ImageUtils.loadSmallImage(galleryItemImage, imageModel.getUri());
         }
     }
 

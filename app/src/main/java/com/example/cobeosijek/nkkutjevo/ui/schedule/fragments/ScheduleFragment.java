@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.R;
-import com.example.cobeosijek.nkkutjevo.common.utils.DataUtils;
+import com.example.cobeosijek.nkkutjevo.common.helpers.DataHelper;
 import com.example.cobeosijek.nkkutjevo.ui.schedule.adapters.RankingRecyclerAdapter;
 
 import butterknife.BindView;
@@ -47,7 +47,7 @@ public class ScheduleFragment extends Fragment {
 
         ButterKnife.bind(this, view);
 
-        rankingRecyclerAdapter.setTeamModelList(DataUtils.getteamModelList());
+        rankingRecyclerAdapter.setTeamModelList(DataHelper.getteamModelList());
         rankingRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         rankingRecyclerView.setItemAnimator(new DefaultItemAnimator());
         rankingRecyclerView.setAdapter(rankingRecyclerAdapter);

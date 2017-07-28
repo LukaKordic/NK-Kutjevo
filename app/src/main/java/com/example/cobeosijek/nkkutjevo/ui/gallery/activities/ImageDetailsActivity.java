@@ -33,7 +33,7 @@ public class ImageDetailsActivity extends AppCompatActivity {
     }
 
     private void setStatusBarColor() {
-        getWindow().setStatusBarColor(getResources().getColor(R.color.statusBarColor));
+//        getWindow().setStatusBarColor(getResources().getColor(R.color.statusBarColor));
     }
 
     private String receiveImageUri() {
