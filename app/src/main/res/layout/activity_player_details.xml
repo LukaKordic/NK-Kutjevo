@@ -177,4 +177,11 @@
         android:layout_toEndOf="@id/label_red_cards"
         android:gravity="center"
         android:textSize="20sp" />
+
+    <com.github.mikephil.charting.charts.RadarChart
+        android:id="@id/radar_chart"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

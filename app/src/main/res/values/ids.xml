@@ -68,5 +68,8 @@
     <item name="ranking_goal_difference" type="id" />
     <item name="ranking_linear_layout" type="id" />
     <item name="schedule_relative_layout" type="id"/>
+    <item name="radar_chart" type="id"/>
+    <item name="player_number" type="id"/>
+
 
 </resources>

@@ -26,6 +26,9 @@ public class PlayerHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.player_image)
     ImageView playerImage;
 
+    @BindView(R.id.player_number)
+    TextView playerNumber;
+
     private final ItemClickListener itemClickListener;
 
     private PlayerModel playerModel;
@@ -45,6 +48,7 @@ public class PlayerHolder extends RecyclerView.ViewHolder {
             playerName.setText(playerModel.getName());
             playerSurname.setText(playerModel.getSurname());
             ImageUtils.loadSmallImage(playerImage, playerModel.getImage());
+            playerNumber.setText(String.valueOf(playerModel.getNumber()));
         }
     }
 

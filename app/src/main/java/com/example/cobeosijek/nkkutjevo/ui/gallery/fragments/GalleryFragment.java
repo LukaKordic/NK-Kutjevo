@@ -56,7 +56,6 @@ public class GalleryFragment extends Fragment implements GalleryClickListener {
         galleryRecyclerView.addItemDecoration(decoration);
         galleryRecyclerView.setAdapter(galleryRecyclerViewAdapter);
         galleryRecyclerViewAdapter.setImageModelList(DataHelper.loadImages());
-        //TODO: put borders around images, transfer image loading to background thread, enable zooming
     }
 
     @Override

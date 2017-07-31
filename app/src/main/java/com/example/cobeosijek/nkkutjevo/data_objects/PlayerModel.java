@@ -20,8 +20,9 @@ public class PlayerModel extends RealmObject implements Serializable {
     private int goalsScored;
     private int yellowCards;
     private int redCards;
+    private int number;
 
-    public PlayerModel(int playerId, String name, String surname, int age, String position, String image, int appearances, int minutesPlayed, int goalsScored, int yellowCards, int redCards) {
+    public PlayerModel(int playerId, String name, String surname, int age, String position, String image, int appearances, int minutesPlayed, int goalsScored, int yellowCards, int redCards, int number) {
         this.playerId = playerId;
         this.name = name;
         this.surname = surname;
@@ -33,57 +34,35 @@ public class PlayerModel extends RealmObject implements Serializable {
         this.goalsScored = goalsScored;
         this.yellowCards = yellowCards;
         this.redCards = redCards;
+        this.number = number;
+
     }
 
     public PlayerModel() {
     }
 
-    public int getPlayerId() {
-        return playerId;
-    }
-
-    public void setPlayerId(int playerId) {
-        this.playerId = playerId;
+    public int getNumber() {
+        return number;
     }
 
     public int getAppearances() {
         return appearances;
     }
 
-    public void setAppearances(int appearances) {
-        this.appearances = appearances;
-    }
-
     public int getMinutesPlayed() {
         return minutesPlayed;
-    }
-
-    public void setMinutesPlayed(int minutesPlayed) {
-        this.minutesPlayed = minutesPlayed;
     }
 
     public int getGoalsScored() {
         return goalsScored;
     }
 
-    public void setGoalsScored(int goalsScored) {
-        this.goalsScored = goalsScored;
-    }
-
     public int getYellowCards() {
         return yellowCards;
     }
 
-    public void setYellowCards(int yellowCards) {
-        this.yellowCards = yellowCards;
-    }
-
     public int getRedCards() {
         return redCards;
-    }
-
-    public void setRedCards(int redCards) {
-        this.redCards = redCards;
     }
 
     public String getName() {
@@ -98,32 +77,15 @@ public class PlayerModel extends RealmObject implements Serializable {
         return surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
     public int getAge() {
         return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public String getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
     public String getImage() {
         return image;
     }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
 }

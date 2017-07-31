@@ -11,6 +11,7 @@ import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import uk.co.senab.photoview.PhotoViewAttacher;
 
 public class ImageDetailsActivity extends AppCompatActivity {
 
@@ -30,14 +31,22 @@ public class ImageDetailsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         receiveImageUri();
         ImageUtils.loadImage(galleryImage, receiveImageUri());
+        attachImageZoom();
     }
 
+
+
     private void setStatusBarColor() {
-//        getWindow().setStatusBarColor(getResources().getColor(R.color.statusBarColor));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.statusBarColor));
     }
 
     private String receiveImageUri() {
         Intent intent = getIntent();
         return intent.getStringExtra(Constants.KEY_IMAGE);
+    }
+
+    private void attachImageZoom() {
+        PhotoViewAttacher photoViewAttacher = new PhotoViewAttacher(galleryImage);
+        photoViewAttacher.update();
     }
 }

@@ -1,6 +1,7 @@
 package com.example.cobeosijek.nkkutjevo.ui.team.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -9,7 +10,11 @@ import android.widget.TextView;
 
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.utils.Constants;
+import com.example.cobeosijek.nkkutjevo.common.utils.RadarChartUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
+import com.github.mikephil.charting.charts.RadarChart;
+import com.github.mikephil.charting.data.RadarData;
+import com.github.mikephil.charting.data.RadarDataSet;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -52,6 +57,9 @@ public class PlayerDetailsActivity extends AppCompatActivity {
     @BindView(R.id.player_details_red_cards)
     TextView redCards;
 
+    @BindView(R.id.radar_chart)
+    RadarChart radarChart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,8 +71,10 @@ public class PlayerDetailsActivity extends AppCompatActivity {
 
     private void initUI() {
         receiveIntent();
+        changeStatusBarColor();
         initToolbar();
         loadPlayerDetails();
+        createRadarChart();
     }
 
     //activity i fragment -> activity nikad nema null intent ali fragment moze imati null bundle
@@ -72,6 +82,10 @@ public class PlayerDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         playerModel = (PlayerModel) intent.getSerializableExtra(Constants.KEY_PLAYER);
+    }
+
+    private void changeStatusBarColor() {
+        getWindow().setStatusBarColor(getResources().getColor(R.color.statusBarColor));
     }
 
     private void initToolbar() {
@@ -92,5 +106,19 @@ public class PlayerDetailsActivity extends AppCompatActivity {
         yellowCards.setText(String.valueOf(playerModel.getYellowCards()));
         redCards.setText(String.valueOf(playerModel.getRedCards()));
     }
+
+    private void createRadarChart() {
+        RadarDataSet radarDataSet = new RadarDataSet(RadarChartUtils.createRadarEntries(), name.getText().toString());
+        radarDataSet.setColor(Color.GREEN);
+        radarDataSet.setFillColor(Color.GREEN);
+        radarDataSet.setDrawFilled(true);
+        RadarData radarData = new RadarData(radarDataSet);
+        radarData.setLabels(RadarChartUtils.createRadarLabels());
+        radarChart.getDescription().setEnabled(false);
+        radarChart.setData(radarData);
+        radarChart.getYAxis().setAxisMinimum(0);
+        radarChart.invalidate();
+
+    }
 }
-//TODO: Make a chart for displaying playerModel attributes
+//TODO: put labels on the chart
