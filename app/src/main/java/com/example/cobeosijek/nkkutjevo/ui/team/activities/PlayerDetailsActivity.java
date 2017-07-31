@@ -12,10 +12,18 @@ import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.utils.Constants;
 import com.example.cobeosijek.nkkutjevo.common.utils.RadarChartUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.RadarChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.RadarData;
 import com.github.mikephil.charting.data.RadarDataSet;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -112,13 +120,45 @@ public class PlayerDetailsActivity extends AppCompatActivity {
         radarDataSet.setColor(Color.GREEN);
         radarDataSet.setFillColor(Color.GREEN);
         radarDataSet.setDrawFilled(true);
-        RadarData radarData = new RadarData(radarDataSet);
-        radarData.setLabels(RadarChartUtils.createRadarLabels());
+
+        ArrayList<IRadarDataSet> sets = new ArrayList<>();
+        sets.add(radarDataSet);
+
+        RadarData data = new RadarData(sets);
+        data.setDrawValues(false);
+
+        YAxis yAxis = radarChart.getYAxis();
+        yAxis.setDrawLabels(false);
+
+
+        XAxis xAxis = radarChart.getXAxis();
+        xAxis.setDrawLabels(true);
+        xAxis.setValueFormatter(new IAxisValueFormatter() {
+
+            private String[] labels = new String[]{"Defending", "Physical", "Speed", "Creativity", "Attacking", "Technical", "Aerial", "Mental"};
+
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                return labels[(int) value % labels.length];
+            }
+
+            @Override
+            public int getDecimalDigits() {
+                return 0;
+            }
+        });
+
+        radarChart.animateXY(
+                1400, 1400,
+                Easing.EasingOption.EaseInOutQuad,
+                Easing.EasingOption.EaseInOutQuad);
+
         radarChart.getDescription().setEnabled(false);
-        radarChart.setData(radarData);
         radarChart.getYAxis().setAxisMinimum(0);
+        radarChart.setWebColor(Color.BLUE);
+        radarChart.setWebColorInner(Color.BLUE);
+        radarChart.setData(data);
         radarChart.invalidate();
 
     }
 }
-//TODO: put labels on the chart

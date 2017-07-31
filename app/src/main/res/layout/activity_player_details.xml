@@ -23,7 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:layout_margin="10dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
         android:layout_toEndOf="@id/player_details_image"
         android:gravity="center"
         android:textSize="30sp" />
@@ -33,7 +34,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/player_details_name"
-        android:layout_margin="10dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
         android:layout_toEndOf="@id/player_details_image"
         android:gravity="center"
         android:textSize="30sp" />
@@ -46,7 +48,7 @@
         android:layout_below="@id/player_details_image"
         android:layout_margin="10dp"
         android:text="@string/label_age_text"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/label_position"
@@ -56,7 +58,7 @@
         android:layout_below="@id/label_age"
         android:layout_margin="10dp"
         android:text="@string/label_position_text"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/label_appearance"
@@ -66,7 +68,7 @@
         android:layout_below="@id/label_position"
         android:layout_margin="10dp"
         android:text="@string/label_appearances_text"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/label_minutes_played"
@@ -76,7 +78,7 @@
         android:layout_below="@id/label_appearance"
         android:layout_margin="10dp"
         android:text="@string/label_minutes_played_text"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/label_goals_scored"
@@ -86,7 +88,7 @@
         android:layout_below="@id/label_minutes_played"
         android:layout_margin="10dp"
         android:text="@string/label_goals_scored_text"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/label_yellow_cards"
@@ -96,7 +98,7 @@
         android:layout_below="@id/label_goals_scored"
         android:layout_margin="10dp"
         android:text="@string/label_yellow_cards"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/label_red_cards"
@@ -106,7 +108,7 @@
         android:layout_below="@id/label_yellow_cards"
         android:layout_margin="10dp"
         android:text="@string/label_red_cards_text"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/player_details_age"
@@ -116,7 +118,7 @@
         android:layout_margin="10sp"
         android:layout_toEndOf="@id/label_age"
         android:gravity="center"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/player_details_position"
@@ -126,7 +128,7 @@
         android:layout_margin="10sp"
         android:layout_toEndOf="@id/label_position"
         android:gravity="center"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/player_details_appearance"
@@ -136,7 +138,7 @@
         android:layout_margin="10sp"
         android:layout_toEndOf="@id/label_appearance"
         android:gravity="center"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/player_details_minutes_played"
@@ -146,7 +148,7 @@
         android:layout_margin="10sp"
         android:layout_toEndOf="@id/label_minutes_played"
         android:gravity="center"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/player_details_goals_scored"
@@ -156,7 +158,7 @@
         android:layout_margin="10sp"
         android:layout_toEndOf="@id/label_goals_scored"
         android:gravity="center"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/player_details_yellow_cards"
@@ -166,7 +168,7 @@
         android:layout_margin="10sp"
         android:layout_toEndOf="@id/label_yellow_cards"
         android:gravity="center"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/player_details_red_cards"
@@ -176,12 +178,12 @@
         android:layout_margin="10sp"
         android:layout_toEndOf="@id/label_red_cards"
         android:gravity="center"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <com.github.mikephil.charting.charts.RadarChart
         android:id="@id/radar_chart"
         android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_height="350dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true" />
 </RelativeLayout>
