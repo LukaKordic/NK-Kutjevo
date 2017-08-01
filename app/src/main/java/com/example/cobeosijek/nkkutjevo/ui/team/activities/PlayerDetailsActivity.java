@@ -1,36 +1,25 @@
 package com.example.cobeosijek.nkkutjevo.ui.team.activities;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.utils.Constants;
 import com.example.cobeosijek.nkkutjevo.common.utils.RadarChartUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
-import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.RadarChart;
-import com.github.mikephil.charting.components.AxisBase;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.RadarData;
-import com.github.mikephil.charting.data.RadarDataSet;
-import com.github.mikephil.charting.formatter.IAxisValueFormatter;
-import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
-import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class PlayerDetailsActivity extends AppCompatActivity {
 
-    PlayerModel playerModel;
+    private PlayerModel playerModel;
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -82,14 +71,14 @@ public class PlayerDetailsActivity extends AppCompatActivity {
         changeStatusBarColor();
         initToolbar();
         loadPlayerDetails();
-        createRadarChart();
+        RadarChartUtils.createRadarChart(radarChart, name.getText().toString());
     }
 
-    //activity i fragment -> activity nikad nema null intent ali fragment moze imati null bundle
     private void receiveIntent() {
         Intent intent = getIntent();
-
-        playerModel = (PlayerModel) intent.getSerializableExtra(Constants.KEY_PLAYER);
+        if (intent != null && intent.getSerializableExtra(Constants.KEY_PLAYER) instanceof PlayerModel) {
+            playerModel = (PlayerModel) intent.getSerializableExtra(Constants.KEY_PLAYER);
+        }
     }
 
     private void changeStatusBarColor() {
@@ -103,7 +92,11 @@ public class PlayerDetailsActivity extends AppCompatActivity {
     }
 
     private void loadPlayerDetails() {
-        Picasso.with(this).load(playerModel.getImage()).into(image);
+        if (playerModel == null) {
+            return;
+        }
+
+        Glide.with(this).load(playerModel.getImage()).into(image);
         name.setText(playerModel.getName());
         surname.setText(playerModel.getSurname());
         age.setText(String.valueOf(playerModel.getAge()));
@@ -114,51 +107,5 @@ public class PlayerDetailsActivity extends AppCompatActivity {
         yellowCards.setText(String.valueOf(playerModel.getYellowCards()));
         redCards.setText(String.valueOf(playerModel.getRedCards()));
     }
-
-    private void createRadarChart() {
-        RadarDataSet radarDataSet = new RadarDataSet(RadarChartUtils.createRadarEntries(), name.getText().toString());
-        radarDataSet.setColor(Color.GREEN);
-        radarDataSet.setFillColor(Color.GREEN);
-        radarDataSet.setDrawFilled(true);
-
-        ArrayList<IRadarDataSet> sets = new ArrayList<>();
-        sets.add(radarDataSet);
-
-        RadarData data = new RadarData(sets);
-        data.setDrawValues(false);
-
-        YAxis yAxis = radarChart.getYAxis();
-        yAxis.setDrawLabels(false);
-
-
-        XAxis xAxis = radarChart.getXAxis();
-        xAxis.setDrawLabels(true);
-        xAxis.setValueFormatter(new IAxisValueFormatter() {
-
-            private String[] labels = new String[]{"Defending", "Physical", "Speed", "Creativity", "Attacking", "Technical", "Aerial", "Mental"};
-
-            @Override
-            public String getFormattedValue(float value, AxisBase axis) {
-                return labels[(int) value % labels.length];
-            }
-
-            @Override
-            public int getDecimalDigits() {
-                return 0;
-            }
-        });
-
-        radarChart.animateXY(
-                1400, 1400,
-                Easing.EasingOption.EaseInOutQuad,
-                Easing.EasingOption.EaseInOutQuad);
-
-        radarChart.getDescription().setEnabled(false);
-        radarChart.getYAxis().setAxisMinimum(0);
-        radarChart.setWebColor(Color.BLUE);
-        radarChart.setWebColorInner(Color.BLUE);
-        radarChart.setData(data);
-        radarChart.invalidate();
-
-    }
 }
+

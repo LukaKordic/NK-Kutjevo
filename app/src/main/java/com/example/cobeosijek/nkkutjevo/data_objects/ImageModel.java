@@ -1,6 +1,6 @@
 package com.example.cobeosijek.nkkutjevo.data_objects;
 
-public class ImageModel extends BaseModel{
+public class ImageModel extends BaseModel {
 
     private String uri;
 
@@ -8,13 +8,10 @@ public class ImageModel extends BaseModel{
         this.uri = uri;
     }
 
-    public ImageModel() {}
+    public ImageModel() {
+    }
 
     public String getUri() {
         return returnValueOrEmpty(uri);
-    }
-
-    public void setUri(String uri) {
-        this.uri = uri;
     }
 }

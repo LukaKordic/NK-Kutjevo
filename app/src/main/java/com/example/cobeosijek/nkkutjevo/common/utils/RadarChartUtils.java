@@ -1,6 +1,17 @@
 package com.example.cobeosijek.nkkutjevo.common.utils;
 
+import android.graphics.Color;
+
+import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.RadarChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.RadarData;
+import com.github.mikephil.charting.data.RadarDataSet;
 import com.github.mikephil.charting.data.RadarEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,30 +20,76 @@ public class RadarChartUtils {
     public static List<RadarEntry> createRadarEntries() {
         List<RadarEntry> entries = new ArrayList<>();
 
-        entries.add(new RadarEntry(8));
-        entries.add(new RadarEntry(8));
-        entries.add(new RadarEntry(8));
-        entries.add(new RadarEntry(12));
-        entries.add(new RadarEntry(8));
-        entries.add(new RadarEntry(8));
-        entries.add(new RadarEntry(8));
-        entries.add(new RadarEntry(8));
+        entries.add(new RadarEntry(15));
+        entries.add(new RadarEntry(15));
+        entries.add(new RadarEntry(15));
+        entries.add(new RadarEntry(25));
+        entries.add(new RadarEntry(15));
+        entries.add(new RadarEntry(15));
+        entries.add(new RadarEntry(15));
+        entries.add(new RadarEntry(15));
 
         return entries;
     }
 
-    public static List<String> createRadarLabels() {
-        List<String> labels = new ArrayList<>();
+    public static RadarData createRadarData(String name) {
+        RadarDataSet radarDataSet = new RadarDataSet(createRadarEntries(), name);
+        radarDataSet.setColor(Color.GREEN);
+        radarDataSet.setFillColor(Color.GREEN);
+        radarDataSet.setDrawFilled(true);
 
-        labels.add("Defending");
-        labels.add("Physical");
-        labels.add("Speed");
-        labels.add("Creativity");
-        labels.add("Attacking");
-        labels.add("Technical");
-        labels.add("Aerial");
-        labels.add("Mental");
+        ArrayList<IRadarDataSet> sets = new ArrayList<>();
+        sets.add(radarDataSet);
 
-        return labels;
+        RadarData data = new RadarData(sets);
+        data.setDrawValues(false);
+
+        return data;
+    }
+
+    public static void setupYAxis(RadarChart radarChart) {
+        YAxis yAxis = radarChart.getYAxis();
+        yAxis.setDrawLabels(false);
+    }
+
+    public static void setupXAxis(RadarChart radarChart) {
+        XAxis xAxis = radarChart.getXAxis();
+        xAxis.setDrawLabels(true);
+        xAxis.setValueFormatter(new IAxisValueFormatter() {
+
+            private String[] labels = new String[]{"Defending", "Physical", "Speed", "Creativity", "Attacking", "Technical", "Aerial", "Mental"};
+
+            @Override
+            public String getFormattedValue(float value, AxisBase axis) {
+                return labels[(int) value % labels.length];
+            }
+
+            @Override
+            public int getDecimalDigits() {
+                return 0;
+            }
+        });
+    }
+
+    public static void animateChart(RadarChart radarChart) {
+        radarChart.animateXY(
+                1000, 1000,
+                Easing.EasingOption.EaseInOutQuad,
+                Easing.EasingOption.EaseInOutQuad);
+    }
+
+    public static void createRadarChart(RadarChart radarChart, String name){
+        if(radarChart != null){
+            setupXAxis(radarChart);
+            setupYAxis(radarChart);
+            animateChart(radarChart);
+
+            radarChart.getDescription().setEnabled(false);
+            radarChart.getYAxis().setAxisMinimum(0);
+            radarChart.setWebColor(Color.BLUE);
+            radarChart.setWebColorInner(Color.BLUE);
+            radarChart.setData(createRadarData(name));
+            radarChart.invalidate();
+        }
     }
 }

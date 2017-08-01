@@ -14,11 +14,12 @@ public class App extends Application {
         Realm.init(this);
         RealmConfiguration defaultConfig = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
         Realm.setDefaultConfiguration(defaultConfig);
+
+
+
     }
 
     public static Realm getRealm() {
         return Realm.getDefaultInstance();
     }
-
-
 }

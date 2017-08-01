@@ -70,6 +70,9 @@
     <item name="schedule_relative_layout" type="id"/>
     <item name="radar_chart" type="id"/>
     <item name="player_number" type="id"/>
+    <item name="next_game_date" type="id"/>
+    <item name="home_pager_item_image" type="id"/>
+
 
 
 </resources>

@@ -18,6 +18,9 @@ import com.example.cobeosijek.nkkutjevo.ui.news.NewsFragment;
 import com.example.cobeosijek.nkkutjevo.ui.schedule.fragments.ScheduleFragment;
 import com.example.cobeosijek.nkkutjevo.ui.team.fragments.TeamFragment;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         presenter.onViewReady();
 
         presenter.saveDataIntoRealm();
+
     }
 
     @Override
@@ -74,6 +78,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initDrawerToggle() {
+
+        Observable observable = new Observable();
+
+        observable.addObserver(new Observer() {
+            @Override
+            public void update(Observable observable, Object o) {
+            }
+        });
+
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);

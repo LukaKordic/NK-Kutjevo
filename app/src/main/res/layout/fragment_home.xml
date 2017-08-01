@@ -48,6 +48,17 @@
             android:layout_height="100dp"
             android:layout_below="@id/next_game_text"
             android:layout_toEndOf="@id/next_game_text" />
+
+        <TextView
+            android:id="@id/next_game_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/home_team_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:text="Next game date"/>
+
     </RelativeLayout>
 
 </LinearLayout>
