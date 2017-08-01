@@ -26,4 +26,5 @@
     <string name="games_draw">D</string>
     <string name="goals_for">GF</string>
     <string name="goal_difference">GD</string>
+    <string name="facebook_app_id">770172329847519</string>
 </resources>
