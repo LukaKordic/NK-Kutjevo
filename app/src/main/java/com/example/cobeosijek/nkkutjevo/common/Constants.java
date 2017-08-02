@@ -1,4 +1,4 @@
-package com.example.cobeosijek.nkkutjevo.common.utils;
+package com.example.cobeosijek.nkkutjevo.common;
 
 
 public class Constants {

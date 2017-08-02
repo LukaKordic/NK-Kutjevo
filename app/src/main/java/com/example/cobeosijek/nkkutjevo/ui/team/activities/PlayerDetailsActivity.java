@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.cobeosijek.nkkutjevo.R;
-import com.example.cobeosijek.nkkutjevo.common.utils.Constants;
+import com.example.cobeosijek.nkkutjevo.common.Constants;
 import com.example.cobeosijek.nkkutjevo.common.utils.RadarChartUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
 import com.github.mikephil.charting.charts.RadarChart;
@@ -82,7 +82,7 @@ public class PlayerDetailsActivity extends AppCompatActivity {
     }
 
     private void changeStatusBarColor() {
-        getWindow().setStatusBarColor(getResources().getColor(R.color.statusBarColor));
+//        getWindow().setStatusBarColor(getResources().getColor(R.color.statusBarColor));
     }
 
     private void initToolbar() {

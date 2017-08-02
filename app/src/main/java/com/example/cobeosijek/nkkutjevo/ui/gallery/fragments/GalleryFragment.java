@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.R;
-import com.example.cobeosijek.nkkutjevo.common.utils.Constants;
+import com.example.cobeosijek.nkkutjevo.common.Constants;
 import com.example.cobeosijek.nkkutjevo.common.helpers.DataHelper;
 import com.example.cobeosijek.nkkutjevo.ui.gallery.GalleryClickListener;
 import com.example.cobeosijek.nkkutjevo.ui.gallery.activities.ImageDetailsActivity;

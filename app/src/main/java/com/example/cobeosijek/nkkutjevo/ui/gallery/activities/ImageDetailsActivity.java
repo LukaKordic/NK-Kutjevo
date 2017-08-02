@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.example.cobeosijek.nkkutjevo.R;
-import com.example.cobeosijek.nkkutjevo.common.utils.Constants;
+import com.example.cobeosijek.nkkutjevo.common.Constants;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 
 import butterknife.BindView;
@@ -37,7 +37,7 @@ public class ImageDetailsActivity extends AppCompatActivity {
 
 
     private void setStatusBarColor() {
-        getWindow().setStatusBarColor(getResources().getColor(R.color.statusBarColor));
+//        getWindow().setStatusBarColor(getResources().getColor(R.color.statusBarColor));
     }
 
     private String receiveImageUri() {
