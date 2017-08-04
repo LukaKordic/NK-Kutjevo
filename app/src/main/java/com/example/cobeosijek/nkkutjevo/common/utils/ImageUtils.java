@@ -10,7 +10,7 @@ public class ImageUtils {
         Glide.with(into.getContext())
                 .load(url)
                 .override(225, 150)
-                .fitCenter()
+                .centerCrop()
                 .into(into);
     }
 

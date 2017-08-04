@@ -133,7 +133,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
                 new GraphRequest.Callback() {
                     @Override
                     public void onCompleted(GraphResponse response) {
-                      FeedResponse feedResponse = parseJsonResponse(createGsonParser(), response);
+                      System.out.print(response);
                     }
                 });
 
@@ -151,8 +151,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     }
 
     private FeedResponse parseJsonResponse(Gson gson, GraphResponse response) {
-        String fbResponse = response.toString();
-        FeedResponse feedResponse = gson.fromJson(fbResponse, FeedResponse.class);
+        FeedResponse feedResponse = gson.fromJson(response.toString(), FeedResponse.class);
         return feedResponse;
     }
 }

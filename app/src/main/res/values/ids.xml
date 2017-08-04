@@ -24,6 +24,7 @@
     <item name="header_icon" type="id" />
     <item name="player_details_name" type="id" />
     <item name="player_details_surname" type="id" />
+    <item name="player_details_number" type="id" />
     <item name="player_details_age" type="id" />
     <item name="player_details_position" type="id" />
     <item name="player_details_image" type="id" />

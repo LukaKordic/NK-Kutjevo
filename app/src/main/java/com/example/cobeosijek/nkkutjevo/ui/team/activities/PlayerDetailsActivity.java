@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.Constants;
+import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.RadarChartUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
 import com.github.mikephil.charting.charts.RadarChart;
@@ -32,6 +33,9 @@ public class PlayerDetailsActivity extends AppCompatActivity {
 
     @BindView(R.id.player_details_surname)
     TextView surname;
+
+    @BindView(R.id.player_details_number)
+    TextView number;
 
     @BindView(R.id.player_details_age)
     TextView age;
@@ -71,7 +75,7 @@ public class PlayerDetailsActivity extends AppCompatActivity {
         changeStatusBarColor();
         initToolbar();
         loadPlayerDetails();
-        RadarChartUtils.createRadarChart(radarChart, name.getText().toString());
+        RadarChartUtils.createRadarChart(radarChart, name.getText().toString(), playerModel);
     }
 
     private void receiveIntent() {
@@ -96,9 +100,10 @@ public class PlayerDetailsActivity extends AppCompatActivity {
             return;
         }
 
-        Glide.with(this).load(playerModel.getImage()).into(image);
+        ImageUtils.loadSmallImage(image, playerModel.getImage());
         name.setText(playerModel.getName());
         surname.setText(playerModel.getSurname());
+        number.setText(String.valueOf(playerModel.getNumber()));
         age.setText(String.valueOf(playerModel.getAge()));
         position.setText(playerModel.getPosition());
         appearance.setText(String.valueOf(playerModel.getAppearances()));

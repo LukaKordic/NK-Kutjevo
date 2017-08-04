@@ -2,6 +2,7 @@ package com.example.cobeosijek.nkkutjevo.common.utils;
 
 import android.graphics.Color;
 
+import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.RadarChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -17,23 +18,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RadarChartUtils {
-    public static List<RadarEntry> createRadarEntries() {
+    public static List<RadarEntry> createRadarEntries(PlayerModel player) {
         List<RadarEntry> entries = new ArrayList<>();
 
-        entries.add(new RadarEntry(15));
-        entries.add(new RadarEntry(15));
-        entries.add(new RadarEntry(15));
-        entries.add(new RadarEntry(25));
-        entries.add(new RadarEntry(15));
-        entries.add(new RadarEntry(15));
-        entries.add(new RadarEntry(15));
-        entries.add(new RadarEntry(15));
+        entries.add(new RadarEntry(player.getDefending()));
+        entries.add(new RadarEntry(player.getPhysical()));
+        entries.add(new RadarEntry(player.getSpeed()));
+        entries.add(new RadarEntry(player.getCreativity()));
+        entries.add(new RadarEntry(player.getAttacking()));
+        entries.add(new RadarEntry(player.getTechnical()));
+        entries.add(new RadarEntry(player.getAerial()));
+        entries.add(new RadarEntry(player.getMental()));
 
         return entries;
     }
 
-    public static RadarData createRadarData(String name) {
-        RadarDataSet radarDataSet = new RadarDataSet(createRadarEntries(), name);
+    public static RadarData createRadarData(String name, PlayerModel player) {
+        RadarDataSet radarDataSet = new RadarDataSet(createRadarEntries(player), name);
         radarDataSet.setColor(Color.GREEN);
         radarDataSet.setFillColor(Color.GREEN);
         radarDataSet.setDrawFilled(true);
@@ -78,7 +79,7 @@ public class RadarChartUtils {
                 Easing.EasingOption.EaseInOutQuad);
     }
 
-    public static void createRadarChart(RadarChart radarChart, String name){
+    public static void createRadarChart(RadarChart radarChart, String name, PlayerModel player){
         if(radarChart != null){
             setupXAxis(radarChart);
             setupYAxis(radarChart);
@@ -88,7 +89,7 @@ public class RadarChartUtils {
             radarChart.getYAxis().setAxisMinimum(0);
             radarChart.setWebColor(Color.BLUE);
             radarChart.setWebColorInner(Color.BLUE);
-            radarChart.setData(createRadarData(name));
+            radarChart.setData(createRadarData(name, player));
             radarChart.invalidate();
         }
     }

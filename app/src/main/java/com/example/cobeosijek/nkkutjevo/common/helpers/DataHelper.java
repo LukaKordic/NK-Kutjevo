@@ -63,23 +63,23 @@ public class DataHelper {
     public static List<PlayerModel> getPlayerModelList() {
         List<PlayerModel> playerModels = new ArrayList<>();
 
-        playerModels.add(new PlayerModel(1, "Ivan", "Majetic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 1));
-        playerModels.add(new PlayerModel(2, "Stjepan", "Vasic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 2));
-        playerModels.add(new PlayerModel(3, "Stipo", "Jelusic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 3));
-        playerModels.add(new PlayerModel(4, "Zlatko", "Hora", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 4));
-        playerModels.add(new PlayerModel(5, "Ivan", "Franjic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 6));
-        playerModels.add(new PlayerModel(6, "Josip", "Budimir", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 7));
-        playerModels.add(new PlayerModel(7, "Luka", "Kordic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 8));
-        playerModels.add(new PlayerModel(8, "Domagoj", "Ajman", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 9));
-        playerModels.add(new PlayerModel(9, "Ante", "Budimir", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 10));
-        playerModels.add(new PlayerModel(10, "Petar", "Culjak", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 11));
-        playerModels.add(new PlayerModel(10, "Bruno", "Saric", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 12));
-        playerModels.add(new PlayerModel(11, "Ante", "Paulic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 13));
-        playerModels.add(new PlayerModel(12, "Josip", "Colak", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 14));
-        playerModels.add(new PlayerModel(13, "Karlo", "Antunovic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 15));
-        playerModels.add(new PlayerModel(14, "Stjepan", "Adzic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 16));
-        playerModels.add(new PlayerModel(15, "Josip", "Pavic", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 17));
-        playerModels.add(new PlayerModel(16, "Antonio", "Redo", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 18));
+        playerModels.add(new PlayerModel(1, "Ivan", "Majetic", 22, "GK", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/12644719_10205159783666396_3660980232995665197_n.jpg?oh=ec83aae41766730a8014030b96430527&oe=5A2F7467", 22, 1800, 5, 4, 0, 1, 19, 15, 10, 5, 5, 10, 18, 17));
+        playerModels.add(new PlayerModel(2, "Stjepan", "Vasic", 22, "SS", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10374914_797042676995258_2733652903543835564_n.jpg?oh=45adec1362809f771c66786022033820&oe=5A2E6BFA", 22, 1800, 5, 4, 0, 2, 15, 18, 16, 10, 17, 13, 15, 10));
+        playerModels.add(new PlayerModel(3, "Stipo", "Jelusic", 22, "LWB/RWB", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10734160_890273454330656_1767118847469978713_n.jpg?oh=62224013418185a85787bdb2abe9d93b&oe=5A390EDE", 22, 1800, 5, 4, 0, 3, 20, 16, 15, 3, 5, 7, 17, 18));
+        playerModels.add(new PlayerModel(4, "Zlatko", "Hora", 22, "CB", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/12717363_1229295863765221_5049203837308819321_n.jpg?oh=85a7f1f187575faff679961f226b983e&oe=59FA9E3D", 22, 1800, 5, 4, 0, 4, 19, 20, 17, 8, 7, 10, 20, 16));
+        playerModels.add(new PlayerModel(5, "Ivan", "Franjic", 22, "DMF/CMF", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10986503_10203009809441147_7557408399289319992_n.jpg?oh=63e6d09dabaf9fe37c6127ed2fed3305&oe=59F458C9", 22, 1800, 5, 4, 0, 6, 14, 16, 13, 19, 18, 17, 18, 19));
+        playerModels.add(new PlayerModel(6, "Josip", "Budimir", 22, "SS/AML", "https://scontent-frx5-1.xx.fbcdn.net/v/t31.0-8/12967415_582403691914689_179886055394567351_o.jpg?oh=46bd599ca40b8628b665ec6f5e165bf5&oe=59F5F79E", 22, 1800, 5, 4, 0, 7, 7, 16, 18, 20, 20, 19, 10, 17));
+        playerModels.add(new PlayerModel(7, "Luka", "Kordic", 22, "CMF/AMF", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10858457_10204626002843388_9122226864758380241_n.jpg?oh=77597aa631dbaf174521cb7d4452bda3&oe=59F817D9", 22, 1800, 5, 4, 0, 8, 12, 17, 19, 20, 18, 20, 15, 19));
+        playerModels.add(new PlayerModel(8, "Domagoj", "Ajman", 22, "FC", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-1/c0.0.955.955/14606531_1375161719182926_3187872153032432519_n.jpg?oh=c337860986728bce089c29e61e4e1980&oe=5A2B9F95", 22, 1800, 5, 4, 0, 9, 10, 9, 17, 18, 19, 17, 5, 13));
+        playerModels.add(new PlayerModel(9, "Ante", "Budimir", 22, "CMF/DMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 10, 13, 16, 16, 19, 19, 18, 14, 20));
+        playerModels.add(new PlayerModel(10, "Petar", "Culjak", 22, "CB", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 11, 19, 15, 14, 14, 13, 17, 18, 20));
+        playerModels.add(new PlayerModel(10, "Bruno", "Saric", 22, "GK", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 12, 17, 10, 7, 5, 3, 8, 11, 12));
+        playerModels.add(new PlayerModel(11, "Ante", "Paulic", 22, "RWB/RMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 13, 13, 16, 16, 17, 17, 18, 11, 12));
+        playerModels.add(new PlayerModel(12, "Josip", "Colak", 22, "FC", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 14, 14, 20, 15, 15, 18, 16, 20, 19));
+        playerModels.add(new PlayerModel(13, "Karlo", "Antunovic", 22, "AMF/SS", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 15, 5, 10, 17, 14, 19, 17, 8, 13));
+        playerModels.add(new PlayerModel(14, "Stjepan", "Adzic", 22, "AMF/CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 16, 9, 16, 16, 20, 18, 19, 8, 19));
+        playerModels.add(new PlayerModel(15, "Josip", "Pavic", 22, "DMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 17, 14, 17, 17, 16, 16, 18, 16, 15));
+        playerModels.add(new PlayerModel(16, "Antonio", "Redo", 22, "CB/RWB", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 18, 19, 20, 18, 9, 6, 11, 20, 18));
 
         return playerModels;
     }
