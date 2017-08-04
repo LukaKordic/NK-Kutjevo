@@ -4,8 +4,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.cobeosijek.nkkutjevo.R;
+import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 
 import java.util.List;
 
@@ -17,20 +19,13 @@ public class HomePagerAdapter extends android.support.v4.view.PagerAdapter {
     private final List<String> imageList;
 
     @BindView(R.id.home_pager_item_image)
-    ImageView pagerImageView;
+    ImageView homePostImage;
+
+    @BindView(R.id.home_pager_item_title)
+    TextView homePostTitle;
 
     public HomePagerAdapter(List<String> imageList) {
         this.imageList = imageList;
-    }
-
-    @Override
-    public int getCount() {
-        return 0;
-    }
-
-    @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return view == object;
     }
 
     @Override
@@ -40,8 +35,21 @@ public class HomePagerAdapter extends android.support.v4.view.PagerAdapter {
 
         ButterKnife.bind(this, view);
 
+        ImageUtils.loadImage(homePostImage, imageList.get(position));
+        homePostTitle.setText("Post title");
+
         container.addView(view);
         return view;
+    }
+
+    @Override
+    public int getCount() {
+        return imageList.size();
+    }
+
+    @Override
+    public boolean isViewFromObject(View view, Object object) {
+        return view == object;
     }
 
     @Override

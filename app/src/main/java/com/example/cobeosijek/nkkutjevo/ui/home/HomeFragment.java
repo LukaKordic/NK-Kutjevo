@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,9 @@ import android.widget.Toast;
 
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.Constants;
+import com.example.cobeosijek.nkkutjevo.common.helpers.DataHelper;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
+import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
 import com.example.cobeosijek.nkkutjevo.ui.home.adapters.HomePagerAdapter;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -25,8 +26,9 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -36,12 +38,12 @@ import butterknife.ButterKnife;
 public class HomeFragment extends Fragment implements FacebookCallback<LoginResult> {
 
     private final CallbackManager callbackManager = CallbackManager.Factory.create();
-
     @BindView(R.id.home_view_pager)
     ViewPager homeViewPager;
 
     @BindView(R.id.home_team_image)
     ImageView homeTeamImage;
+
     @BindView(R.id.away_team_image)
     ImageView awayTeamImage;
 
@@ -64,10 +66,17 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         ButterKnife.bind(this, view);
 
         initUI();
+        checkIfTokenExists();
         initLoginManager();
+    }
 
+    private void initUI() {
+        initViewPager(DataHelper.createImageList()); //TODO: ubaciti slike iz fb responsea
+        loadImagesForNextGame();
+    }
+
+    private void checkIfTokenExists() {
         String[] permissions = {Constants.PERMISSION};
-
         if (AccessToken.getCurrentAccessToken() == null) {
             initLoginManager().logInWithReadPermissions(this, Arrays.asList(permissions));
         } else {
@@ -75,8 +84,18 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         }
     }
 
-    private void initUI() {
-        //TODO promjeniti slike ovisno o sljedecoj utakmici
+    private LoginManager initLoginManager() {
+        LoginManager loginManager = LoginManager.getInstance();
+        loginManager.registerCallback(callbackManager, this);
+        return loginManager;
+    }
+
+    private void initViewPager(List<String> imageList) {
+        HomePagerAdapter homePagerAdapter = new HomePagerAdapter(imageList);
+        homeViewPager.setAdapter(homePagerAdapter);
+    }
+
+    private void loadImagesForNextGame() {
         ImageUtils.loadSmallImage(homeTeamImage, "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10441379_571895542965504_3234583505345128658_n.png?oh=11d1085d86cce18414fec4ec47e2932b&oe=5A0575DA");
         ImageUtils.loadSmallImage(awayTeamImage, "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/14572918_1823586701212015_4927312342681512458_n.jpg?oh=a9b9f91beec61584290fc2bed2a9811d&oe=59FC0AE8");
     }
@@ -107,11 +126,6 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         Toast.makeText(getActivity().getApplicationContext(), Constants.ERROR + error.toString(), Toast.LENGTH_SHORT).show();
     }
 
-    private LoginManager initLoginManager() {
-        LoginManager loginManager = LoginManager.getInstance();
-        loginManager.registerCallback(callbackManager, this);
-        return loginManager;
-    }
 
     private void requestFeed(AccessToken token) {
         GraphRequest request = GraphRequest.newGraphPathRequest(token,
@@ -119,8 +133,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
                 new GraphRequest.Callback() {
                     @Override
                     public void onCompleted(GraphResponse response) {
-                        //end product
-                        Log.d("Test", response.toString());
+                      FeedResponse feedResponse = parseJsonResponse(createGsonParser(), response);
                     }
                 });
 
@@ -130,8 +143,16 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         request.executeAsync();
     }
 
-    private void initViewPager(List<String> imageList) {
-        HomePagerAdapter homePagerAdapter = new HomePagerAdapter(imageList);
-        homeViewPager.setAdapter(homePagerAdapter);
+    private Gson createGsonParser() {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.setPrettyPrinting().serializeNulls();
+        Gson gson = gsonBuilder.create();
+        return gson;
+    }
+
+    private FeedResponse parseJsonResponse(Gson gson, GraphResponse response) {
+        String fbResponse = response.toString();
+        FeedResponse feedResponse = gson.fromJson(fbResponse, FeedResponse.class);
+        return feedResponse;
     }
 }

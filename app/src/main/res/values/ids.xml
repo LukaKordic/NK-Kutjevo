@@ -72,7 +72,7 @@
     <item name="player_number" type="id"/>
     <item name="next_game_date" type="id"/>
     <item name="home_pager_item_image" type="id"/>
-
-
+    <item name="home_pager_item_title" type="id"/>
+    <item name="pager_indicator" type="id"/>
 
 </resources>

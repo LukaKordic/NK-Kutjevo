@@ -43,18 +43,18 @@ public class DataHelper {
     public static List<TeamModel> getteamModelList() {
         List<TeamModel> teamModels = new ArrayList<>();
 
-        teamModels.add(new TeamModel("Kutjevo", 0, 0, 0, 0, 0, 0));
-        teamModels.add(new TeamModel("Pozega", 0, 0, 0, 0, 0, 0));
         teamModels.add(new TeamModel("Buk", 0, 0, 0, 0, 0, 0));
-        teamModels.add(new TeamModel("Kaptol", 0, 0, 0, 0, 0, 0));
+        teamModels.add(new TeamModel("Gradac", 0, 0, 0, 0, 0, 0));
         teamModels.add(new TeamModel("Jaksic", 0, 0, 0, 0, 0, 0));
-        teamModels.add(new TeamModel("Mihaljevci", 0, 0, 0, 0, 0, 0));
+        teamModels.add(new TeamModel("Kaptol", 0, 0, 0, 0, 0, 0));
+        teamModels.add(new TeamModel("Kutjevo", 0, 0, 0, 0, 0, 0));
         teamModels.add(new TeamModel("Kuzmica", 0, 0, 0, 0, 0, 0));
+        teamModels.add(new TeamModel("Lipik", 0, 0, 0, 0, 0, 0));
+        teamModels.add(new TeamModel("Mihaljevci", 0, 0, 0, 0, 0, 0));
         teamModels.add(new TeamModel("Papuk", 0, 0, 0, 0, 0, 0));
         teamModels.add(new TeamModel("Pavlovci", 0, 0, 0, 0, 0, 0));
-        teamModels.add(new TeamModel("Gradac", 0, 0, 0, 0, 0, 0));
+        teamModels.add(new TeamModel("Pozega", 0, 0, 0, 0, 0, 0));
         teamModels.add(new TeamModel("Vidovci", 0, 0, 0, 0, 0, 0));
-        teamModels.add(new TeamModel("Lipik", 0, 0, 0, 0, 0, 0));
 
         return teamModels;
     }
@@ -82,5 +82,18 @@ public class DataHelper {
         playerModels.add(new PlayerModel(16, "Antonio", "Redo", 22, "CMF", "http://icons.veryicon.com/128/Avatar/People/Footballer.png", 22, 1800, 5, 4, 0, 18));
 
         return playerModels;
+    }
+
+    //HomeFragment Pager
+
+    public static List<String> createImageList(){
+        List<String> imageList = new ArrayList<>();
+
+        imageList.add("https://scontent-vie1-1.xx.fbcdn.net/v/t1.0-9/18893381_1484880998199535_3926016716721806301_n.jpg?oh=713be7150f9c6251cf8119c1feca949d&oe=59FA6F2B");
+        imageList.add("https://scontent-vie1-1.xx.fbcdn.net/v/t1.0-9/18893381_1484880998199535_3926016716721806301_n.jpg?oh=713be7150f9c6251cf8119c1feca949d&oe=59FA6F2B");
+        imageList.add("https://scontent-vie1-1.xx.fbcdn.net/v/t1.0-9/18893381_1484880998199535_3926016716721806301_n.jpg?oh=713be7150f9c6251cf8119c1feca949d&oe=59FA6F2B");
+        imageList.add("https://scontent-vie1-1.xx.fbcdn.net/v/t1.0-9/18893381_1484880998199535_3926016716721806301_n.jpg?oh=713be7150f9c6251cf8119c1feca949d&oe=59FA6F2B");
+
+        return  imageList;
     }
 }

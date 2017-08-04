@@ -1,15 +1,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.cobeosijek.nkkutjevo.ui.home.HomeFragment">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.example.cobeosijek.nkkutjevo.ui.home.HomeFragment">
 
     <android.support.v4.view.ViewPager
         android:id="@id/home_view_pager"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginBottom="10dp" />
+        android:layout_height="200dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/recyclerItemBackground"/>
 
     <RelativeLayout
         android:id="@id/next_game_layout"
@@ -23,31 +24,31 @@
             android:layout_centerHorizontal="true"
             android:layout_margin="20dp"
             android:text="@string/next_game_text"
-            android:textSize="20sp" />
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@id/vs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/next_game_text"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="35dp"
             android:text="@string/vs_text"
-            android:layout_below="@id/next_game_text"
-            android:textSize="20sp" />
+            android:textSize="20sp"/>
 
         <ImageView
             android:id="@id/home_team_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_below="@id/next_game_text"
-            android:layout_toStartOf="@id/next_game_text" />
+            android:layout_toStartOf="@id/next_game_text"/>
 
         <ImageView
             android:id="@id/away_team_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_below="@id/next_game_text"
-            android:layout_toEndOf="@id/next_game_text" />
+            android:layout_toEndOf="@id/next_game_text"/>
 
         <TextView
             android:id="@id/next_game_date"
@@ -56,8 +57,8 @@
             android:layout_below="@id/home_team_image"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:textSize="20sp"
-            android:text="Next game date"/>
+            android:text="Next game date"
+            android:textSize="20sp"/>
 
     </RelativeLayout>
 
