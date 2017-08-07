@@ -1,17 +1,20 @@
 package com.example.cobeosijek.nkkutjevo.data_objects.reponses;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FeedResponse {
-    private GraphObject graphObject;
+    private List<Data> dataList = new ArrayList<>();
 
-    public FeedResponse(GraphObject graphObject) {
-        this.graphObject = graphObject;
+    public FeedResponse(List<Data> dataList) {
+        this.dataList = dataList;
     }
 
-    public GraphObject getGraphObject() {
-        return graphObject;
+    public List<Data> getDataList() {
+        return dataList;
     }
 
-    public void setGraphObject(GraphObject graphObject) {
-        this.graphObject = graphObject;
+    public void setDataList(List<Data> dataList) {
+        this.dataList = dataList;
     }
 }

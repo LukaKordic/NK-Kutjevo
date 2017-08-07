@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.Constants;
 import com.example.cobeosijek.nkkutjevo.common.helpers.DataHelper;
+import com.example.cobeosijek.nkkutjevo.common.utils.CalendarUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
 import com.example.cobeosijek.nkkutjevo.ui.home.adapters.HomePagerAdapter;
@@ -73,6 +74,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     private void initUI() {
         initViewPager(DataHelper.createImageList()); //TODO: ubaciti slike iz fb responsea
         loadImagesForNextGame();
+        CalendarUtils.getCurrentTime();
     }
 
     private void checkIfTokenExists() {
@@ -133,12 +135,12 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
                 new GraphRequest.Callback() {
                     @Override
                     public void onCompleted(GraphResponse response) {
-                      System.out.print(response);
+                        FeedResponse fbResponse = parseJsonResponse(createGsonParser(), response);
                     }
                 });
 
         Bundle parameters = new Bundle();
-        parameters.putString("fields", "id,name,full_picture,story");
+        parameters.putString("fields", "id,name, full_picture, message");
         request.setParameters(parameters);
         request.executeAsync();
     }
@@ -151,7 +153,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     }
 
     private FeedResponse parseJsonResponse(Gson gson, GraphResponse response) {
-        FeedResponse feedResponse = gson.fromJson(response.toString(), FeedResponse.class);
+        FeedResponse feedResponse = gson.fromJson(response.getRawResponse(), FeedResponse.class);
         return feedResponse;
     }
 }
