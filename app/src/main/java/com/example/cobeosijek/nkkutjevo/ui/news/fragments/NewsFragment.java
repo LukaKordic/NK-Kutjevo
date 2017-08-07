@@ -1,4 +1,4 @@
-package com.example.cobeosijek.nkkutjevo.ui.news;
+package com.example.cobeosijek.nkkutjevo.ui.news.fragments;
 
 
 import android.os.Bundle;
@@ -15,10 +15,7 @@ import com.example.cobeosijek.nkkutjevo.R;
 public class NewsFragment extends Fragment {
 
     public static NewsFragment newInstance() {
-        NewsFragment newsFragment = new NewsFragment();
-        Bundle args = new Bundle();
-        newsFragment.setArguments(args);
-        return newsFragment;
+        return new NewsFragment();
     }
 
     @Override

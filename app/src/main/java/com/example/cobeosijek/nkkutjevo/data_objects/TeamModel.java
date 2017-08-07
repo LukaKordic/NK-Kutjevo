@@ -11,7 +11,6 @@ public class TeamModel  {
     private int goalsAgainst;
 
     public TeamModel(String teamName, int gamesPlayed, int gamesWon, int gamesLost, int gamesDraw, int goalsFor, int goalsAgainst) {
-
         this.teamName = teamName;
         this.gamesPlayed = gamesPlayed;
         this.gamesWon = gamesWon;

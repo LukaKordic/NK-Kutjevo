@@ -1,7 +1,7 @@
 package com.example.cobeosijek.nkkutjevo.common.utils;
 
 import com.example.cobeosijek.nkkutjevo.App;
-import com.example.cobeosijek.nkkutjevo.common.helpers.DataHelper;
+import com.example.cobeosijek.nkkutjevo.common.DummyDataFactory;
 import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
 
 import java.util.List;
@@ -17,7 +17,7 @@ public class DatabaseUtils {
     public static void savePlayersIntoRealm() {
         Realm realm = App.getRealm();
         realm.beginTransaction();
-        realm.copyToRealmOrUpdate(DataHelper.getPlayerModelList());
+        realm.copyToRealmOrUpdate(DummyDataFactory.getPlayerModelList());
         realm.commitTransaction();
     }
 }

@@ -16,6 +16,12 @@ public class RankingRecyclerAdapter extends RecyclerView.Adapter<TeamHolder> {
 
     private final List<TeamModel> teamModelList = new ArrayList<>();
 
+    public void setTeamModelList(List<TeamModel> list) {
+        teamModelList.clear();
+        teamModelList.addAll(list);
+        notifyDataSetChanged();
+    }
+
     @Override
     public TeamHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.ranking_table_item, parent, false);
@@ -41,11 +47,5 @@ public class RankingRecyclerAdapter extends RecyclerView.Adapter<TeamHolder> {
             return teamModel != null ? teamModel : new TeamModel();
         }
         return new TeamModel();
-    }
-
-    public void setTeamModelList(List<TeamModel> list){
-        teamModelList.clear();
-        teamModelList.addAll(list);
-        notifyDataSetChanged();
     }
 }

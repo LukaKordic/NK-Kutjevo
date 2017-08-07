@@ -12,10 +12,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.cobeosijek.nkkutjevo.App;
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.Constants;
-import com.example.cobeosijek.nkkutjevo.common.helpers.DataHelper;
-import com.example.cobeosijek.nkkutjevo.common.utils.CalendarUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
 import com.example.cobeosijek.nkkutjevo.ui.home.adapters.HomePagerAdapter;
@@ -30,6 +29,7 @@ import com.facebook.login.LoginResult;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -38,7 +38,6 @@ import butterknife.ButterKnife;
 
 public class HomeFragment extends Fragment implements FacebookCallback<LoginResult> {
 
-    private final CallbackManager callbackManager = CallbackManager.Factory.create();
     @BindView(R.id.home_view_pager)
     ViewPager homeViewPager;
 
@@ -48,12 +47,13 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     @BindView(R.id.away_team_image)
     ImageView awayTeamImage;
 
-    public static HomeFragment newInstance() {
-        HomeFragment homeFragment = new HomeFragment();
+    private List<String> homeImageList = new ArrayList<>();
+    private final HomePagerAdapter homePagerAdapter = new HomePagerAdapter();
 
-        Bundle args = new Bundle();
-        homeFragment.setArguments(args);
-        return homeFragment;
+    private final CallbackManager callbackManager = CallbackManager.Factory.create();
+
+    public static HomeFragment newInstance() {
+        return new HomeFragment();
     }
 
     @Override
@@ -64,37 +64,33 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.bind(this, view);
-
-        initUI();
-        checkIfTokenExists();
+        initUI(view);
         initLoginManager();
+        checkIfTokenExists();
     }
 
-    private void initUI() {
-        initViewPager(DataHelper.createImageList()); //TODO: ubaciti slike iz fb responsea
+    private void initUI(View view) {
+        ButterKnife.bind(this, view);
+        homeViewPager.setAdapter(homePagerAdapter);
         loadImagesForNextGame();
-        CalendarUtils.getCurrentTime();
+    }
+
+    private void initLoginManager() {
+        LoginManager loginManager = LoginManager.getInstance();
+        loginManager.registerCallback(callbackManager, this);
     }
 
     private void checkIfTokenExists() {
         String[] permissions = {Constants.PERMISSION};
         if (AccessToken.getCurrentAccessToken() == null) {
-            initLoginManager().logInWithReadPermissions(this, Arrays.asList(permissions));
+            LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList(permissions));
         } else {
             requestFeed(AccessToken.getCurrentAccessToken());
         }
     }
 
-    private LoginManager initLoginManager() {
-        LoginManager loginManager = LoginManager.getInstance();
-        loginManager.registerCallback(callbackManager, this);
-        return loginManager;
-    }
-
-    private void initViewPager(List<String> imageList) {
-        HomePagerAdapter homePagerAdapter = new HomePagerAdapter(imageList);
-        homeViewPager.setAdapter(homePagerAdapter);
+    private void setData(List<String> imageList, String title) {
+        homePagerAdapter.setData(imageList, title);
     }
 
     private void loadImagesForNextGame() {
@@ -109,13 +105,13 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-    //ako se uspjesno logira, vrati token
+    //if successfull, return token
     @Override
     public void onSuccess(LoginResult loginResult) {
         if (loginResult != null) {
             requestFeed(loginResult.getAccessToken());
         }
-        Toast.makeText(getActivity().getApplicationContext(), Constants.LOGED_IN, Toast.LENGTH_SHORT).show();
+        Toast.makeText(App.get(), Constants.LOGED_IN, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -125,9 +121,8 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
 
     @Override
     public void onError(FacebookException error) {
-        Toast.makeText(getActivity().getApplicationContext(), Constants.ERROR + error.toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(App.get(), Constants.ERROR + error.toString(), Toast.LENGTH_SHORT).show();
     }
-
 
     private void requestFeed(AccessToken token) {
         GraphRequest request = GraphRequest.newGraphPathRequest(token,
@@ -136,6 +131,10 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
                     @Override
                     public void onCompleted(GraphResponse response) {
                         FeedResponse fbResponse = parseJsonResponse(createGsonParser(), response);
+                        for (int i = 0; i < fbResponse.getData().size(); i++) {
+                            homeImageList.add(fbResponse.getData().get(i).getFullPicture());
+                            setData(homeImageList, fbResponse.getData().get(i).getName());
+                        }
                     }
                 });
 

@@ -1,5 +1,6 @@
 package com.example.cobeosijek.nkkutjevo.ui.gallery.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,12 @@ public class ImageDetailsActivity extends AppCompatActivity {
     @BindView(R.id.gallery_image_details)
     ImageView galleryImage;
 
+    public static Intent getLaunchIntent(Context from, String uri) {
+        Intent intent = new Intent(from, ImageDetailsActivity.class);
+        intent.putExtra(Constants.KEY_IMAGE, uri);
+        return intent;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,17 +34,9 @@ public class ImageDetailsActivity extends AppCompatActivity {
     }
 
     private void initUI() {
-        setStatusBarColor();
         ButterKnife.bind(this);
-        receiveImageUri();
         ImageUtils.loadImage(galleryImage, receiveImageUri());
         attachImageZoom();
-    }
-
-
-
-    private void setStatusBarColor() {
-//        getWindow().setStatusBarColor(getResources().getColor(R.color.statusBarColor));
     }
 
     private String receiveImageUri() {

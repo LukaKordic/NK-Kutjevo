@@ -1,7 +1,6 @@
 package com.example.cobeosijek.nkkutjevo.ui.gallery.fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,8 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.R;
-import com.example.cobeosijek.nkkutjevo.common.Constants;
-import com.example.cobeosijek.nkkutjevo.common.helpers.DataHelper;
+import com.example.cobeosijek.nkkutjevo.common.DummyDataFactory;
 import com.example.cobeosijek.nkkutjevo.ui.gallery.GalleryClickListener;
 import com.example.cobeosijek.nkkutjevo.ui.gallery.activities.ImageDetailsActivity;
 import com.example.cobeosijek.nkkutjevo.ui.gallery.adapters.GalleryRecyclerViewAdapter;
@@ -25,17 +23,13 @@ import butterknife.ButterKnife;
 
 public class GalleryFragment extends Fragment implements GalleryClickListener {
 
-    private final GalleryRecyclerViewAdapter galleryRecyclerViewAdapter = new GalleryRecyclerViewAdapter();
-
     @BindView(R.id.gallery_recycler_view)
     RecyclerView galleryRecyclerView;
 
-    public static GalleryFragment newInstance() {
-        Bundle args = new Bundle();
+    private final GalleryRecyclerViewAdapter galleryRecyclerViewAdapter = new GalleryRecyclerViewAdapter();
 
-        GalleryFragment fragment = new GalleryFragment();
-        fragment.setArguments(args);
-        return fragment;
+    public static GalleryFragment newInstance() {
+        return new GalleryFragment();
     }
 
     @Override
@@ -55,13 +49,11 @@ public class GalleryFragment extends Fragment implements GalleryClickListener {
         DividerItemDecoration decoration = new DividerItemDecoration(view.getContext(), gridLayoutManager.getOrientation());
         galleryRecyclerView.addItemDecoration(decoration);
         galleryRecyclerView.setAdapter(galleryRecyclerViewAdapter);
-        galleryRecyclerViewAdapter.setImageModelList(DataHelper.loadImages());
+        galleryRecyclerViewAdapter.setImageModelList(DummyDataFactory.loadImages());
     }
 
     @Override
     public void onItemClick(String uri) {
-        Intent intent = new Intent(galleryRecyclerView.getContext(), ImageDetailsActivity.class);
-        intent.putExtra(Constants.KEY_IMAGE, uri);
-        startActivity(intent);
+        startActivity(ImageDetailsActivity.getLaunchIntent(getActivity(), uri));
     }
 }

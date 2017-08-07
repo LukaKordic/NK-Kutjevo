@@ -22,7 +22,7 @@ public class GalleryRecyclerViewAdapter extends RecyclerView.Adapter<ImageHolder
         this.galleryClickListener = galleryClickListener;
     }
 
-    public void setImageModelList(List<ImageModel> list){
+    public void setImageModelList(List<ImageModel> list) {
         imageModelList.clear();
         imageModelList.addAll(list);
         notifyDataSetChanged();
@@ -31,7 +31,6 @@ public class GalleryRecyclerViewAdapter extends RecyclerView.Adapter<ImageHolder
     @Override
     public ImageHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gallery_recycler_view_item, parent, false);
-
         return new ImageHolder(view, galleryClickListener);
     }
 
@@ -48,8 +47,8 @@ public class GalleryRecyclerViewAdapter extends RecyclerView.Adapter<ImageHolder
         return imageModelList.size();
     }
 
-    private ImageModel getItem(int position){
-        if(position < getItemCount()){
+    private ImageModel getItem(int position) {
+        if (position < getItemCount()) {
             ImageModel imageModel = imageModelList.get(position);
             return imageModel != null ? imageModel : new ImageModel();
         }

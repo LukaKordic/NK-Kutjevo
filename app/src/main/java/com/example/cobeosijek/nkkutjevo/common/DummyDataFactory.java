@@ -1,4 +1,4 @@
-package com.example.cobeosijek.nkkutjevo.common.helpers;
+package com.example.cobeosijek.nkkutjevo.common;
 
 import com.example.cobeosijek.nkkutjevo.data_objects.ImageModel;
 import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
@@ -7,9 +7,7 @@ import com.example.cobeosijek.nkkutjevo.data_objects.TeamModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataHelper {
-
-    //Gallery
+public class DummyDataFactory {
 
     public static List<ImageModel> loadImages() {
         List<ImageModel> imageModelList = new ArrayList<>();
@@ -38,8 +36,6 @@ public class DataHelper {
         return imageModelList;
     }
 
-
-    //Team ranking
     public static List<TeamModel> getteamModelList() {
         List<TeamModel> teamModels = new ArrayList<>();
 
@@ -59,7 +55,6 @@ public class DataHelper {
         return teamModels;
     }
 
-    //List of players
     public static List<PlayerModel> getPlayerModelList() {
         List<PlayerModel> playerModels = new ArrayList<>();
 
@@ -81,18 +76,5 @@ public class DataHelper {
         playerModels.add(new PlayerModel(16, "Josip", "Pavic", 22, "DMF", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/11238229_10205107776509382_5106570336895916410_n.jpg?oh=844d78208776bc69023511ac16a9bee7&oe=5A2B6F71", 22, 1800, 5, 4, 0, 17, 14, 17, 17, 16, 16, 18, 16, 15));
 
         return playerModels;
-    }
-
-    //HomeFragment Pager
-
-    public static List<String> createImageList(){
-        List<String> imageList = new ArrayList<>();
-
-        imageList.add("https://scontent-vie1-1.xx.fbcdn.net/v/t1.0-9/18893381_1484880998199535_3926016716721806301_n.jpg?oh=713be7150f9c6251cf8119c1feca949d&oe=59FA6F2B");
-        imageList.add("https://scontent-vie1-1.xx.fbcdn.net/v/t1.0-9/18893381_1484880998199535_3926016716721806301_n.jpg?oh=713be7150f9c6251cf8119c1feca949d&oe=59FA6F2B");
-        imageList.add("https://scontent-vie1-1.xx.fbcdn.net/v/t1.0-9/18893381_1484880998199535_3926016716721806301_n.jpg?oh=713be7150f9c6251cf8119c1feca949d&oe=59FA6F2B");
-        imageList.add("https://scontent-vie1-1.xx.fbcdn.net/v/t1.0-9/18893381_1484880998199535_3926016716721806301_n.jpg?oh=713be7150f9c6251cf8119c1feca949d&oe=59FA6F2B");
-
-        return  imageList;
     }
 }

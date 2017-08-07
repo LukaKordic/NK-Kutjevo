@@ -1,17 +1,21 @@
 package com.example.cobeosijek.nkkutjevo.data_objects.reponses;
 
-public class Data {
+import com.example.cobeosijek.nkkutjevo.data_objects.BaseModel;
+import com.google.gson.annotations.SerializedName;
+
+public class Data extends BaseModel {
+
     private String id;
     private String name;
-    private String full_picture;
+    @SerializedName("full_picture")
+    private String fullPicture;
     private String message;
 
-    public Data(String id, String name, String full_picture, String message) {
+    public Data(String id, String name, String fullPicture, String message) {
         this.id = id;
         this.name = name;
-        this.full_picture = full_picture;
+        this.fullPicture = fullPicture;
         this.message = message;
-
     }
 
     public String getId() {
@@ -23,7 +27,7 @@ public class Data {
     }
 
     public String getMessage() {
-        return message;
+        return returnValueOrEmpty(message);
     }
 
     public void setMessage(String message) {
@@ -31,26 +35,18 @@ public class Data {
     }
 
     public String getName() {
-        return name;
+        return returnValueOrEmpty(name);
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getFull_picture() {
-        return full_picture;
+    public String getFullPicture() {
+        return returnValueOrEmpty(fullPicture);
     }
 
-    public void setFull_picture(String full_picture) {
-        this.full_picture = full_picture;
-    }
-
-    public String getStory() {
-        return message;
-    }
-
-    public void setStory(String story) {
-        this.message = message;
+    public void setFullPicture(String fullPicture) {
+        this.fullPicture = fullPicture;
     }
 }

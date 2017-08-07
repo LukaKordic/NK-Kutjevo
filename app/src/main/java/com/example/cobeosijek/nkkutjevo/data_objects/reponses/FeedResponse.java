@@ -4,17 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FeedResponse {
-    private List<Data> dataList = new ArrayList<>();
 
-    public FeedResponse(List<Data> dataList) {
-        this.dataList = dataList;
+    private List<Data> data = new ArrayList<>();
+
+    public FeedResponse(List<Data> data) {
+        this.data = data;
     }
 
-    public List<Data> getDataList() {
-        return dataList;
+    public List<Data> getData() {
+        return data;
     }
 
-    public void setDataList(List<Data> dataList) {
-        this.dataList = dataList;
+    public void setData(List<Data> data) {
+        this.data = data;
     }
 }

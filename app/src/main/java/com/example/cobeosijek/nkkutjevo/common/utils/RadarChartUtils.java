@@ -18,7 +18,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RadarChartUtils {
-    public static List<RadarEntry> createRadarEntries(PlayerModel player) {
+
+    public static void createRadarChart(RadarChart radarChart, String name, PlayerModel player) {
+        if (radarChart != null) {
+            setupXAxis(radarChart);
+            setupYAxis(radarChart);
+            animateChart(radarChart);
+
+            radarChart.getDescription().setEnabled(false);
+            radarChart.getYAxis().setAxisMinimum(0);
+            radarChart.setWebColor(Color.BLUE);
+            radarChart.setWebColorInner(Color.BLUE);
+            radarChart.setData(createRadarData(name, player));
+            radarChart.invalidate();
+        }
+    }
+
+    private static List<RadarEntry> createRadarEntries(PlayerModel player) {
         List<RadarEntry> entries = new ArrayList<>();
 
         entries.add(new RadarEntry(player.getDefending()));
@@ -33,13 +49,13 @@ public class RadarChartUtils {
         return entries;
     }
 
-    public static RadarData createRadarData(String name, PlayerModel player) {
+    private static RadarData createRadarData(String name, PlayerModel player) {
         RadarDataSet radarDataSet = new RadarDataSet(createRadarEntries(player), name);
         radarDataSet.setColor(Color.GREEN);
         radarDataSet.setFillColor(Color.GREEN);
         radarDataSet.setDrawFilled(true);
 
-        ArrayList<IRadarDataSet> sets = new ArrayList<>();
+        List<IRadarDataSet> sets = new ArrayList<>();
         sets.add(radarDataSet);
 
         RadarData data = new RadarData(sets);
@@ -48,12 +64,12 @@ public class RadarChartUtils {
         return data;
     }
 
-    public static void setupYAxis(RadarChart radarChart) {
+    private static void setupYAxis(RadarChart radarChart) {
         YAxis yAxis = radarChart.getYAxis();
         yAxis.setDrawLabels(false);
     }
 
-    public static void setupXAxis(RadarChart radarChart) {
+    private static void setupXAxis(RadarChart radarChart) {
         XAxis xAxis = radarChart.getXAxis();
         xAxis.setDrawLabels(true);
         xAxis.setValueFormatter(new IAxisValueFormatter() {
@@ -72,25 +88,12 @@ public class RadarChartUtils {
         });
     }
 
-    public static void animateChart(RadarChart radarChart) {
+    private static void animateChart(RadarChart radarChart) {
         radarChart.animateXY(
                 1000, 1000,
                 Easing.EasingOption.EaseInOutQuad,
                 Easing.EasingOption.EaseInOutQuad);
     }
 
-    public static void createRadarChart(RadarChart radarChart, String name, PlayerModel player){
-        if(radarChart != null){
-            setupXAxis(radarChart);
-            setupYAxis(radarChart);
-            animateChart(radarChart);
 
-            radarChart.getDescription().setEnabled(false);
-            radarChart.getYAxis().setAxisMinimum(0);
-            radarChart.setWebColor(Color.BLUE);
-            radarChart.setWebColorInner(Color.BLUE);
-            radarChart.setData(createRadarData(name, player));
-            radarChart.invalidate();
-        }
-    }
 }

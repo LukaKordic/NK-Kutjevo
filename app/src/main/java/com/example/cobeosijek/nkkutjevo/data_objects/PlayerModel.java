@@ -21,6 +21,7 @@ public class PlayerModel extends RealmObject implements Serializable {
     private int yellowCards;
     private int redCards;
     private int number;
+    // TODO: 07/08/2017 new Model
     private int defending;
     private int physical;
     private int speed;
@@ -43,7 +44,6 @@ public class PlayerModel extends RealmObject implements Serializable {
         this.yellowCards = yellowCards;
         this.redCards = redCards;
         this.number = number;
-
         this.defending = defending;
         this.physical = physical;
         this.speed = speed;
