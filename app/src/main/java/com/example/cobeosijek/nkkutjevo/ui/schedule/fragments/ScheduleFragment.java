@@ -26,11 +26,7 @@ public class ScheduleFragment extends Fragment {
     private final RankingRecyclerAdapter rankingRecyclerAdapter = new RankingRecyclerAdapter();
 
     public static ScheduleFragment newInstance() {
-        ScheduleFragment scheduleFragment = new ScheduleFragment();
-
-        Bundle args = new Bundle();
-        scheduleFragment.setArguments(args);
-        return scheduleFragment;
+        return new ScheduleFragment();
     }
 
     @Override

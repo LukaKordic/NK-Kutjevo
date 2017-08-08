@@ -1,7 +1,6 @@
 package com.example.cobeosijek.nkkutjevo.ui.team.fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.R;
-import com.example.cobeosijek.nkkutjevo.common.Constants;
 import com.example.cobeosijek.nkkutjevo.common.utils.DatabaseUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
 import com.example.cobeosijek.nkkutjevo.ui.team.activities.PlayerDetailsActivity;
@@ -31,11 +29,7 @@ public class TeamFragment extends Fragment implements ItemClickListener {
     RecyclerView teamRecyclerView;
 
     public static TeamFragment newInstance() {
-        TeamFragment teamFragment = new TeamFragment();
-
-        Bundle args = new Bundle();
-        teamFragment.setArguments(args);
-        return teamFragment;
+        return new TeamFragment();
     }
 
     @Override
@@ -58,8 +52,6 @@ public class TeamFragment extends Fragment implements ItemClickListener {
 
     @Override
     public void onItemClick(PlayerModel playerModel) {
-        Intent intent = new Intent(getActivity(), PlayerDetailsActivity.class);
-        intent.putExtra(Constants.KEY_PLAYER, playerModel);
-        startActivity(intent);
+        startActivity(PlayerDetailsActivity.getLaunchIntent(getActivity(), playerModel));
     }
 }

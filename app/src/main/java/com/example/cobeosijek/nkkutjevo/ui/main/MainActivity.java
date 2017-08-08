@@ -13,7 +13,7 @@ import android.view.MenuItem;
 
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.ui.gallery.fragments.GalleryFragment;
-import com.example.cobeosijek.nkkutjevo.ui.home.HomeFragment;
+import com.example.cobeosijek.nkkutjevo.ui.home.fragments.HomeFragment;
 import com.example.cobeosijek.nkkutjevo.ui.news.fragments.NewsFragment;
 import com.example.cobeosijek.nkkutjevo.ui.schedule.fragments.ScheduleFragment;
 import com.example.cobeosijek.nkkutjevo.ui.team.fragments.TeamFragment;
@@ -22,8 +22,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, MainView {
-
-    private final MainPresenter presenter = new MainPresenterImpl();
 
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
@@ -34,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @BindView(R.id.navigation_view)
     NavigationView navigationView;
 
+    private final MainPresenter presenter = new MainPresenterImpl();
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
@@ -59,7 +58,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initUI() {
-        changeStatusBarColor();
         initToolbar();
         initNavDrawer();
         initDrawerToggle();
@@ -77,10 +75,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
 
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
-    }
-
-    private void changeStatusBarColor() {
-//        getWindow().setStatusBarColor(getResources().getColor(R.color.statusBarColor));
     }
 
     private void setActionBarTitle(int title) {

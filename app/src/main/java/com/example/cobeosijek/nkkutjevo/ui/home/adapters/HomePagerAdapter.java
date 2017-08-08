@@ -4,52 +4,42 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.cobeosijek.nkkutjevo.R;
-import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
+import com.example.cobeosijek.nkkutjevo.ui.home.holders.ResponseHolder;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class HomePagerAdapter extends PagerAdapter {
 
-    @BindView(R.id.home_pager_item_image)
-    ImageView homePostImage;
-
-    @BindView(R.id.home_pager_item_title)
-    TextView homePostTitle;
-    // TODO: 07/08/2017 prebaci u holder
-
     private final List<String> imageList = new ArrayList<>();
+    private final List<String> titleList = new ArrayList<>();
 
-    public void setData(List<String> data, String title) {
-        imageList.clear();
-        imageList.addAll(data);
+    public void setData(List<String> imageList, List<String> titleList) {
+        this.imageList.clear();
+        this.imageList.addAll(imageList);
+        this.titleList.addAll(titleList);
         notifyDataSetChanged();
-
-        homePostTitle.setText(title);
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         LayoutInflater inflater = LayoutInflater.from(container.getContext());
         View view = inflater.inflate(R.layout.home_pager_item, container, false);
+        ResponseHolder responseHolder = new ResponseHolder(view);
 
-        ButterKnife.bind(this, view);
-
-        ImageUtils.loadImage(homePostImage, imageList.get(position));
+        if (!imageList.isEmpty() && !titleList.isEmpty()) {
+            responseHolder.setResponseImage(imageList.get(position));
+            responseHolder.setResponseTitle(titleList.get(position));
+        }
 
         container.addView(view);
         return view;
     }
 
     @Override
-    public int getCount() {
+    public int getCount() { //
         return imageList.size();
     }
 

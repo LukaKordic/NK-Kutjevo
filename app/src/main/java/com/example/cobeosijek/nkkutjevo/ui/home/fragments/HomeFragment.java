@@ -1,5 +1,4 @@
-package com.example.cobeosijek.nkkutjevo.ui.home;
-
+package com.example.cobeosijek.nkkutjevo.ui.home.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -47,10 +46,11 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     @BindView(R.id.away_team_image)
     ImageView awayTeamImage;
 
-    private List<String> homeImageList = new ArrayList<>();
     private final HomePagerAdapter homePagerAdapter = new HomePagerAdapter();
-
     private final CallbackManager callbackManager = CallbackManager.Factory.create();
+
+    private List<String> imageList = new ArrayList<>();
+    private List<String> titleList = new ArrayList<>();
 
     public static HomeFragment newInstance() {
         return new HomeFragment();
@@ -89,8 +89,8 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         }
     }
 
-    private void setData(List<String> imageList, String title) {
-        homePagerAdapter.setData(imageList, title);
+    private void setData() {
+        homePagerAdapter.setData(imageList, titleList);
     }
 
     private void loadImagesForNextGame() {
@@ -131,10 +131,11 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
                     @Override
                     public void onCompleted(GraphResponse response) {
                         FeedResponse fbResponse = parseJsonResponse(createGsonParser(), response);
-                        for (int i = 0; i < fbResponse.getData().size(); i++) {
-                            homeImageList.add(fbResponse.getData().get(i).getFullPicture());
-                            setData(homeImageList, fbResponse.getData().get(i).getName());
+                        for (int i = 0; i < 3; i++) {
+                            imageList.add(fbResponse.getData().get(i).getFullPicture());
+                            titleList.add(fbResponse.getData().get(i).getName());
                         }
+                        setData();
                     }
                 });
 
@@ -147,12 +148,10 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     private Gson createGsonParser() {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.setPrettyPrinting().serializeNulls();
-        Gson gson = gsonBuilder.create();
-        return gson;
+        return gsonBuilder.create();
     }
 
     private FeedResponse parseJsonResponse(Gson gson, GraphResponse response) {
-        FeedResponse feedResponse = gson.fromJson(response.getRawResponse(), FeedResponse.class);
-        return feedResponse;
+        return gson.fromJson(response.getRawResponse(), FeedResponse.class);
     }
 }

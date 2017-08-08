@@ -13,7 +13,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-
 public class ImageHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.gallery_item_image)

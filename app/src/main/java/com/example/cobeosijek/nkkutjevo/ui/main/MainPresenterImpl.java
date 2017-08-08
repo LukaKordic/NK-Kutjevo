@@ -51,7 +51,6 @@ public class MainPresenterImpl implements MainPresenter {
                 break;
             }
         }
-
         mainView.closeDrawer();
     }
 
@@ -66,6 +65,5 @@ public class MainPresenterImpl implements MainPresenter {
     @Override
     public void saveDataIntoRealm() {
         DatabaseUtils.savePlayersIntoRealm();
-
     }
 }
