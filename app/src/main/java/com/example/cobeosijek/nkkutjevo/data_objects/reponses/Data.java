@@ -3,7 +3,9 @@ package com.example.cobeosijek.nkkutjevo.data_objects.reponses;
 import com.example.cobeosijek.nkkutjevo.data_objects.BaseModel;
 import com.google.gson.annotations.SerializedName;
 
-public class Data extends BaseModel {
+import java.io.Serializable;
+
+public class Data extends BaseModel implements Serializable {
 
     private String id;
     private String name;

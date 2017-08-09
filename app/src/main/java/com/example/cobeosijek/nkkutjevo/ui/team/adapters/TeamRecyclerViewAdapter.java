@@ -50,7 +50,7 @@ public class TeamRecyclerViewAdapter extends RecyclerView.Adapter<PlayerHolder> 
     private PlayerModel getItem(int position) {
         if (position < getItemCount()) {
             PlayerModel playerModel = playerModelList.get(position);
-            return playerModel != null ? playerModel : new PlayerModel();
+            return (playerModel != null) ? playerModel : new PlayerModel();
         }
         return new PlayerModel();
     }

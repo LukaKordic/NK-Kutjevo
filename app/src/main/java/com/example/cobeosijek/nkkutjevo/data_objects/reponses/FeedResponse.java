@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FeedResponse implements Serializable{
+public class FeedResponse implements Serializable {
 
     private List<Data> data = new ArrayList<>();
 
     public FeedResponse(List<Data> data) {
         this.data = data;
+    }
+
+    public FeedResponse() {
     }
 
     public List<Data> getData() {

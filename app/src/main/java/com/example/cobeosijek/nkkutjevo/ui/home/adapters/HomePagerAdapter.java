@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.R;
+import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
 import com.example.cobeosijek.nkkutjevo.ui.home.PagerClickListener;
 import com.example.cobeosijek.nkkutjevo.ui.home.holders.ResponseHolder;
 
@@ -16,12 +17,19 @@ public class HomePagerAdapter extends PagerAdapter {
 
     private PagerClickListener pagerClickListener;
 
+    private FeedResponse fbResponse = new FeedResponse();
     private final List<String> imageList = new ArrayList<>();
     private final List<String> titleList = new ArrayList<>();
+
+    public void setResponse(FeedResponse fbResponse) {
+        this.fbResponse = fbResponse;
+        notifyDataSetChanged();
+    }
 
     public void setData(List<String> imageList, List<String> titleList) {
         this.imageList.clear();
         this.imageList.addAll(imageList);
+        this.titleList.clear();
         this.titleList.addAll(titleList);
         notifyDataSetChanged();
     }
@@ -35,6 +43,8 @@ public class HomePagerAdapter extends PagerAdapter {
         LayoutInflater inflater = LayoutInflater.from(container.getContext());
         View view = inflater.inflate(R.layout.home_pager_item, container, false);
         ResponseHolder responseHolder = new ResponseHolder(view, pagerClickListener);
+        responseHolder.setFeedResponse(fbResponse);
+        responseHolder.getItemPosition(position);
 
         if (!imageList.isEmpty() && !titleList.isEmpty()) {
             responseHolder.setResponseImage(imageList.get(position));
@@ -46,7 +56,7 @@ public class HomePagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public int getCount() { //
+    public int getCount() {
         return imageList.size();
     }
 

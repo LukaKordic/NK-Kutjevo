@@ -22,12 +22,16 @@ public class ResponseHolder {
     TextView responseTitle;
 
     private final PagerClickListener pagerClickListener;
-
     private FeedResponse feedResponse;
+    private int position;
 
     public ResponseHolder(View view, final PagerClickListener pagerClickListener) {
         this.pagerClickListener = pagerClickListener;
         ButterKnife.bind(this, view);
+    }
+
+    public void getItemPosition(int position) {
+        this.position = position;
     }
 
     public void setFeedResponse(FeedResponse feedResponse) {
@@ -45,7 +49,7 @@ public class ResponseHolder {
     @OnClick(R.id.pager_item_layout)
     public void onClick() {
         if (pagerClickListener != null) {
-            pagerClickListener.onItemClick(feedResponse);
+            pagerClickListener.onItemClick(feedResponse, position);
         }
     }
 }

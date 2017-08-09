@@ -51,6 +51,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     private final HomePagerAdapter homePagerAdapter = new HomePagerAdapter();
     private final CallbackManager callbackManager = CallbackManager.Factory.create();
 
+    private FeedResponse fbResponse;
     private List<String> imageList = new ArrayList<>();
     private List<String> titleList = new ArrayList<>();
 
@@ -67,7 +68,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initUI(view);
-        initLoginManager();
+        registerCallback();
         checkIfTokenExists();
     }
 
@@ -78,7 +79,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         loadImagesForNextGame();
     }
 
-    private void initLoginManager() {
+    private void registerCallback() {
         LoginManager loginManager = LoginManager.getInstance();
         loginManager.registerCallback(callbackManager, this);
     }
@@ -90,6 +91,10 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         } else {
             requestFeed(AccessToken.getCurrentAccessToken());
         }
+    }
+
+    private void setResponse() {
+        homePagerAdapter.setResponse(fbResponse);
     }
 
     private void setData() {
@@ -133,7 +138,8 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
                 new GraphRequest.Callback() {
                     @Override
                     public void onCompleted(GraphResponse response) {
-                        FeedResponse fbResponse = parseJsonResponse(createGsonParser(), response);
+                        fbResponse = parseJsonResponse(createGsonParser(), response);
+                        setResponse();
                         for (int i = 0; i < 3; i++) {
                             imageList.add(fbResponse.getData().get(i).getFullPicture());
                             titleList.add(fbResponse.getData().get(i).getName());
@@ -159,7 +165,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     }
 
     @Override
-    public void onItemClick(FeedResponse feedResponse) {
-        startActivity(ReadPostActivity.getLaunchIntent(getActivity(), feedResponse));
+    public void onItemClick(FeedResponse feedResponse, int position) {
+        startActivity(ReadPostActivity.getLaunchIntent(getActivity(), feedResponse, position));
     }
 }
