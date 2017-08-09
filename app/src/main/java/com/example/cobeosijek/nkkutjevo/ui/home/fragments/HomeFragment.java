@@ -16,6 +16,8 @@ import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.Constants;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
+import com.example.cobeosijek.nkkutjevo.ui.home.PagerClickListener;
+import com.example.cobeosijek.nkkutjevo.ui.home.activities.ReadPostActivity;
 import com.example.cobeosijek.nkkutjevo.ui.home.adapters.HomePagerAdapter;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -35,7 +37,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeFragment extends Fragment implements FacebookCallback<LoginResult> {
+public class HomeFragment extends Fragment implements FacebookCallback<LoginResult>, PagerClickListener {
 
     @BindView(R.id.home_view_pager)
     ViewPager homeViewPager;
@@ -71,6 +73,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
 
     private void initUI(View view) {
         ButterKnife.bind(this, view);
+        homePagerAdapter.setPagerClickListener(this);
         homeViewPager.setAdapter(homePagerAdapter);
         loadImagesForNextGame();
     }
@@ -153,5 +156,10 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
 
     private FeedResponse parseJsonResponse(Gson gson, GraphResponse response) {
         return gson.fromJson(response.getRawResponse(), FeedResponse.class);
+    }
+
+    @Override
+    public void onItemClick(FeedResponse feedResponse) {
+        startActivity(ReadPostActivity.getLaunchIntent(getActivity(), feedResponse));
     }
 }

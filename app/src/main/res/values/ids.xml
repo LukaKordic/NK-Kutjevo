@@ -75,5 +75,6 @@
     <item name="home_pager_item_image" type="id"/>
     <item name="home_pager_item_title" type="id"/>
     <item name="pager_indicator" type="id"/>
+    <item name="pager_item_layout" type="id"/>
 
 </resources>

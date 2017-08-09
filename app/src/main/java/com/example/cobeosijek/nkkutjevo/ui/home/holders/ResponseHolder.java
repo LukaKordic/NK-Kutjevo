@@ -7,9 +7,11 @@ import android.widget.TextView;
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
+import com.example.cobeosijek.nkkutjevo.ui.home.PagerClickListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ResponseHolder {
 
@@ -19,9 +21,12 @@ public class ResponseHolder {
     @BindView(R.id.home_pager_item_title)
     TextView responseTitle;
 
+    private final PagerClickListener pagerClickListener;
+
     private FeedResponse feedResponse;
 
-    public ResponseHolder(View view) {
+    public ResponseHolder(View view, final PagerClickListener pagerClickListener) {
+        this.pagerClickListener = pagerClickListener;
         ButterKnife.bind(this, view);
     }
 
@@ -35,5 +40,12 @@ public class ResponseHolder {
 
     public void setResponseImage(String fbResponseImage) {
         ImageUtils.loadImage(responseImage, fbResponseImage);
+    }
+
+    @OnClick(R.id.pager_item_layout)
+    public void onClick() {
+        if (pagerClickListener != null) {
+            pagerClickListener.onItemClick(feedResponse);
+        }
     }
 }

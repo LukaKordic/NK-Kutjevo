@@ -6,12 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.R;
+import com.example.cobeosijek.nkkutjevo.ui.home.PagerClickListener;
 import com.example.cobeosijek.nkkutjevo.ui.home.holders.ResponseHolder;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomePagerAdapter extends PagerAdapter {
+
+    private PagerClickListener pagerClickListener;
 
     private final List<String> imageList = new ArrayList<>();
     private final List<String> titleList = new ArrayList<>();
@@ -23,11 +26,15 @@ public class HomePagerAdapter extends PagerAdapter {
         notifyDataSetChanged();
     }
 
+    public void setPagerClickListener(PagerClickListener pagerClickListener) {
+        this.pagerClickListener = pagerClickListener;
+    }
+
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         LayoutInflater inflater = LayoutInflater.from(container.getContext());
         View view = inflater.inflate(R.layout.home_pager_item, container, false);
-        ResponseHolder responseHolder = new ResponseHolder(view);
+        ResponseHolder responseHolder = new ResponseHolder(view, pagerClickListener);
 
         if (!imageList.isEmpty() && !titleList.isEmpty()) {
             responseHolder.setResponseImage(imageList.get(position));

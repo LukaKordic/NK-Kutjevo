@@ -1,9 +1,10 @@
 package com.example.cobeosijek.nkkutjevo.data_objects.reponses;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FeedResponse {
+public class FeedResponse implements Serializable{
 
     private List<Data> data = new ArrayList<>();
 

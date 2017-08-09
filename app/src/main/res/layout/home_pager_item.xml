@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@id/pager_item_layout"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
@@ -7,14 +8,14 @@
     <ImageView
         android:id="@id/home_pager_item_image"
         android:layout_width="match_parent"
-        android:layout_height="270dp"
+        android:layout_height="250dp"
         android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@id/home_pager_item_title"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="20dp"
         android:layout_gravity="center"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:gravity="center"/>
 </LinearLayout>
