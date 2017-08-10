@@ -1,11 +1,12 @@
 package com.example.cobeosijek.nkkutjevo.data_objects.reponses;
 
-import com.example.cobeosijek.nkkutjevo.data_objects.BaseModel;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class Data extends BaseModel implements Serializable {
+import io.realm.RealmObject;
+
+public class Data extends RealmObject implements Serializable {
 
     private String id;
     private String name;
@@ -29,7 +30,7 @@ public class Data extends BaseModel implements Serializable {
     }
 
     public String getMessage() {
-        return returnValueOrEmpty(message);
+        return (message == null) ? "" : message;
     }
 
     public void setMessage(String message) {
@@ -37,7 +38,7 @@ public class Data extends BaseModel implements Serializable {
     }
 
     public String getName() {
-        return returnValueOrEmpty(name);
+        return (name == null) ? "" : name;
     }
 
     public void setName(String name) {
@@ -45,7 +46,7 @@ public class Data extends BaseModel implements Serializable {
     }
 
     public String getFullPicture() {
-        return returnValueOrEmpty(fullPicture);
+        return (fullPicture == null) ? "" : fullPicture;
     }
 
     public void setFullPicture(String fullPicture) {

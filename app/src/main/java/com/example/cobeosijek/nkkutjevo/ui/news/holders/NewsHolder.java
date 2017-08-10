@@ -10,7 +10,7 @@ import com.example.cobeosijek.nkkutjevo.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class NewsViewHolder extends RecyclerView.ViewHolder {
+public class NewsHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.home_pager_item_image)
     ImageView newsImage;
@@ -18,7 +18,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.home_pager_item_title)
     TextView newsTitle;
 
-    public NewsViewHolder(View itemView) {
+    public NewsHolder(View itemView) {
         super(itemView);
 
         ButterKnife.bind(this, itemView);

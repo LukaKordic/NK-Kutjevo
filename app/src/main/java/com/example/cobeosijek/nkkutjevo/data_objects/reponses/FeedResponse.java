@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FeedResponse implements Serializable {
+import io.realm.RealmObject;
+
+public class FeedResponse extends RealmObject implements Serializable {
 
     private List<Data> data = new ArrayList<>();
 

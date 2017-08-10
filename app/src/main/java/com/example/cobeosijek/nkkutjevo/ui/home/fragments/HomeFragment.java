@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.cobeosijek.nkkutjevo.App;
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.Constants;
+import com.example.cobeosijek.nkkutjevo.common.utils.DatabaseUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
 import com.example.cobeosijek.nkkutjevo.ui.home.PagerClickListener;
@@ -139,6 +140,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
                     @Override
                     public void onCompleted(GraphResponse response) {
                         fbResponse = parseJsonResponse(createGsonParser(), response);
+                        DatabaseUtils.saveResponseIntoRealm(fbResponse);
                         setResponse();
                         for (int i = 0; i < 3; i++) {
                             imageList.add(fbResponse.getData().get(i).getFullPicture());

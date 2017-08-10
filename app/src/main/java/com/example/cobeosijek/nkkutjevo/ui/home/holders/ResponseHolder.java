@@ -22,7 +22,7 @@ public class ResponseHolder {
     TextView responseTitle;
 
     private final PagerClickListener pagerClickListener;
-    private FeedResponse feedResponse;
+    private FeedResponse fbResponse;
     private int position;
 
     public ResponseHolder(View view, final PagerClickListener pagerClickListener) {
@@ -30,26 +30,26 @@ public class ResponseHolder {
         ButterKnife.bind(this, view);
     }
 
+    public void setFbResponse(FeedResponse fbResponse) {
+        this.fbResponse = fbResponse;
+    }
+
     public void getItemPosition(int position) {
         this.position = position;
     }
 
-    public void setFeedResponse(FeedResponse feedResponse) {
-        this.feedResponse = feedResponse;
+    public void setResponseTitle() {
+        responseTitle.setText(fbResponse.getData().get(position).getName());
     }
 
-    public void setResponseTitle(String fbResponseTitle) {
-        this.responseTitle.setText(fbResponseTitle);
-    }
-
-    public void setResponseImage(String fbResponseImage) {
-        ImageUtils.loadImage(responseImage, fbResponseImage);
+    public void setResponseImage() {
+        ImageUtils.loadImage(responseImage, fbResponse.getData().get(position).getFullPicture());
     }
 
     @OnClick(R.id.pager_item_layout)
     public void onClick() {
         if (pagerClickListener != null) {
-            pagerClickListener.onItemClick(feedResponse, position);
+            pagerClickListener.onItemClick(fbResponse, position);
         }
     }
 }

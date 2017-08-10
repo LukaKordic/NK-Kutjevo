@@ -77,4 +77,8 @@ public class DummyDataFactory {
 
         return playerModels;
     }
+
+    public static String loadDefaultImage() {
+        return "https://scontent-vie1-1.xx.fbcdn.net/v/t31.0-8/18589011_1349820621766180_5130766153308582347_o.jpg?oh=51f0abb7eff739411e532ae9459dd6c1&oe=59F4173C";
+    }
 }

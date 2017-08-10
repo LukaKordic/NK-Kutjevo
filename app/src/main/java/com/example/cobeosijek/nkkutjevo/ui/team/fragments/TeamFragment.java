@@ -23,10 +23,10 @@ import butterknife.ButterKnife;
 
 public class TeamFragment extends Fragment implements ItemClickListener {
 
-    private final TeamRecyclerViewAdapter teamRecyclerViewAdapter = new TeamRecyclerViewAdapter();
-
     @BindView(R.id.team_recycler_view)
     RecyclerView teamRecyclerView;
+
+    private final TeamRecyclerViewAdapter teamRecyclerViewAdapter = new TeamRecyclerViewAdapter();
 
     public static TeamFragment newInstance() {
         return new TeamFragment();

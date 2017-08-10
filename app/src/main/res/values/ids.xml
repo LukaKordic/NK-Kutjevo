@@ -80,5 +80,6 @@
     <item name="read_post_title" type="id"/>
     <item name="read_post_scroll_view" type="id"/>
     <item name="read_post_message" type="id"/>
+    <item name="news_recycler_view" type="id"/>
 
 </resources>

@@ -17,7 +17,7 @@ public class HomePagerAdapter extends PagerAdapter {
 
     private PagerClickListener pagerClickListener;
 
-    private FeedResponse fbResponse = new FeedResponse();
+    private FeedResponse fbResponse;
     private final List<String> imageList = new ArrayList<>();
     private final List<String> titleList = new ArrayList<>();
 
@@ -43,12 +43,12 @@ public class HomePagerAdapter extends PagerAdapter {
         LayoutInflater inflater = LayoutInflater.from(container.getContext());
         View view = inflater.inflate(R.layout.home_pager_item, container, false);
         ResponseHolder responseHolder = new ResponseHolder(view, pagerClickListener);
-        responseHolder.setFeedResponse(fbResponse);
+        responseHolder.setFbResponse(fbResponse);
         responseHolder.getItemPosition(position);
 
         if (!imageList.isEmpty() && !titleList.isEmpty()) {
-            responseHolder.setResponseImage(imageList.get(position));
-            responseHolder.setResponseTitle(titleList.get(position));
+            responseHolder.setResponseImage();
+            responseHolder.setResponseTitle();
         }
 
         container.addView(view);
