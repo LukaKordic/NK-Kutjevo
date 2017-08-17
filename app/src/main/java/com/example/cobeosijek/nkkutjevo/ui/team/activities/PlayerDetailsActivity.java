@@ -12,7 +12,7 @@ import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.Constants;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.RadarChartUtils;
-import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
+import com.example.cobeosijek.nkkutjevo.data_objects.player_model.PlayerModel;
 import com.github.mikephil.charting.charts.RadarChart;
 
 import butterknife.BindView;
@@ -61,7 +61,7 @@ public class PlayerDetailsActivity extends AppCompatActivity {
 
     private PlayerModel playerModel;
 
-    public static Intent getLaunchIntent(Context from, PlayerModel playerModel){
+    public static Intent getLaunchIntent(Context from, PlayerModel playerModel) {
         Intent intent = new Intent(from, PlayerDetailsActivity.class);
         intent.putExtra(Constants.KEY_PLAYER, playerModel);
         return intent;
@@ -107,11 +107,11 @@ public class PlayerDetailsActivity extends AppCompatActivity {
         number.setText(String.valueOf(playerModel.getNumber()));
         age.setText(String.valueOf(playerModel.getAge()));
         position.setText(playerModel.getPosition());
-        appearance.setText(String.valueOf(playerModel.getAppearances()));
-        minutesPlayed.setText(String.valueOf(playerModel.getMinutesPlayed()));
-        goalsScored.setText(String.valueOf(playerModel.getGoalsScored()));
-        yellowCards.setText(String.valueOf(playerModel.getYellowCards()));
-        redCards.setText(String.valueOf(playerModel.getRedCards()));
+        appearance.setText(String.valueOf(playerModel.getPlayerStats().getAppearances()));
+        minutesPlayed.setText(String.valueOf(playerModel.getPlayerStats().getMinutesPlayed()));
+        goalsScored.setText(String.valueOf(playerModel.getPlayerStats().getGoalsScored()));
+        yellowCards.setText(String.valueOf(playerModel.getPlayerStats().getYellowCards()));
+        redCards.setText(String.valueOf(playerModel.getPlayerStats().getRedCards()));
     }
 }
 

@@ -2,13 +2,14 @@ package com.example.cobeosijek.nkkutjevo.data_objects.reponses;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
-public class Data extends RealmObject implements Serializable {
+public class Data extends RealmObject {
 
+    @PrimaryKey
     private String id;
+
     private String name;
     @SerializedName("full_picture")
     private String fullPicture;
@@ -19,6 +20,9 @@ public class Data extends RealmObject implements Serializable {
         this.name = name;
         this.fullPicture = fullPicture;
         this.message = message;
+    }
+
+    public Data() {
     }
 
     public String getId() {

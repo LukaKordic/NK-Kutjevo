@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.utils.DatabaseUtils;
-import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
+import com.example.cobeosijek.nkkutjevo.data_objects.player_model.PlayerModel;
 import com.example.cobeosijek.nkkutjevo.ui.team.activities.PlayerDetailsActivity;
 import com.example.cobeosijek.nkkutjevo.ui.team.adapters.TeamRecyclerViewAdapter;
 import com.example.cobeosijek.nkkutjevo.ui.team.listeners.ItemClickListener;

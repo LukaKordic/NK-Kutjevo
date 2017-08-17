@@ -2,7 +2,7 @@ package com.example.cobeosijek.nkkutjevo.common.utils;
 
 import android.graphics.Color;
 
-import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
+import com.example.cobeosijek.nkkutjevo.data_objects.player_model.PlayerModel;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.RadarChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -37,14 +37,14 @@ public class RadarChartUtils {
     private static List<RadarEntry> createRadarEntries(PlayerModel player) {
         List<RadarEntry> entries = new ArrayList<>();
 
-        entries.add(new RadarEntry(player.getDefending()));
-        entries.add(new RadarEntry(player.getPhysical()));
-        entries.add(new RadarEntry(player.getSpeed()));
-        entries.add(new RadarEntry(player.getCreativity()));
-        entries.add(new RadarEntry(player.getAttacking()));
-        entries.add(new RadarEntry(player.getTechnical()));
-        entries.add(new RadarEntry(player.getAerial()));
-        entries.add(new RadarEntry(player.getMental()));
+        entries.add(new RadarEntry(player.getPlayerAbilities().getDefending()));
+        entries.add(new RadarEntry(player.getPlayerAbilities().getPhysical()));
+        entries.add(new RadarEntry(player.getPlayerAbilities().getSpeed()));
+        entries.add(new RadarEntry(player.getPlayerAbilities().getCreativity()));
+        entries.add(new RadarEntry(player.getPlayerAbilities().getAttacking()));
+        entries.add(new RadarEntry(player.getPlayerAbilities().getTechnical()));
+        entries.add(new RadarEntry(player.getPlayerAbilities().getAerial()));
+        entries.add(new RadarEntry(player.getPlayerAbilities().getMental()));
 
         return entries;
     }

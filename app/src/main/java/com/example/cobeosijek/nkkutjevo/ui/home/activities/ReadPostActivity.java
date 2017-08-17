@@ -8,13 +8,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cobeosijek.nkkutjevo.R;
+import com.example.cobeosijek.nkkutjevo.common.utils.DatabaseUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.example.cobeosijek.nkkutjevo.common.Constants.KEY_FEEDRESPONSE;
 import static com.example.cobeosijek.nkkutjevo.common.Constants.KEY_POSITION;
 
 public class ReadPostActivity extends AppCompatActivity {
@@ -41,27 +41,32 @@ public class ReadPostActivity extends AppCompatActivity {
     private void initUI() {
         ButterKnife.bind(this);
         receiveIntent();
+        getFeedFromRealm();
         setupViews();
     }
 
-    public static Intent getLaunchIntent(Context from, FeedResponse feedResponse, int position) {
+    public static Intent getLaunchIntent(Context from, int position) {
         Intent intent = new Intent(from, ReadPostActivity.class);
-        intent.putExtra(KEY_FEEDRESPONSE, feedResponse);
         intent.putExtra(KEY_POSITION, position);
         return intent;
     }
 
+    private void getFeedFromRealm() {
+        fbResponse = DatabaseUtils.loadFeedResponse();
+    }
+
     private void receiveIntent() {
         Intent intent = getIntent();
-        if (intent != null && intent.getSerializableExtra(KEY_FEEDRESPONSE) instanceof FeedResponse) {
-            fbResponse = (FeedResponse) intent.getSerializableExtra(KEY_FEEDRESPONSE);
+        if (intent != null) {
             position = intent.getIntExtra(KEY_POSITION, -1);
         }
     }
 
     private void setupViews() {
-        ImageUtils.loadImage(postImage, fbResponse.getData().get(position).getFullPicture());
-        postTitle.setText(fbResponse.getData().get(position).getName());
-        postMessage.setText(fbResponse.getData().get(position).getMessage());
+        if (fbResponse != null) {
+            ImageUtils.loadImage(postImage, fbResponse.getData().get(position).getFullPicture());
+            postTitle.setText(fbResponse.getData().get(position).getName());
+            postMessage.setText(fbResponse.getData().get(position).getMessage());
+        }
     }
 }

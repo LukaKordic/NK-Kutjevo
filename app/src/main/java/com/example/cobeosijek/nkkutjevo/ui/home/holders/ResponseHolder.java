@@ -39,17 +39,21 @@ public class ResponseHolder {
     }
 
     public void setResponseTitle() {
-        responseTitle.setText(fbResponse.getData().get(position).getName());
+        if (!fbResponse.getData().get(position).getName().equals("")) {
+            responseTitle.setText(fbResponse.getData().get(position).getName());
+        }
     }
 
     public void setResponseImage() {
-        ImageUtils.loadImage(responseImage, fbResponse.getData().get(position).getFullPicture());
+        if (!fbResponse.getData().get(position).getFullPicture().equals("")) {
+            ImageUtils.loadImage(responseImage, fbResponse.getData().get(position).getFullPicture());
+        }
     }
 
     @OnClick(R.id.pager_item_layout)
     public void onClick() {
         if (pagerClickListener != null) {
-            pagerClickListener.onItemClick(fbResponse, position);
+            pagerClickListener.onItemClick(position);
         }
     }
 }

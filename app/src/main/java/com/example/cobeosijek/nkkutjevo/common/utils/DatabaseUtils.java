@@ -2,7 +2,7 @@ package com.example.cobeosijek.nkkutjevo.common.utils;
 
 import com.example.cobeosijek.nkkutjevo.App;
 import com.example.cobeosijek.nkkutjevo.common.DummyDataFactory;
-import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
+import com.example.cobeosijek.nkkutjevo.data_objects.player_model.PlayerModel;
 import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
 
 import java.util.List;

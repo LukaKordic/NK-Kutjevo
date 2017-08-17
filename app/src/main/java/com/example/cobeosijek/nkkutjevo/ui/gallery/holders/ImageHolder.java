@@ -40,7 +40,7 @@ public class ImageHolder extends RecyclerView.ViewHolder {
 
     @OnClick(R.id.gallery_item_image)
     public void onImageClick() {
-        if(galleryClickListener != null){
+        if (galleryClickListener != null) {
             galleryClickListener.onItemClick(imageModel.getUri());
         }
     }

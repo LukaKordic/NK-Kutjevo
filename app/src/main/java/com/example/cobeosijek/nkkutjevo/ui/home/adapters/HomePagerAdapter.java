@@ -29,6 +29,7 @@ public class HomePagerAdapter extends PagerAdapter {
     public void setData(List<String> imageList, List<String> titleList) {
         this.imageList.clear();
         this.imageList.addAll(imageList);
+
         this.titleList.clear();
         this.titleList.addAll(titleList);
         notifyDataSetChanged();

@@ -21,7 +21,7 @@ public class MainPresenterImpl implements MainPresenter {
 
     @Override
     public void onItemSelected(int id) {
-        changeScreenTitle(id); //DRY -> dont repeat yourself
+        changeScreenTitle(id);
 
         switch (id) {
             case R.id.nav_header_home: {

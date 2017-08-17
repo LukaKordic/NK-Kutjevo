@@ -167,7 +167,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     }
 
     @Override
-    public void onItemClick(FeedResponse feedResponse, int position) {
-        startActivity(ReadPostActivity.getLaunchIntent(getActivity(), feedResponse, position));
+    public void onItemClick(int position) {
+        startActivity(ReadPostActivity.getLaunchIntent(getActivity(), position));
     }
 }

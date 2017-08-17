@@ -1,8 +1,10 @@
 package com.example.cobeosijek.nkkutjevo.common;
 
 import com.example.cobeosijek.nkkutjevo.data_objects.ImageModel;
-import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
 import com.example.cobeosijek.nkkutjevo.data_objects.TeamModel;
+import com.example.cobeosijek.nkkutjevo.data_objects.player_model.PlayerAbilities;
+import com.example.cobeosijek.nkkutjevo.data_objects.player_model.PlayerModel;
+import com.example.cobeosijek.nkkutjevo.data_objects.player_model.PlayerStats;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,27 +60,23 @@ public class DummyDataFactory {
     public static List<PlayerModel> getPlayerModelList() {
         List<PlayerModel> playerModels = new ArrayList<>();
 
-        playerModels.add(new PlayerModel(1, "Ivan", "Majetic", 22, "GK", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/12644719_10205159783666396_3660980232995665197_n.jpg?oh=ec83aae41766730a8014030b96430527&oe=5A2F7467", 22, 1800, 5, 4, 0, 1, 19, 15, 10, 5, 5, 10, 18, 17));
-        playerModels.add(new PlayerModel(2, "Stjepan", "Vasic", 22, "SS", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10374914_797042676995258_2733652903543835564_n.jpg?oh=45adec1362809f771c66786022033820&oe=5A2E6BFA", 22, 1800, 5, 4, 0, 2, 15, 18, 16, 10, 17, 13, 15, 10));
-        playerModels.add(new PlayerModel(3, "Stipo", "Jelusic", 22, "LWB/RWB", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10734160_890273454330656_1767118847469978713_n.jpg?oh=62224013418185a85787bdb2abe9d93b&oe=5A390EDE", 22, 1800, 5, 4, 0, 3, 20, 16, 15, 3, 5, 7, 17, 18));
-        playerModels.add(new PlayerModel(4, "Zlatko", "Hora", 22, "CB", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/12717363_1229295863765221_5049203837308819321_n.jpg?oh=85a7f1f187575faff679961f226b983e&oe=59FA9E3D", 22, 1800, 5, 4, 0, 4, 19, 20, 17, 8, 7, 10, 20, 16));
-        playerModels.add(new PlayerModel(5, "Ivan", "Franjic", 22, "DMF/CMF", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10986503_10203009809441147_7557408399289319992_n.jpg?oh=63e6d09dabaf9fe37c6127ed2fed3305&oe=59F458C9", 22, 1800, 5, 4, 0, 6, 14, 16, 13, 19, 18, 17, 18, 19));
-        playerModels.add(new PlayerModel(6, "Josip", "Budimir", 22, "SS/AML", "https://scontent-frx5-1.xx.fbcdn.net/v/t31.0-8/12967415_582403691914689_179886055394567351_o.jpg?oh=46bd599ca40b8628b665ec6f5e165bf5&oe=59F5F79E", 22, 1800, 5, 4, 0, 7, 7, 16, 18, 20, 20, 19, 10, 17));
-        playerModels.add(new PlayerModel(7, "Luka", "Kordic", 22, "CMF/AMF", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10858457_10204626002843388_9122226864758380241_n.jpg?oh=77597aa631dbaf174521cb7d4452bda3&oe=59F817D9", 22, 1800, 5, 4, 0, 8, 12, 17, 19, 20, 18, 20, 15, 19));
-        playerModels.add(new PlayerModel(8, "Domagoj", "Ajman", 22, "FC", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-1/c0.0.955.955/14606531_1375161719182926_3187872153032432519_n.jpg?oh=c337860986728bce089c29e61e4e1980&oe=5A2B9F95", 22, 1800, 5, 4, 0, 9, 10, 9, 17, 18, 19, 17, 5, 13));
-        playerModels.add(new PlayerModel(9, "Ante", "Budimir", 22, "CMF/DMF", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/18057795_1442293815791317_6746114603697655483_n.jpg?oh=035ab17cc3d00d5a1c64d9e084f12922&oe=5A25ED35", 22, 1800, 5, 4, 0, 10, 13, 16, 16, 19, 19, 18, 14, 20));
-        playerModels.add(new PlayerModel(10, "Petar", "Culjak", 22, "CB", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/483886_265979193536731_2068298456_n.jpg?oh=4aea3cf71d0c877547c6fcf587e91aa2&oe=59F56BD9", 22, 1800, 5, 4, 0, 11, 19, 15, 14, 14, 13, 17, 18, 20));
-        playerModels.add(new PlayerModel(11, "Bruno", "Saric", 22, "GK", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/18221739_1452485674772131_476828398607284567_n.jpg?oh=f8cc6e0f51bf692427bdb1026328d1aa&oe=5A2A9AE0", 22, 1800, 5, 4, 0, 12, 17, 10, 7, 5, 3, 8, 11, 12));
-        playerModels.add(new PlayerModel(12, "Ante", "Paulic", 22, "RWB/RMF", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/13432178_1015434611886555_1364564380904079370_n.jpg?oh=a16577b75e0c94ff12525b61676dddd3&oe=59F1C721", 22, 1800, 5, 4, 0, 13, 13, 16, 16, 17, 17, 18, 11, 12));
-        playerModels.add(new PlayerModel(13, "Josip", "Colak", 22, "FC", "https://scontent-frt3-2.xx.fbcdn.net/v/t31.0-8/18620590_1729670890391492_598012713495815542_o.jpg?oh=05a4580d832ea2e1129e82059901a10e&oe=59EFE585", 22, 1800, 5, 4, 0, 14, 14, 20, 15, 15, 18, 16, 20, 19));
-        playerModels.add(new PlayerModel(14, "Karlo", "Antunovic", 22, "AMF/SS", "https://scontent-frt3-2.xx.fbcdn.net/v/t31.0-1/c0.0.960.960/p960x960/18588934_2287540551470324_9140096878744490923_o.jpg?oh=acac626cc6d91a840b54781e1673d142&oe=59EE20F6", 22, 1800, 5, 4, 0, 15, 5, 10, 17, 14, 19, 17, 8, 13));
-        playerModels.add(new PlayerModel(15, "Stjepan", "Adzic", 22, "AMF/CMF", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/14264808_10207596668977626_2307221628866390565_n.jpg?oh=ddcd33b61d59f856753ba4fe315ff93a&oe=5A2FA940", 22, 1800, 5, 4, 0, 16, 9, 16, 16, 20, 18, 19, 8, 19));
-        playerModels.add(new PlayerModel(16, "Josip", "Pavic", 22, "DMF", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/11238229_10205107776509382_5106570336895916410_n.jpg?oh=844d78208776bc69023511ac16a9bee7&oe=5A2B6F71", 22, 1800, 5, 4, 0, 17, 14, 17, 17, 16, 16, 18, 16, 15));
+        playerModels.add(new PlayerModel(1, "Ivan", "Majetic", 22, "GK", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/12644719_10205159783666396_3660980232995665197_n.jpg?oh=ec83aae41766730a8014030b96430527&oe=5A2F7467", 1, new PlayerAbilities(20, 17, 13, 5, 5, 8, 18, 16), new PlayerStats(20, 1500, 10, 6, 1)));
+        playerModels.add(new PlayerModel(2, "Stjepan", "Vasic", 22, "SS", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10374914_797042676995258_2733652903543835564_n.jpg?oh=45adec1362809f771c66786022033820&oe=5A2E6BFA", 2, new PlayerAbilities(12, 17, 16, 10, 15, 12, 16, 10), new PlayerStats(20, 1500, 10, 6, 1)));
+        playerModels.add(new PlayerModel(3, "Stipo", "Jelusic", 22, "LWB/RWB", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10734160_890273454330656_1767118847469978713_n.jpg?oh=62224013418185a85787bdb2abe9d93b&oe=5A390EDE", 3, new PlayerAbilities(18, 17, 17, 5, 5, 10, 16, 17), new PlayerStats(20, 1500, 10, 6, 1)));
+        playerModels.add(new PlayerModel(4, "Zlatko", "Hora", 22, "CB", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/12717363_1229295863765221_5049203837308819321_n.jpg?oh=85a7f1f187575faff679961f226b983e&oe=59FA9E3D", 4, new PlayerAbilities(19, 20, 17, 10, 9, 11, 20, 16), new PlayerStats(20, 1500, 10, 6, 1)));
+        playerModels.add(new PlayerModel(5, "Ivan", "Franjic", 22, "DMF/CMF", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10986503_10203009809441147_7557408399289319992_n.jpg?oh=63e6d09dabaf9fe37c6127ed2fed3305&oe=59F458C9", 6, new PlayerAbilities(12, 18, 15, 19, 17, 20, 18, 18), new PlayerStats(20, 1500, 10, 6, 1)));
+        playerModels.add(new PlayerModel(6, "Josip", "Budimir", 22, "SS/AML", "https://scontent-frx5-1.xx.fbcdn.net/v/t31.0-8/12967415_582403691914689_179886055394567351_o.jpg?oh=46bd599ca40b8628b665ec6f5e165bf5&oe=59F5F79E", 7, new PlayerAbilities(8, 18, 18, 20, 18, 20, 10, 19), new PlayerStats(20, 1500, 10, 6, 1)));
+        playerModels.add(new PlayerModel(7, "Luka", "Kordic", 22, "CMF/AMF", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10858457_10204626002843388_9122226864758380241_n.jpg?oh=77597aa631dbaf174521cb7d4452bda3&oe=59F817D9", 8, new PlayerAbilities(7, 19, 19, 20, 17, 20, 13, 17), new PlayerStats(20, 1500, 10, 6, 1)));
+        playerModels.add(new PlayerModel(8, "Domagoj", "Ajman", 22, "FC", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-1/c0.0.955.955/14606531_1375161719182926_3187872153032432519_n.jpg?oh=c337860986728bce089c29e61e4e1980&oe=5A2B9F95", 9, new PlayerAbilities(5, 14, 18, 18, 17, 19, 13, 13), new PlayerStats(20, 1500, 10, 6, 1)));
+        playerModels.add(new PlayerModel(9, "Ante", "Budimir", 22, "CMF/DMF", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/18057795_1442293815791317_6746114603697655483_n.jpg?oh=035ab17cc3d00d5a1c64d9e084f12922&oe=5A25ED35", 10, new PlayerAbilities(10, 17, 16, 19, 18, 18, 14, 20), new PlayerStats(20, 1500, 10, 6, 1)));
+        playerModels.add(new PlayerModel(10, "Petar", "Culjak", 22, "CB", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/483886_265979193536731_2068298456_n.jpg?oh=4aea3cf71d0c877547c6fcf587e91aa2&oe=59F56BD9", 11, new PlayerAbilities(20, 15, 13, 12, 10, 14, 18, 20), new PlayerStats(20, 1500, 10, 6, 1)));
+        playerModels.add(new PlayerModel(11, "Bruno", "Saric", 22, "GK", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/18221739_1452485674772131_476828398607284567_n.jpg?oh=f8cc6e0f51bf692427bdb1026328d1aa&oe=5A2A9AE0", 12, new PlayerAbilities(18, 13, 8, 2, 4, 8, 17, 12), new PlayerStats(20, 1500, 10, 6, 1)));
+        playerModels.add(new PlayerModel(12, "Ante", "Paulic", 22, "RWB/RMF", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/13432178_1015434611886555_1364564380904079370_n.jpg?oh=a16577b75e0c94ff12525b61676dddd3&oe=59F1C721", 13, new PlayerAbilities(12, 17, 17, 16, 18, 18, 10, 12), new PlayerStats(20, 1500, 10, 6, 1)));
+        playerModels.add(new PlayerModel(13, "Josip", "Colak", 22, "FC", "https://scontent-frt3-2.xx.fbcdn.net/v/t31.0-8/18620590_1729670890391492_598012713495815542_o.jpg?oh=05a4580d832ea2e1129e82059901a10e&oe=59EFE585", 14, new PlayerAbilities(13, 19, 14, 11, 18, 16, 20, 18), new PlayerStats(20, 1500, 10, 6, 1)));
+        playerModels.add(new PlayerModel(14, "Karlo", "Antunovic", 22, "AMF/SS", "https://scontent-frt3-2.xx.fbcdn.net/v/t31.0-1/c0.0.960.960/p960x960/18588934_2287540551470324_9140096878744490923_o.jpg?oh=acac626cc6d91a840b54781e1673d142&oe=59EE20F6", 15, new PlayerAbilities(5, 11, 17, 11, 18, 15, 12, 10), new PlayerStats(20, 1500, 10, 6, 1)));
+        playerModels.add(new PlayerModel(15, "Stjepan", "Adzic", 22, "AMF/CMF", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/14264808_10207596668977626_2307221628866390565_n.jpg?oh=ddcd33b61d59f856753ba4fe315ff93a&oe=5A2FA940", 16, new PlayerAbilities(6, 17, 15, 20, 18, 20, 13, 19), new PlayerStats(20, 1500, 10, 6, 1)));
+        playerModels.add(new PlayerModel(16, "Josip", "Pavic", 22, "DMF", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/11238229_10205107776509382_5106570336895916410_n.jpg?oh=844d78208776bc69023511ac16a9bee7&oe=5A2B6F71", 17, new PlayerAbilities(13, 19, 17, 14, 15, 17, 16, 14), new PlayerStats(20, 1500, 10, 6, 1)));
 
         return playerModels;
-    }
-
-    public static String loadDefaultImage() {
-        return "https://scontent-vie1-1.xx.fbcdn.net/v/t31.0-8/18589011_1349820621766180_5130766153308582347_o.jpg?oh=51f0abb7eff739411e532ae9459dd6c1&oe=59F4173C";
     }
 }

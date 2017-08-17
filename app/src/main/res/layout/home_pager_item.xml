@@ -8,8 +8,9 @@
     <ImageView
         android:id="@id/home_pager_item_image"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:scaleType="centerCrop"/>
+        android:layout_height="270dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/stadion"/>
 
     <TextView
         android:id="@id/home_pager_item_title"
@@ -17,5 +18,6 @@
         android:layout_height="20dp"
         android:layout_gravity="center"
         android:textSize="16sp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="Title"/>
 </LinearLayout>

@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
-import com.example.cobeosijek.nkkutjevo.data_objects.PlayerModel;
+import com.example.cobeosijek.nkkutjevo.data_objects.player_model.PlayerModel;
 import com.example.cobeosijek.nkkutjevo.ui.team.listeners.ItemClickListener;
 
 import butterknife.BindView;

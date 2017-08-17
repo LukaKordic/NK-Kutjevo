@@ -1,27 +1,28 @@
 package com.example.cobeosijek.nkkutjevo.data_objects.reponses;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
+import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
-public class FeedResponse extends RealmObject implements Serializable {
+public class FeedResponse extends RealmObject {
 
-    private List<Data> data = new ArrayList<>();
+    @PrimaryKey
+    private int feedId;
 
-    public FeedResponse(List<Data> data) {
+    private RealmList<Data> data;
+
+    public FeedResponse(RealmList<Data> data) {
         this.data = data;
     }
 
     public FeedResponse() {
     }
 
-    public List<Data> getData() {
+    public RealmList<Data> getData() {
         return data;
     }
 
-    public void setData(List<Data> data) {
-        this.data = data;
+    public void setData(RealmList<Data> dataRealmList) {
+        this.data = dataRealmList;
     }
 }
