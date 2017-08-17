@@ -21,8 +21,8 @@ import butterknife.ButterKnife;
 public class ScheduleFragment extends Fragment {
 
     @BindView(R.id.ranking_recycler_view)
-
     RecyclerView rankingRecyclerView;
+
     private final RankingRecyclerAdapter rankingRecyclerAdapter = new RankingRecyclerAdapter();
 
     public static ScheduleFragment newInstance() {

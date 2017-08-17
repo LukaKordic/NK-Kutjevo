@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cobeosijek.nkkutjevo.R;
+import com.example.cobeosijek.nkkutjevo.common.DummyDataFactory;
 import com.example.cobeosijek.nkkutjevo.common.utils.DatabaseUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
@@ -64,7 +65,11 @@ public class ReadPostActivity extends AppCompatActivity {
 
     private void setupViews() {
         if (fbResponse != null) {
-            ImageUtils.loadImage(postImage, fbResponse.getData().get(position).getFullPicture());
+            if (!fbResponse.getData().get(position).getFullPicture().equals("")) {
+                ImageUtils.loadImage(postImage, fbResponse.getData().get(position).getFullPicture());
+            } else {
+                DummyDataFactory.loadDefaultImage(postImage);
+            }
             postTitle.setText(fbResponse.getData().get(position).getName());
             postMessage.setText(fbResponse.getData().get(position).getMessage());
         }

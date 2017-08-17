@@ -45,7 +45,7 @@ public class HomePagerAdapter extends PagerAdapter {
         View view = inflater.inflate(R.layout.home_pager_item, container, false);
         ResponseHolder responseHolder = new ResponseHolder(view, pagerClickListener);
         responseHolder.setFbResponse(fbResponse);
-        responseHolder.getItemPosition(position);
+        responseHolder.setItemPosition(position);
 
         if (!imageList.isEmpty() && !titleList.isEmpty()) {
             responseHolder.setResponseImage();

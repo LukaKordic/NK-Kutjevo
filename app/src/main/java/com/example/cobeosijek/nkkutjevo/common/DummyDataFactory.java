@@ -1,5 +1,8 @@
 package com.example.cobeosijek.nkkutjevo.common;
 
+import android.widget.ImageView;
+
+import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.ImageModel;
 import com.example.cobeosijek.nkkutjevo.data_objects.TeamModel;
 import com.example.cobeosijek.nkkutjevo.data_objects.player_model.PlayerAbilities;
@@ -78,5 +81,9 @@ public class DummyDataFactory {
         playerModels.add(new PlayerModel(16, "Josip", "Pavic", 22, "DMF", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/11238229_10205107776509382_5106570336895916410_n.jpg?oh=844d78208776bc69023511ac16a9bee7&oe=5A2B6F71", 17, new PlayerAbilities(13, 19, 17, 14, 15, 17, 16, 14), new PlayerStats(20, 1500, 10, 6, 1)));
 
         return playerModels;
+    }
+
+    public static void loadDefaultImage(ImageView into) {
+        ImageUtils.loadImage(into, "https://scontent-vie1-1.xx.fbcdn.net/v/t1.0-9/18581938_1407320175980850_4653485171212313419_n.jpg?oh=3e60cfc72cac5b26483a4d74b5d524a2&oe=5A37F874");
     }
 }

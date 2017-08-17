@@ -33,14 +33,14 @@ public class PlayerHolder extends RecyclerView.ViewHolder {
 
     private PlayerModel playerModel;
 
-    public void setPlayerModel(PlayerModel playerModel) {
-        this.playerModel = playerModel;
-    }
-
     public PlayerHolder(View itemView, final ItemClickListener itemClickListener) {
         super(itemView);
         this.itemClickListener = itemClickListener;
         ButterKnife.bind(this, itemView);
+    }
+
+    public void setPlayerModel(PlayerModel playerModel) {
+        this.playerModel = playerModel;
     }
 
     public void showPlayerDetails() {

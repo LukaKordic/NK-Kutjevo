@@ -12,15 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.R;
+import com.example.cobeosijek.nkkutjevo.common.utils.DatabaseUtils;
+import com.example.cobeosijek.nkkutjevo.ui.home.PagerClickListener;
+import com.example.cobeosijek.nkkutjevo.ui.home.activities.ReadPostActivity;
 import com.example.cobeosijek.nkkutjevo.ui.news.adapters.NewsAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class NewsFragment extends Fragment {
+public class NewsFragment extends Fragment implements PagerClickListener {
 
     @BindView(R.id.news_recycler_view)
     RecyclerView newsRecyclerView;
@@ -44,5 +44,13 @@ public class NewsFragment extends Fragment {
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         newsRecyclerView.setItemAnimator(new DefaultItemAnimator());
         newsRecyclerView.setAdapter(newsAdapter);
+
+        newsAdapter.setPagerClickListener(this);
+        newsAdapter.setDataList(DatabaseUtils.loadFeedResponse().getData());
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        startActivity(ReadPostActivity.getLaunchIntent(getActivity(), position));
     }
 }

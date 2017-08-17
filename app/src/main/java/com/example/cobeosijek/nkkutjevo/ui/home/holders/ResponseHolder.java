@@ -5,6 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cobeosijek.nkkutjevo.R;
+import com.example.cobeosijek.nkkutjevo.common.DummyDataFactory;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
 import com.example.cobeosijek.nkkutjevo.ui.home.PagerClickListener;
@@ -34,7 +35,7 @@ public class ResponseHolder {
         this.fbResponse = fbResponse;
     }
 
-    public void getItemPosition(int position) {
+    public void setItemPosition(int position) {
         this.position = position;
     }
 
@@ -47,6 +48,8 @@ public class ResponseHolder {
     public void setResponseImage() {
         if (!fbResponse.getData().get(position).getFullPicture().equals("")) {
             ImageUtils.loadImage(responseImage, fbResponse.getData().get(position).getFullPicture());
+        } else {
+            DummyDataFactory.loadDefaultImage(responseImage);
         }
     }
 
