@@ -6,7 +6,6 @@ import com.bumptech.glide.Glide;
 
 public class ImageUtils {
 
-    //ImageView could be null
     public static void loadSmallImage(ImageView into, String url) {
         Glide.with(into.getContext())
                 .load(url)

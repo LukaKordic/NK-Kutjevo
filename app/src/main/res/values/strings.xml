@@ -27,4 +27,5 @@
     <string name="goals_for">GF</string>
     <string name="goal_difference">GD</string>
     <string name="facebook_app_id">770172329847519</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

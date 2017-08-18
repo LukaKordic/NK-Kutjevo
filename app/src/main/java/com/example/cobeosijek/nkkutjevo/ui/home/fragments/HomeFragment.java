@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import com.example.cobeosijek.nkkutjevo.common.utils.DatabaseUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
 import com.example.cobeosijek.nkkutjevo.ui.home.PagerClickListener;
+import com.example.cobeosijek.nkkutjevo.ui.home.activities.MapsActivity;
 import com.example.cobeosijek.nkkutjevo.ui.home.activities.ReadPostActivity;
 import com.example.cobeosijek.nkkutjevo.ui.home.adapters.HomePagerAdapter;
 import com.facebook.AccessToken;
@@ -37,6 +39,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class HomeFragment extends Fragment implements FacebookCallback<LoginResult>, PagerClickListener {
 
@@ -48,6 +51,9 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
 
     @BindView(R.id.away_team_image)
     ImageView awayTeamImage;
+
+    @BindView(R.id.map_button)
+    Button mapButton;
 
     private final HomePagerAdapter homePagerAdapter = new HomePagerAdapter();
     private final CallbackManager callbackManager = CallbackManager.Factory.create();
@@ -169,5 +175,11 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     @Override
     public void onItemClick(int position) {
         startActivity(ReadPostActivity.getLaunchIntent(getActivity(), position));
+    }
+
+    @OnClick(R.id.map_button)
+    public void showMap(){
+        Intent intent = new Intent(getActivity(), MapsActivity.class);
+        startActivity(intent);
     }
 }
