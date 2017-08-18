@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         ButterKnife.bind(this, view);
         homePagerAdapter.setPagerClickListener(this);
         homeViewPager.setAdapter(homePagerAdapter);
-        loadImagesForNextGame();
+        loadNextGameImages();
     }
 
     private void registerCallback() {
@@ -108,7 +108,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         homePagerAdapter.setData(imageList, titleList);
     }
 
-    private void loadImagesForNextGame() {
+    private void loadNextGameImages() {
         ImageUtils.loadSmallImage(homeTeamImage, "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10441379_571895542965504_3234583505345128658_n.png?oh=11d1085d86cce18414fec4ec47e2932b&oe=5A0575DA");
         ImageUtils.loadSmallImage(awayTeamImage, "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/14572918_1823586701212015_4927312342681512458_n.jpg?oh=a9b9f91beec61584290fc2bed2a9811d&oe=59FC0AE8");
     }

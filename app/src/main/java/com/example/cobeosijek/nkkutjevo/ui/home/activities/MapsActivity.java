@@ -34,13 +34,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        this.googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng kutjevo = new LatLng(45.4255555556, 17.8833333333);
+        this.googleMap.addMarker(new MarkerOptions().position(kutjevo).title("Kutjevo"));
+        this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(kutjevo));
     }
 }
