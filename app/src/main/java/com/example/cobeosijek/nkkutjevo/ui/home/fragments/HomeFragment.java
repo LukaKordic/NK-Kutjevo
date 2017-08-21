@@ -8,7 +8,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -51,9 +50,6 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
 
     @BindView(R.id.away_team_image)
     ImageView awayTeamImage;
-
-    @BindView(R.id.map_button)
-    Button mapButton;
 
     private final HomePagerAdapter homePagerAdapter = new HomePagerAdapter();
     private final CallbackManager callbackManager = CallbackManager.Factory.create();
@@ -146,13 +142,15 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
                     @Override
                     public void onCompleted(GraphResponse response) {
                         fbResponse = parseJsonResponse(createGsonParser(), response);
-                        DatabaseUtils.saveResponseIntoRealm(fbResponse);
-                        setResponse();
-                        for (int i = 0; i < 3; i++) {
-                            imageList.add(fbResponse.getData().get(i).getFullPicture());
-                            titleList.add(fbResponse.getData().get(i).getName());
+                        if (fbResponse != null) {
+                            DatabaseUtils.saveResponseIntoRealm(fbResponse);
+                            setResponse();
+                            for (int i = 0; i < 3; i++) {
+                                imageList.add(DatabaseUtils.loadFeedResponse().getData().get(i).getFullPicture());
+                                titleList.add(DatabaseUtils.loadFeedResponse().getData().get(i).getName());
+                            }
+                            setData();
                         }
-                        setData();
                     }
                 });
 
@@ -178,7 +176,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     }
 
     @OnClick(R.id.map_button)
-    public void showMap(){
+    public void showMap() {
         Intent intent = new Intent(getActivity(), MapsActivity.class);
         startActivity(intent);
     }
