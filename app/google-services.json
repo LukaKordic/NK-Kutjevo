@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "128522125020",
+    "firebase_url": "https://nk-kutjevo.firebaseio.com",
+    "project_id": "nk-kutjevo",
+    "storage_bucket": "nk-kutjevo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128522125020:android:ddefa0bb2c889f15",
+        "android_client_info": {
+          "package_name": "com.example.cobeosijek.nkkutjevo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "128522125020-f4bp8beco4ltk3v2gr7c91u9m4fhjs9c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cobeosijek.nkkutjevo",
+            "certificate_hash": "e62069117404730828dca4c934204da6fc657cbd"
+          }
+        },
+        {
+          "client_id": "128522125020-kdf1dfokeed338ps4cnlsl1to5did6i1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACgTMTPu0692KRWzWeXpN0SHYw5UcxCLQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "128522125020-kdf1dfokeed338ps4cnlsl1to5did6i1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

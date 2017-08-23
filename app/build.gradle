@@ -58,4 +58,9 @@ dependencies {
 
     //Maps
     compile 'com.google.android.gms:play-services-maps:11.0.2'
+
+    //Firebase
+    apply plugin: 'com.google.gms.google-services'
+    compile 'com.google.firebase:firebase-database:11.0.2'
+
 }

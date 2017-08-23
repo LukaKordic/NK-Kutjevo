@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         presenter.onViewReady();
 
         presenter.saveDataIntoRealm();
-
     }
 
     @Override

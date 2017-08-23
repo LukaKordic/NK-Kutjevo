@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.Constants;
 import com.example.cobeosijek.nkkutjevo.common.utils.DatabaseUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
+import com.example.cobeosijek.nkkutjevo.data_objects.GameModel;
 import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
 import com.example.cobeosijek.nkkutjevo.ui.home.PagerClickListener;
 import com.example.cobeosijek.nkkutjevo.ui.home.activities.MapsActivity;
@@ -29,6 +31,11 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -53,6 +60,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
 
     private final HomePagerAdapter homePagerAdapter = new HomePagerAdapter();
     private final CallbackManager callbackManager = CallbackManager.Factory.create();
+    private final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     private FeedResponse fbResponse;
     private List<String> imageList = new ArrayList<>();
@@ -73,6 +81,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         initUI(view);
         registerCallback();
         checkIfTokenExists();
+        readFromFirebase(getFirebaseReference());
     }
 
     private void initUI(View view) {
@@ -96,8 +105,31 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         }
     }
 
+    private DatabaseReference getFirebaseReference() {
+        return database.getReference();
+    }
+
+    private void readFromFirebase(DatabaseReference reference) {
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    GameModel kolo = child.getValue(GameModel.class);
+                    if (kolo != null) {
+                        Log.d("Luka", kolo.getLocation());
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
     private void setResponse() {
-        homePagerAdapter.setResponse(fbResponse);
+        homePagerAdapter.setResponse(DatabaseUtils.loadFeedResponse());
     }
 
     private void setData() {
