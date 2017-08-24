@@ -34,20 +34,24 @@ import com.facebook.login.LoginResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class HomeFragment extends Fragment implements FacebookCallback<LoginResult>, PagerClickListener {
+public class HomeFragment extends Fragment implements FacebookCallback<LoginResult>, PagerClickListener, ValueEventListener {
 
     @BindView(R.id.home_view_pager)
     ViewPager homeViewPager;
@@ -60,7 +64,6 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
 
     private final HomePagerAdapter homePagerAdapter = new HomePagerAdapter();
     private final CallbackManager callbackManager = CallbackManager.Factory.create();
-    private final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     private FeedResponse fbResponse;
     private List<String> imageList = new ArrayList<>();
@@ -81,7 +84,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         initUI(view);
         registerCallback();
         checkIfTokenExists();
-        readFromFirebase(getFirebaseReference());
+        getDatabaseReference().addValueEventListener(this);
     }
 
     private void initUI(View view) {
@@ -105,27 +108,12 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         }
     }
 
-    private DatabaseReference getFirebaseReference() {
-        return database.getReference();
+    private DatabaseReference getDatabaseReference() {
+        return App.getFirebaseDb().getReference();
     }
 
-    private void readFromFirebase(DatabaseReference reference) {
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    GameModel kolo = child.getValue(GameModel.class);
-                    if (kolo != null) {
-                        Log.d("Luka", kolo.getLocation());
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+    private Date getCurrentDate() {
+        return new Date();
     }
 
     private void setResponse() {
@@ -211,5 +199,51 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     public void showMap() {
         Intent intent = new Intent(getActivity(), MapsActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onDataChange(DataSnapshot dataSnapshot) {
+        List<GameModel> gameModelList = new ArrayList<>();
+        List<GameModel> notPlayedList = new ArrayList<>();
+        DateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault());
+        for (DataSnapshot child : dataSnapshot.getChildren()) {
+            GameModel kolo = child.getValue(GameModel.class);
+            if (kolo != null) {
+                gameModelList.add(kolo);
+            }
+        }
+
+        for (GameModel model : gameModelList) {
+            try {
+                Date date = dateFormat.parse(model.getDate());
+                if (date.after(getCurrentDate())) {
+                    notPlayedList.add(model);
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            findNextGame(notPlayedList);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private GameModel findNextGame(List<GameModel> gameModelList) throws ParseException {
+        DateFormat format = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault());
+        GameModel nextGame = new GameModel("Bsk Buk", "Nk Kutjevo", "03.09.2017.", "Buk", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/12728767_1568213763495767_7717841912992333193_n.jpg?oh=df25752965526ab98241ba70514f70bc&oe=5A19D855", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10441379_571895542965504_3234583505345128658_n.png?oh=11d1085d86cce18414fec4ec47e2932b&oe=5A0575DA");
+
+        for (GameModel game : gameModelList) {
+            if (format.parse(game.getDate()).before(format.parse(nextGame.getDate()))) {
+                nextGame = game;
+            }
+        }
+        return nextGame;
+    }
+
+    @Override
+    public void onCancelled(DatabaseError databaseError) {
+        Log.d("DatabaseError", "onCancelled: " + databaseError.toString());
     }
 }

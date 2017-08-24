@@ -12,6 +12,15 @@ public class GameModel extends BaseModel {
     public GameModel() {
     }
 
+    public GameModel(String homeTeam, String awayTeam, String date, String location, String homeLogo, String awayLogo) {
+        this.homeTeam = homeTeam;
+        this.awayTeam = awayTeam;
+        this.date = date;
+        this.location = location;
+        this.homeLogo = homeLogo;
+        this.awayLogo = awayLogo;
+    }
+
     public String getHomeTeam() {
         return returnValueOrEmpty(homeTeam);
     }

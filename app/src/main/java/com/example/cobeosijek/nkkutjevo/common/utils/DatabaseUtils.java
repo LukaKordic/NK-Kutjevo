@@ -10,6 +10,7 @@ import java.util.List;
 import io.realm.Realm;
 
 public class DatabaseUtils {
+
     public static void savePlayersIntoRealm() {
         Realm realm = App.getRealm();
         realm.beginTransaction();

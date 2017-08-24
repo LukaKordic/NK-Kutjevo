@@ -11,4 +11,5 @@ public class Constants {
     public static final String KEY_FEEDRESPONSE = "feed response";
     public static final String KEY_POSITION = "position";
     public static final String DEFAULT_TITLE = "Title";
+    public static final String DATE_FORMAT = "dd.MM.yyyy.";
 }

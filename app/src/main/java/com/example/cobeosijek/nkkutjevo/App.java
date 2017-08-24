@@ -2,6 +2,10 @@ package com.example.cobeosijek.nkkutjevo;
 
 import android.app.Application;
 
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Calendar;
+
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
@@ -21,6 +25,14 @@ public class App extends Application {
 
     public static Realm getRealm() {
         return Realm.getDefaultInstance();
+    }
+
+    public static FirebaseDatabase getFirebaseDb() {
+        return FirebaseDatabase.getInstance();
+    }
+
+    public static Calendar getCalendar() {
+        return Calendar.getInstance();
     }
 
     public static App get() {

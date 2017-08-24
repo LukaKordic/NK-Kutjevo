@@ -54,7 +54,7 @@ public class ResponseHolder {
     }
 
     @OnClick(R.id.pager_item_layout)
-    public void onClick() {
+    public void onClaick() {
         if (pagerClickListener != null) {
             pagerClickListener.onItemClick(position);
         }
