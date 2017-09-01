@@ -1,9 +1,12 @@
 package com.example.cobeosijek.nkkutjevo.ui.home.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
 import com.example.cobeosijek.nkkutjevo.R;
+import com.example.cobeosijek.nkkutjevo.common.Constants;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -39,8 +42,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
 
-        LatLng kutjevo = new LatLng(45.4255555556, 17.8833333333);
-        this.googleMap.addMarker(new MarkerOptions().position(kutjevo).title("Kutjevo"));
-        this.googleMap.moveCamera(CameraUpdateFactory.newLatLng(kutjevo));
+        receiveIntent();
+    }
+
+    public static Intent getLaunchIntent(Context from, double lat, double lon) {
+        Intent intent = new Intent(from, MapsActivity.class);
+        intent.putExtra(Constants.KEY_LATITUDE, lat);
+        intent.putExtra(Constants.KEY_LONGITUDE, lon);
+
+        return intent;
+    }
+
+    private void receiveIntent() {
+        Intent intent = getIntent();
+
+        LatLng marker = new LatLng(intent.getDoubleExtra(Constants.KEY_LATITUDE, 0), intent.getDoubleExtra(Constants.KEY_LONGITUDE, 0));
+        this.googleMap.addMarker(new MarkerOptions().position(marker).title(" "));
+        this.googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 15));
     }
 }

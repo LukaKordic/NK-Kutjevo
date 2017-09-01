@@ -5,20 +5,38 @@ public class GameModel extends BaseModel {
     private String homeTeam;
     private String awayTeam;
     private String date;
-    private String location;
+    private double lat;
+    private double lon;
     private String homeLogo;
     private String awayLogo;
 
     public GameModel() {
     }
 
-    public GameModel(String homeTeam, String awayTeam, String date, String location, String homeLogo, String awayLogo) {
+    public GameModel(String homeTeam, String awayTeam, String date, double lat, double lon, String homeLogo, String awayLogo) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.date = date;
-        this.location = location;
+        this.lat = lat;
+        this.lon = lon;
         this.homeLogo = homeLogo;
         this.awayLogo = awayLogo;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(float lat) {
+        this.lat = lat;
+    }
+
+    public double getLon() {
+        return lon;
+    }
+
+    public void setLon(float lon) {
+        this.lon = lon;
     }
 
     public String getHomeTeam() {
@@ -43,14 +61,6 @@ public class GameModel extends BaseModel {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-    public String getLocation() {
-        return returnValueOrEmpty(location);
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
     }
 
     public String getHomeLogo() {
