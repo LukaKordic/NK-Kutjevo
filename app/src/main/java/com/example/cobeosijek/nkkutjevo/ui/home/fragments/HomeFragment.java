@@ -91,7 +91,6 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         ButterKnife.bind(this, view);
         homePagerAdapter.setPagerClickListener(this);
         homeViewPager.setAdapter(homePagerAdapter);
-        loadNextGameImages();
     }
 
     private void registerCallback() {
@@ -122,11 +121,6 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
 
     private void setData() {
         homePagerAdapter.setData(imageList, titleList);
-    }
-
-    private void loadNextGameImages() {
-        ImageUtils.loadSmallImage(homeTeamImage, "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10441379_571895542965504_3234583505345128658_n.png?oh=11d1085d86cce18414fec4ec47e2932b&oe=5A0575DA");
-        ImageUtils.loadSmallImage(awayTeamImage, "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/14572918_1823586701212015_4927312342681512458_n.jpg?oh=a9b9f91beec61584290fc2bed2a9811d&oe=59FC0AE8");
     }
 
     //Facebook login
@@ -201,19 +195,27 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         startActivity(intent);
     }
 
+    private void loadNextGameImages(String homeLogo, String awayLogo) {
+        ImageUtils.loadSmallImage(homeTeamImage, homeLogo);
+        ImageUtils.loadSmallImage(awayTeamImage, awayLogo);
+    }
+
+    //retrieve data from firebase
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
-        List<GameModel> gameModelList = new ArrayList<>();
+        List<GameModel> gamesList = new ArrayList<>();
         List<GameModel> notPlayedList = new ArrayList<>();
         DateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault());
+
         for (DataSnapshot child : dataSnapshot.getChildren()) {
             GameModel kolo = child.getValue(GameModel.class);
             if (kolo != null) {
-                gameModelList.add(kolo);
+                gamesList.add(kolo);
             }
         }
 
-        for (GameModel model : gameModelList) {
+        //utils
+        for (GameModel model : gamesList) {
             try {
                 Date date = dateFormat.parse(model.getDate());
                 if (date.after(getCurrentDate())) {
@@ -230,16 +232,16 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         }
     }
 
-    private GameModel findNextGame(List<GameModel> gameModelList) throws ParseException {
+    private void findNextGame(List<GameModel> notPlayedList) throws ParseException {
         DateFormat format = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault());
         GameModel nextGame = new GameModel("Bsk Buk", "Nk Kutjevo", "03.09.2017.", "Buk", "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/12728767_1568213763495767_7717841912992333193_n.jpg?oh=df25752965526ab98241ba70514f70bc&oe=5A19D855", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10441379_571895542965504_3234583505345128658_n.png?oh=11d1085d86cce18414fec4ec47e2932b&oe=5A0575DA");
 
-        for (GameModel game : gameModelList) {
+        for (GameModel game : notPlayedList) {
             if (format.parse(game.getDate()).before(format.parse(nextGame.getDate()))) {
                 nextGame = game;
             }
         }
-        return nextGame;
+        loadNextGameImages(nextGame.getHomeLogo(), nextGame.getAwayLogo());
     }
 
     @Override
