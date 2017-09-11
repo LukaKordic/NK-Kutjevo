@@ -1,6 +1,8 @@
 package com.example.cobeosijek.nkkutjevo.data_objects;
 
-public class GameModel extends BaseModel {
+import android.support.annotation.NonNull;
+
+public class GameModel extends BaseModel implements Comparable<GameModel> {
 
     private String homeTeam;
     private String awayTeam;
@@ -77,6 +79,11 @@ public class GameModel extends BaseModel {
 
     public void setAwayLogo(String awayLogo) {
         this.awayLogo = awayLogo;
+    }
+
+    @Override
+    public int compareTo(@NonNull GameModel gameModel) {
+        return getDate().compareTo(gameModel.getDate());
     }
 }
 

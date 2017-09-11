@@ -10,12 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cobeosijek.nkkutjevo.App;
 import com.example.cobeosijek.nkkutjevo.BuildConfig;
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.Constants;
+import com.example.cobeosijek.nkkutjevo.common.utils.DataUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.DatabaseUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.GameModel;
@@ -63,6 +65,9 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     @BindView(R.id.away_team_image)
     ImageView awayTeamImage;
 
+    @BindView(R.id.next_game_date)
+    TextView nextGameDateText;
+
     private final HomePagerAdapter homePagerAdapter = new HomePagerAdapter();
     private final CallbackManager callbackManager = CallbackManager.Factory.create();
 
@@ -71,6 +76,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
     private List<String> titleList = new ArrayList<>();
     private double lat;
     private double lon;
+    private GameModel nextGame;
 
     public static HomeFragment newInstance() {
         return new HomeFragment();
@@ -152,6 +158,20 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         Toast.makeText(App.get(), Constants.ERROR + error.toString(), Toast.LENGTH_SHORT).show();
     }
 
+    private void loadNextGameImages(String homeLogo, String awayLogo) {
+        ImageUtils.loadSmallImage(homeTeamImage, homeLogo);
+        ImageUtils.loadSmallImage(awayTeamImage, awayLogo);
+    }
+
+    private void loadNextGameDate(String nextGameDate) {
+        nextGameDateText.setText(nextGameDate);
+    }
+
+    private void loadCoordinates(double lat, double lon) {
+        this.lat = lat;
+        this.lon = lon;
+    }
+
     private void requestFeed(AccessToken token) {
         GraphRequest request = GraphRequest.newGraphPathRequest(token,
                 "/NKKutjevo/feed",
@@ -197,11 +217,6 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         startActivity(MapsActivity.getLaunchIntent(getActivity(), lat, lon));
     }
 
-    private void loadNextGameImages(String homeLogo, String awayLogo) {
-        ImageUtils.loadSmallImage(homeTeamImage, homeLogo);
-        ImageUtils.loadSmallImage(awayTeamImage, awayLogo);
-    }
-
     //retrieve data from firebase
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -216,7 +231,6 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
             }
         }
 
-        // TODO: 01/09/2017 put this into utils
         for (GameModel model : gamesList) {
             try {
                 Date date = dateFormat.parse(model.getDate());
@@ -227,28 +241,17 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
                 if (BuildConfig.DEBUG) {
                     e.printStackTrace();
                 }
-
             }
         }
+
         try {
-            findNextGame(notPlayedList);
+            nextGame = DataUtils.findNextGame(notPlayedList);
+            loadNextGameImages(nextGame.getHomeLogo(), nextGame.getAwayLogo());
+            loadNextGameDate(nextGame.getDate());
+            loadCoordinates(nextGame.getLat(), nextGame.getLon());
         } catch (ParseException e) {
             e.printStackTrace();
         }
-    }
-
-    private void findNextGame(List<GameModel> notPlayedList) throws ParseException {
-        DateFormat format = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault());
-        GameModel nextGame = new GameModel("Bsk Buk", "Nk Kutjevo", "03.09.2017.", 45.297713, 17.861795, "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/12728767_1568213763495767_7717841912992333193_n.jpg?oh=df25752965526ab98241ba70514f70bc&oe=5A19D855", "https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/10441379_571895542965504_3234583505345128658_n.png?oh=11d1085d86cce18414fec4ec47e2932b&oe=5A0575DA");
-
-        for (GameModel game : notPlayedList) {
-            if (format.parse(game.getDate()).before(format.parse(nextGame.getDate()))) {
-                nextGame = game;
-            }
-        }
-        loadNextGameImages(nextGame.getHomeLogo(), nextGame.getAwayLogo());
-        this.lat = nextGame.getLat();
-        this.lon = nextGame.getLon();
     }
 
     @Override

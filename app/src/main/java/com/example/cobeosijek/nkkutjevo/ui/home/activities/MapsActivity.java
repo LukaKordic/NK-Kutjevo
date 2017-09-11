@@ -11,6 +11,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -43,6 +44,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         this.googleMap = googleMap;
 
         receiveIntent();
+        setKutjevoMarker();
+    }
+
+    private void setKutjevoMarker() {
+        LatLng markerKutjevo = new LatLng(45.4255555556, 17.8833333333);
+        this.googleMap.addMarker(new MarkerOptions().position(markerKutjevo).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+    }
+
+    private void receiveIntent() {
+        Intent intent = getIntent();
+
+        LatLng marker = new LatLng(intent.getDoubleExtra(Constants.KEY_LATITUDE, 0), intent.getDoubleExtra(Constants.KEY_LONGITUDE, 0));
+        this.googleMap.addMarker(new MarkerOptions().position(marker));
+        this.googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 15));
     }
 
     public static Intent getLaunchIntent(Context from, double lat, double lon) {
@@ -53,11 +68,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         return intent;
     }
 
-    private void receiveIntent() {
-        Intent intent = getIntent();
-
-        LatLng marker = new LatLng(intent.getDoubleExtra(Constants.KEY_LATITUDE, 0), intent.getDoubleExtra(Constants.KEY_LONGITUDE, 0));
-        this.googleMap.addMarker(new MarkerOptions().position(marker).title(" "));
-        this.googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 15));
-    }
 }
