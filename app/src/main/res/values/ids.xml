@@ -82,5 +82,10 @@
     <item name="read_post_message" type="id"/>
     <item name="news_recycler_view" type="id"/>
     <item name="map_button" type="id"/>
+    <item name="versus_text" type="id"/>
+    <item name="team1_image" type="id"/>
+    <item name="team2_image" type="id"/>
+    <item name="team1_name" type="id"/>
+    <item name="team2_name" type="id"/>
 
 </resources>

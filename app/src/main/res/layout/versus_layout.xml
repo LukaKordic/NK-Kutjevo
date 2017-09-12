@@ -27,7 +27,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="8dp"
         android:gravity="center"
-        android:text="VS"/>
+        android:text="@string/versus"/>
 
     <TextView
         android:id="@+id/tv_team2"
