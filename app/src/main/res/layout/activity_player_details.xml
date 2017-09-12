@@ -1,200 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context="com.example.cobeosijek.nkkutjevo.ui.team.activities.PlayerDetailsActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fcf9e3"
+    tools:context="com.example.cobeosijek.nkkutjevo.ui.team.activities.PlayerDetailsActivity">
 
     <include
         android:id="@id/toolbar"
         layout="@layout/toolbar"/>
 
     <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/player"
+        android:layout_below="@id/toolbar"
+        android:scaleType="centerCrop"
+        android:alpha="0.28"/>
+    <ImageView
         android:id="@id/player_details_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_below="@id/toolbar"
         android:layout_margin="10dp"
         android:contentDescription="@string/player_image_content_description"
-        android:src="@mipmap/ic_launcher_round"/>
+        android:scaleType="fitXY"
+        tools:src="@mipmap/ic_launcher_round"/>
 
     <TextView
         android:id="@id/player_details_name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/toolbar"
-        android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@id/player_details_image"
         android:gravity="center"
-        android:textSize="30sp"/>
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:textColor="#000"/>
 
     <TextView
         android:id="@id/player_details_surname"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@id/player_details_name"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="10dp"
         android:layout_toEndOf="@id/player_details_image"
         android:gravity="center"
-        android:textSize="30sp"/>
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000"/>
 
     <TextView
         android:id="@id/player_details_number"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/player_details_name"
         android:layout_below="@id/toolbar"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:gravity="center"
-        android:textSize="30sp"/>
+        android:textSize="50sp"
+        android:textAlignment="textEnd"
+        android:textColor="#b90606"/>
 
     <TextView
         android:id="@id/label_age"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/player_details_image"
-        android:layout_margin="10dp"
+        android:layout_height="25dp"
         android:text="@string/label_age_text"
-        android:textSize="15sp"/>
+        android:textSize="15sp"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/player_details_image" />
 
     <TextView
         android:id="@id/label_position"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/label_age"
-        android:layout_margin="10dp"
+        android:layout_height="25dp"
         android:text="@string/label_position_text"
-        android:textSize="15sp"/>
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/label_age" />
 
     <TextView
         android:id="@id/label_appearance"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_height="25dp"
         android:layout_below="@id/label_position"
         android:layout_margin="10dp"
         android:text="@string/label_appearances_text"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#000"
+        android:layout_centerVertical="true"
         android:textSize="15sp"/>
 
     <TextView
         android:id="@id/label_minutes_played"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_height="25dp"
         android:layout_below="@id/label_appearance"
         android:layout_margin="10dp"
+        android:textStyle="bold"
         android:text="@string/label_minutes_played_text"
+        android:gravity="center"
+        android:textColor="#000"
+        android:layout_centerVertical="true"
         android:textSize="15sp"/>
 
     <TextView
         android:id="@id/label_goals_scored"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_height="25dp"
+        android:textStyle="bold"
         android:layout_below="@id/label_minutes_played"
         android:layout_margin="10dp"
         android:text="@string/label_goals_scored_text"
+        android:gravity="center"
+        android:textColor="#000"
+        android:layout_centerVertical="true"
         android:textSize="15sp"/>
 
     <TextView
         android:id="@id/label_yellow_cards"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_height="25dp"
         android:layout_below="@id/label_goals_scored"
         android:layout_margin="10dp"
+        android:textStyle="bold"
         android:text="@string/label_yellow_cards"
+        android:gravity="center"
+        android:textColor="#000"
+        android:layout_centerVertical="true"
         android:textSize="15sp"/>
 
     <TextView
         android:id="@id/label_red_cards"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_height="25dp"
         android:layout_below="@id/label_yellow_cards"
         android:layout_margin="10dp"
+        android:textStyle="bold"
         android:text="@string/label_red_cards_text"
+        android:gravity="center"
+        android:textColor="#000"
+        android:layout_centerVertical="true"
         android:textSize="15sp"/>
 
     <TextView
         android:id="@id/player_details_age"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_below="@id/player_details_image"
-        android:layout_margin="10sp"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
         android:layout_toEndOf="@id/label_age"
         android:gravity="center"
+        android:textColor="#000"
+        android:layout_centerVertical="true"
         android:textSize="15sp"/>
 
     <TextView
         android:id="@id/player_details_position"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_below="@id/player_details_age"
-        android:layout_margin="10sp"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
         android:layout_toEndOf="@id/label_position"
         android:gravity="center"
+        android:textColor="#000"
+        android:layout_centerVertical="true"
         android:textSize="15sp"/>
 
     <TextView
         android:id="@id/player_details_appearance"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
+        android:textStyle="bold"
         android:layout_below="@id/player_details_position"
-        android:layout_margin="10sp"
+        android:layout_margin="10dp"
         android:layout_toEndOf="@id/label_appearance"
         android:gravity="center"
+        android:textColor="#000"
+        android:layout_centerVertical="true"
         android:textSize="15sp"/>
 
     <TextView
         android:id="@id/player_details_minutes_played"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_below="@id/label_appearance"
-        android:layout_margin="10sp"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
         android:layout_toEndOf="@id/label_minutes_played"
         android:gravity="center"
+        android:textColor="#000"
+        android:layout_centerVertical="true"
         android:textSize="15sp"/>
 
     <TextView
         android:id="@id/player_details_goals_scored"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_below="@id/player_details_minutes_played"
-        android:layout_margin="10sp"
+        android:layout_margin="10dp"
         android:layout_toEndOf="@id/label_goals_scored"
         android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_centerVertical="true"
         android:textSize="15sp"/>
 
     <TextView
         android:id="@id/player_details_yellow_cards"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_below="@id/player_details_goals_scored"
-        android:layout_margin="10sp"
+        android:layout_margin="10dp"
         android:layout_toEndOf="@id/label_yellow_cards"
         android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_centerVertical="true"
         android:textSize="15sp"/>
 
     <TextView
         android:id="@id/player_details_red_cards"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_below="@id/player_details_yellow_cards"
-        android:layout_margin="10sp"
+        android:layout_margin="13dp"
         android:layout_toEndOf="@id/label_red_cards"
-        android:gravity="center"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
         android:textSize="15sp"/>
 
     <com.github.mikephil.charting.charts.RadarChart
         android:id="@id/radar_chart"
-        android:layout_width="280dp"
-        android:layout_height="300dp"
+        android:layout_width="230dp"
+        android:layout_height="240dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:padding="0dp"/>

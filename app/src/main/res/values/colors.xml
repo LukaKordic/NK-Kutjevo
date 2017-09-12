@@ -8,5 +8,6 @@
     <color name="recyclerItemBackground">#bfbfbf</color>
     <color name="imageDetailsBackground">#000</color>
     <color name="tableHeaderColor">#000</color>
+    <color name="green">#028011</color>
 
 </resources>

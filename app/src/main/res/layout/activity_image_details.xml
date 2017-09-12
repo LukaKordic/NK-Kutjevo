@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/imageDetailsBackground"
     tools:context="com.example.cobeosijek.nkkutjevo.ui.gallery.activities.ImageDetailsActivity">
 
     <ImageView
         android:id="@id/gallery_image_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center" />
 
 </FrameLayout>

@@ -2,51 +2,50 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@id/team_rec_view_item_layout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/recyclerItemBackground">
+    android:layout_height="100dp"
+    android:background="@color/white">
 
     <ImageView
         android:id="@id/player_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
         android:src="@mipmap/ic_launcher_round"
-        android:scaleType="centerCrop"/>
+        android:scaleType="fitXY"/>
 
     <TextView
         android:id="@id/player_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="2dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_toEndOf="@id/player_image"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="16sp" />
+        android:textColor="@color/green"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@id/player_surname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/player_name"
-        android:layout_marginBottom="2dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="2dp"
-        android:layout_toEndOf="@id/player_image"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="16sp" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/player_name"
+        android:textColor="@color/green"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@id/player_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="2dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="2dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="16sp" />
+        android:layout_margin="8dp"
+        android:layout_toEndOf="@id/player_surname"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center|right"
+        android:textColor="@color/green"
+        android:textSize="25sp" />
 
 </RelativeLayout>
