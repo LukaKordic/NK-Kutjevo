@@ -4,47 +4,52 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/iv_team1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="8dp"
+        android:id="@id/team1_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_centerVertical="true"
-        />
-    <TextView
-        android:id="@+id/tv_team1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/iv_team1"
-        android:layout_margin="8dp"
-        android:layout_centerVertical="true"/>
+        android:layout_margin="8dp" />
 
     <TextView
-        android:id="@+id/tv_vs"
+        android:id="@id/team1_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/tv_team1"
         android:layout_centerVertical="true"
+        android:layout_margin="8dp"
+        android:textSize="15sp"
+        android:maxLines="2"
+        android:layout_toEndOf="@id/team1_image" />
+
+    <TextView
+        android:id="@id/versus_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:layout_margin="8dp"
+        android:layout_toEndOf="@id/team1_name"
+        android:textSize="15sp"
         android:gravity="center"
-        android:text="@string/versus"/>
+        android:text="@string/versus" />
 
     <TextView
-        android:id="@+id/tv_team2"
+        android:id="@id/team2_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/tv_vs"
+        android:layout_centerVertical="true"
         android:layout_margin="8dp"
-        android:layout_centerVertical="true"/>
+        android:textSize="15sp"
+        android:maxLines="2"
+        android:layout_toEndOf="@id/versus_text" />
 
     <ImageView
-        android:id="@+id/iv_team2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@id/team2_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_margin="8dp"
-        android:textAlignment="textEnd"
-        android:layout_toEndOf="@+id/tv_team2"
-        android:layout_alignParentEnd="true"
-        />
+        android:layout_toEndOf="@+id/team2_name"
+        android:textAlignment="textEnd" />
+
 </RelativeLayout>

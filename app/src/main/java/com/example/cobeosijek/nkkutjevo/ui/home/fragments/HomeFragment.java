@@ -18,7 +18,8 @@ import com.example.cobeosijek.nkkutjevo.BuildConfig;
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.Constants;
 import com.example.cobeosijek.nkkutjevo.common.utils.DataUtils;
-import com.example.cobeosijek.nkkutjevo.common.utils.DatabaseUtils;
+import com.example.cobeosijek.nkkutjevo.common.utils.RealmUtils;
+import com.example.cobeosijek.nkkutjevo.common.utils.FirebaseUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.GameModel;
 import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
@@ -36,7 +37,6 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -93,7 +93,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         initUI(view);
         registerCallback();
         checkIfTokenExists();
-        getDatabaseReference().addValueEventListener(this);
+        FirebaseUtils.getDatabaseReference().addValueEventListener(this);
     }
 
     private void initUI(View view) {
@@ -116,16 +116,12 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         }
     }
 
-    private DatabaseReference getDatabaseReference() {
-        return App.getFirebaseDb().getReference();
-    }
-
     private Date getCurrentDate() {
         return new Date();
     }
 
     private void setResponse() {
-        homePagerAdapter.setResponse(DatabaseUtils.loadFeedResponse());
+        homePagerAdapter.setResponse(RealmUtils.loadFeedResponse());
     }
 
     private void setData() {
@@ -180,11 +176,11 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
                     public void onCompleted(GraphResponse response) {
                         fbResponse = parseJsonResponse(createGsonParser(), response);
                         if (fbResponse != null) {
-                            DatabaseUtils.saveResponseIntoRealm(fbResponse);
+                            RealmUtils.saveResponseIntoRealm(fbResponse);
                             setResponse();
                             for (int i = 0; i < 3; i++) {
-                                imageList.add(DatabaseUtils.loadFeedResponse().getData().get(i).getFullPicture());
-                                titleList.add(DatabaseUtils.loadFeedResponse().getData().get(i).getName());
+                                imageList.add(RealmUtils.loadFeedResponse().getData().get(i).getFullPicture());
+                                titleList.add(RealmUtils.loadFeedResponse().getData().get(i).getName());
                             }
                             setData();
                         }
@@ -250,12 +246,16 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
             loadNextGameDate(nextGame.getDate());
             loadCoordinates(nextGame.getLat(), nextGame.getLon());
         } catch (ParseException e) {
-            e.printStackTrace();
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace();
+            }
         }
     }
 
     @Override
     public void onCancelled(DatabaseError databaseError) {
-        Log.d("DatabaseError", "onCancelled: " + databaseError.toString());
+        if (BuildConfig.DEBUG) {
+            Log.d("DatabaseError", "onCancelled: " + databaseError.toString());
+        }
     }
 }

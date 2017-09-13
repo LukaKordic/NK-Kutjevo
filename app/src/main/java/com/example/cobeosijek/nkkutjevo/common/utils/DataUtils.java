@@ -1,7 +1,6 @@
 package com.example.cobeosijek.nkkutjevo.common.utils;
 
-import android.util.Log;
-
+import com.example.cobeosijek.nkkutjevo.BuildConfig;
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.Constants;
 import com.example.cobeosijek.nkkutjevo.data_objects.GameModel;
@@ -39,19 +38,27 @@ public class DataUtils {
         }
     }
 
-    public static GameModel findNextGame(List<GameModel> notPlayedList) throws ParseException {
-       final DateFormat format = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault());
-        Collections.sort(notPlayedList, new Comparator<GameModel>() {
+    public static List<GameModel> sortByDate(List<GameModel> unsortedList) {
+        final DateFormat format = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault());
+        Collections.sort(unsortedList, new Comparator<GameModel>() {
             @Override
             public int compare(GameModel gameModel, GameModel gameModel1) {
                 try {
                     return (format.parse(gameModel.getDate()).compareTo(format.parse(gameModel1.getDate())));
                 } catch (ParseException e) {
-                    e.printStackTrace();
+                    if (BuildConfig.DEBUG) {
+                        e.printStackTrace();
+                    }
                 }
                 return 0;
             }
         });
+        return unsortedList;
+    }
+
+    public static GameModel findNextGame(List<GameModel> notPlayedList) throws ParseException {
+        final DateFormat format = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault());
+        sortByDate(notPlayedList);
         GameModel nextGame = new GameModel();
         Date date = new Date();
         for (GameModel game : notPlayedList) {

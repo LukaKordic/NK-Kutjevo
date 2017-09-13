@@ -9,5 +9,6 @@
     <color name="imageDetailsBackground">#000</color>
     <color name="tableHeaderColor">#000</color>
     <color name="green">#028011</color>
+    <color name="rankingsTableColor">#96eda0</color>
 
 </resources>

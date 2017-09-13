@@ -88,14 +88,12 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_below="@id/table_header_team"
-        android:background="@color/recyclerItemBackground" />
+        android:background="@color/rankingsTableColor" />
 
-    <CalendarView
-        android:id="@+id/calendarView"
+    <android.support.v7.widget.RecyclerView
+        android:id="@id/games_recycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@id/ranking_recycler_view" />
-
+        android:layout_height="match_parent"
+        android:layout_below="@id/ranking_recycler_view"/>
 
 </RelativeLayout>

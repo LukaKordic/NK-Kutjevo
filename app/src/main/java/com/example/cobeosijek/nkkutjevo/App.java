@@ -31,10 +31,6 @@ public class App extends Application {
         return FirebaseDatabase.getInstance();
     }
 
-    public static Calendar getCalendar() {
-        return Calendar.getInstance();
-    }
-
     public static App get() {
         return sInstance;
     }

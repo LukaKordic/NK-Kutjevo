@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.DummyDataFactory;
-import com.example.cobeosijek.nkkutjevo.common.utils.DatabaseUtils;
+import com.example.cobeosijek.nkkutjevo.common.utils.RealmUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
 
@@ -53,7 +53,7 @@ public class ReadPostActivity extends AppCompatActivity {
     }
 
     private void getFeedFromRealm() {
-        fbResponse = DatabaseUtils.loadFeedResponse();
+        fbResponse = RealmUtils.loadFeedResponse();
     }
 
     private void receiveIntent() {

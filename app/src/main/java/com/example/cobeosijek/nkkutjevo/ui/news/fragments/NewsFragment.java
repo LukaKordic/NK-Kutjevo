@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.R;
-import com.example.cobeosijek.nkkutjevo.common.utils.DatabaseUtils;
+import com.example.cobeosijek.nkkutjevo.common.utils.RealmUtils;
 import com.example.cobeosijek.nkkutjevo.ui.home.PagerClickListener;
 import com.example.cobeosijek.nkkutjevo.ui.home.activities.ReadPostActivity;
 import com.example.cobeosijek.nkkutjevo.ui.news.adapters.NewsAdapter;
@@ -46,7 +46,7 @@ public class NewsFragment extends Fragment implements PagerClickListener {
         newsRecyclerView.setAdapter(newsAdapter);
 
         newsAdapter.setPagerClickListener(this);
-        newsAdapter.setDataList(DatabaseUtils.loadFeedResponse().getData());
+        newsAdapter.setDataList(RealmUtils.loadFeedResponse().getData());
     }
 
     @Override

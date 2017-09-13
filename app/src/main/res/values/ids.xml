@@ -1,91 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="content_layout" type="id"/>
-    <item name="drawer_list" type="id"/>
-    <item name="navigation_view" type="id"/>
-    <item name="drawer_layout" type="id"/>
-    <item name="nav_header_image" type="id"/>
-    <item name="nav_header_home" type="id"/>
-    <item name="nav_header_title" type="id"/>
-    <item name="nav_header_news" type="id"/>
-    <item name="nav_header_gallery" type="id"/>
-    <item name="nav_header_team" type="id"/>
-    <item name="nav_header_schedule" type="id"/>
-    <item name="home_fragment_title" type="id"/>
-    <item name="content_main" type="id"/>
-    <item name="toolbar" type="id"/>
-    <item name="main_container" type="id"/>
-    <item name="team_recycler_view" type="id"/>
-    <item name="player_image" type="id"/>
-    <item name="player_name" type="id"/>
-    <item name="player_surname" type="id"/>
-    <item name="player_age" type="id"/>
-    <item name="player_position" type="id"/>
-    <item name="header_icon" type="id"/>
-    <item name="player_details_name" type="id"/>
-    <item name="player_details_surname" type="id"/>
-    <item name="player_details_number" type="id"/>
-    <item name="player_details_age" type="id"/>
-    <item name="player_details_position" type="id"/>
-    <item name="player_details_image" type="id"/>
-    <item name="label_age" type="id"/>
-    <item name="label_position" type="id"/>
-    <item name="label_appearance" type="id"/>
-    <item name="label_minutes_played" type="id"/>
-    <item name="label_goals_scored" type="id"/>
-    <item name="label_yellow_cards" type="id"/>
-    <item name="label_red_cards" type="id"/>
-    <item name="player_details_appearance" type="id"/>
-    <item name="player_details_minutes_played" type="id"/>
-    <item name="player_details_goals_scored" type="id"/>
-    <item name="player_details_yellow_cards" type="id"/>
-    <item name="player_details_red_cards" type="id"/>
-    <item name="gallery_recycler_view" type="id"/>
-    <item name="gallery_image_details" type="id"/>
-    <item name="gallery_item_image" type="id"/>
-    <item name="team_rec_view_item_layout" type="id"/>
-    <item name="home_view_pager" type="id"/>
-    <item name="next_game_layout" type="id"/>
-    <item name="home_team_image" type="id"/>
-    <item name="away_team_image" type="id"/>
-    <item name="next_game_text" type="id"/>
-    <item name="vs" type="id"/>
-    <item name="table_header_team" type="id"/>
-    <item name="table_header_games_played" type="id"/>
-    <item name="table_header_won" type="id"/>
-    <item name="table_header_lost" type="id"/>
-    <item name="table_header_draw" type="id"/>
-    <item name="table_header_goals_for" type="id"/>
-    <item name="table_header_goals_against" type="id"/>
-    <item name="table_header_goal_difference" type="id"/>
-    <item name="ranking_recycler_view" type="id"/>
-    <item name="ranking_team_name" type="id"/>
-    <item name="ranking_games_played" type="id"/>
-    <item name="ranking_won" type="id"/>
-    <item name="ranking_lost" type="id"/>
-    <item name="ranking_draw" type="id"/>
-    <item name="ranking_goals_for" type="id"/>
-    <item name="ranking_goals_against" type="id"/>
-    <item name="ranking_goal_difference" type="id"/>
-    <item name="ranking_linear_layout" type="id"/>
-    <item name="schedule_relative_layout" type="id"/>
-    <item name="radar_chart" type="id"/>
-    <item name="player_number" type="id"/>
-    <item name="next_game_date" type="id"/>
-    <item name="home_pager_item_image" type="id"/>
-    <item name="home_pager_item_title" type="id"/>
-    <item name="pager_indicator" type="id"/>
-    <item name="pager_item_layout" type="id"/>
-    <item name="read_post_image" type="id"/>
-    <item name="read_post_title" type="id"/>
-    <item name="read_post_scroll_view" type="id"/>
-    <item name="read_post_message" type="id"/>
-    <item name="news_recycler_view" type="id"/>
-    <item name="map_button" type="id"/>
-    <item name="versus_text" type="id"/>
-    <item name="team1_image" type="id"/>
-    <item name="team2_image" type="id"/>
-    <item name="team1_name" type="id"/>
-    <item name="team2_name" type="id"/>
+    <item name="content_layout" type="id" />
+    <item name="drawer_list" type="id" />
+    <item name="navigation_view" type="id" />
+    <item name="drawer_layout" type="id" />
+    <item name="nav_header_image" type="id" />
+    <item name="nav_header_home" type="id" />
+    <item name="nav_header_title" type="id" />
+    <item name="nav_header_news" type="id" />
+    <item name="nav_header_gallery" type="id" />
+    <item name="nav_header_team" type="id" />
+    <item name="nav_header_schedule" type="id" />
+    <item name="home_fragment_title" type="id" />
+    <item name="content_main" type="id" />
+    <item name="toolbar" type="id" />
+    <item name="main_container" type="id" />
+    <item name="team_recycler_view" type="id" />
+    <item name="player_image" type="id" />
+    <item name="player_name" type="id" />
+    <item name="player_surname" type="id" />
+    <item name="player_age" type="id" />
+    <item name="player_position" type="id" />
+    <item name="header_icon" type="id" />
+    <item name="player_details_name" type="id" />
+    <item name="player_details_surname" type="id" />
+    <item name="player_details_number" type="id" />
+    <item name="player_details_age" type="id" />
+    <item name="player_details_position" type="id" />
+    <item name="player_details_image" type="id" />
+    <item name="label_age" type="id" />
+    <item name="label_position" type="id" />
+    <item name="label_appearance" type="id" />
+    <item name="label_minutes_played" type="id" />
+    <item name="label_goals_scored" type="id" />
+    <item name="label_yellow_cards" type="id" />
+    <item name="label_red_cards" type="id" />
+    <item name="player_details_appearance" type="id" />
+    <item name="player_details_minutes_played" type="id" />
+    <item name="player_details_goals_scored" type="id" />
+    <item name="player_details_yellow_cards" type="id" />
+    <item name="player_details_red_cards" type="id" />
+    <item name="gallery_recycler_view" type="id" />
+    <item name="gallery_image_details" type="id" />
+    <item name="gallery_item_image" type="id" />
+    <item name="team_rec_view_item_layout" type="id" />
+    <item name="home_view_pager" type="id" />
+    <item name="next_game_layout" type="id" />
+    <item name="home_team_image" type="id" />
+    <item name="away_team_image" type="id" />
+    <item name="next_game_text" type="id" />
+    <item name="vs" type="id" />
+    <item name="table_header_team" type="id" />
+    <item name="table_header_games_played" type="id" />
+    <item name="table_header_won" type="id" />
+    <item name="table_header_lost" type="id" />
+    <item name="table_header_draw" type="id" />
+    <item name="table_header_goals_for" type="id" />
+    <item name="table_header_goals_against" type="id" />
+    <item name="table_header_goal_difference" type="id" />
+    <item name="ranking_recycler_view" type="id" />
+    <item name="ranking_team_name" type="id" />
+    <item name="ranking_games_played" type="id" />
+    <item name="ranking_won" type="id" />
+    <item name="ranking_lost" type="id" />
+    <item name="ranking_draw" type="id" />
+    <item name="ranking_goals_for" type="id" />
+    <item name="ranking_goals_against" type="id" />
+    <item name="ranking_goal_difference" type="id" />
+    <item name="ranking_linear_layout" type="id" />
+    <item name="schedule_relative_layout" type="id" />
+    <item name="radar_chart" type="id" />
+    <item name="player_number" type="id" />
+    <item name="next_game_date" type="id" />
+    <item name="home_pager_item_image" type="id" />
+    <item name="home_pager_item_title" type="id" />
+    <item name="pager_indicator" type="id" />
+    <item name="pager_item_layout" type="id" />
+    <item name="read_post_image" type="id" />
+    <item name="read_post_title" type="id" />
+    <item name="read_post_scroll_view" type="id" />
+    <item name="read_post_message" type="id" />
+    <item name="news_recycler_view" type="id" />
+    <item name="map_button" type="id" />
+    <item name="versus_text" type="id" />
+    <item name="team1_image" type="id" />
+    <item name="team2_image" type="id" />
+    <item name="team1_name" type="id" />
+    <item name="team2_name" type="id" />
+    <item name="games_recycler" type="id" />
 
 </resources>
