@@ -26,6 +26,9 @@ public class GameHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.team2_image)
     ImageView team2Image;
 
+    @BindView(R.id.game_date)
+    TextView gameDate;
+
     public GameHolder(View itemView) {
         super(itemView);
 
@@ -44,6 +47,7 @@ public class GameHolder extends RecyclerView.ViewHolder {
             team1Name.setText(gameModel.getHomeTeam());
             team2Name.setText(gameModel.getAwayTeam());
             ImageUtils.loadSmallImage(team2Image, gameModel.getAwayLogo());
+            gameDate.setText(gameModel.getDate());
         }
     }
 }

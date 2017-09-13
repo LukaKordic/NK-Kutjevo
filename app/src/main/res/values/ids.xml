@@ -88,5 +88,6 @@
     <item name="team1_name" type="id" />
     <item name="team2_name" type="id" />
     <item name="games_recycler" type="id" />
+    <item name="game_date" type="id" />
 
 </resources>

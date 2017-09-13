@@ -81,20 +81,8 @@ public class ScheduleFragment extends Fragment implements ValueEventListener {
             }
         }
 
-        for (GameModel model : gamesList) {
-            try {
-                Date date = dateFormat.parse(model.getDate());
-                if (date.after(getCurrentDate())) {
-                    notPlayedList.add(model);
-                }
-            } catch (ParseException e) {
-                if (BuildConfig.DEBUG) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        DataUtils.sortByDate(notPlayedList);
-        initGamesRecyclerView(notPlayedList);
+        DataUtils.sortByDate(gamesList);
+        initGamesRecyclerView(gamesList);
     }
 
     private void initRankingRecyclerView() {

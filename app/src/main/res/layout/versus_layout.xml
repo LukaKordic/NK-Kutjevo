@@ -16,9 +16,9 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_margin="8dp"
-        android:textSize="15sp"
+        android:layout_toEndOf="@id/team1_image"
         android:maxLines="2"
-        android:layout_toEndOf="@id/team1_image" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@id/versus_text"
@@ -27,20 +27,25 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_margin="8dp"
-        android:layout_toEndOf="@id/team1_name"
-        android:textSize="15sp"
-        android:gravity="center"
-        android:text="@string/versus" />
+        android:text="@string/versus"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@id/game_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/versus_text"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp" />
 
     <TextView
         android:id="@id/team2_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/team2_image"
         android:layout_centerVertical="true"
-        android:layout_margin="8dp"
-        android:textSize="15sp"
         android:maxLines="2"
-        android:layout_toEndOf="@id/versus_text" />
+        android:textSize="15sp" />
 
     <ImageView
         android:id="@id/team2_image"
@@ -49,7 +54,6 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_margin="8dp"
-        android:layout_toEndOf="@+id/team2_name"
         android:textAlignment="textEnd" />
 
 </RelativeLayout>
