@@ -43,6 +43,7 @@ public class HomePagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         LayoutInflater inflater = LayoutInflater.from(container.getContext());
         View view = inflater.inflate(R.layout.home_pager_item, container, false);
+
         ResponseHolder responseHolder = new ResponseHolder(view, pagerClickListener);
         responseHolder.setFbResponse(fbResponse);
         responseHolder.setItemPosition(position);

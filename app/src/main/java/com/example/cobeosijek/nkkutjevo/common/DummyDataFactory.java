@@ -3,7 +3,6 @@ package com.example.cobeosijek.nkkutjevo.common;
 import android.widget.ImageView;
 
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
-import com.example.cobeosijek.nkkutjevo.data_objects.GameModel;
 import com.example.cobeosijek.nkkutjevo.data_objects.ImageModel;
 import com.example.cobeosijek.nkkutjevo.data_objects.TeamModel;
 import com.example.cobeosijek.nkkutjevo.data_objects.player_model.PlayerAbilities;
@@ -86,13 +85,5 @@ public class DummyDataFactory {
 
     public static void loadDefaultImage(ImageView into) {
         ImageUtils.loadImage(into, "https://scontent-vie1-1.xx.fbcdn.net/v/t1.0-9/18581938_1407320175980850_4653485171212313419_n.jpg?oh=3e60cfc72cac5b26483a4d74b5d524a2&oe=5A37F874");
-    }
-
-    public static List<GameModel> loadDummyGames() {
-        List<GameModel> dummyList = new ArrayList<>();
-
-        dummyList.add(new GameModel("Kutjevo", "Pozega", "11.11.2017.", 45.4444, 17.56565, " ", " "));
-
-        return dummyList;
     }
 }

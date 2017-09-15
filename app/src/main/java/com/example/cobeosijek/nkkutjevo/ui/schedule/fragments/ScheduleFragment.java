@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,7 +15,6 @@ import android.view.ViewGroup;
 
 import com.example.cobeosijek.nkkutjevo.BuildConfig;
 import com.example.cobeosijek.nkkutjevo.R;
-import com.example.cobeosijek.nkkutjevo.common.Constants;
 import com.example.cobeosijek.nkkutjevo.common.DummyDataFactory;
 import com.example.cobeosijek.nkkutjevo.common.utils.DataUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.FirebaseUtils;
@@ -25,13 +25,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -72,8 +67,6 @@ public class ScheduleFragment extends Fragment implements ValueEventListener {
 
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
-        DateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault());
-
         for (DataSnapshot child : dataSnapshot.getChildren()) {
             GameModel kolo = child.getValue(GameModel.class);
             if (kolo != null) {
@@ -93,14 +86,15 @@ public class ScheduleFragment extends Fragment implements ValueEventListener {
     }
 
     private void initGamesRecyclerView(List<GameModel> gameList) {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         gamesAdapter.setGameModelList(gameList);
-        gamesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        gamesRecyclerView.setLayoutManager(linearLayoutManager);
         gamesRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        gamesRecyclerView.setAdapter(gamesAdapter);
-    }
+        DividerItemDecoration decoration = new DividerItemDecoration(getContext(), linearLayoutManager.getOrientation());
+        gamesRecyclerView.addItemDecoration(decoration);
+        gamesRecyclerView.addItemDecoration(decoration);
 
-    private Date getCurrentDate() {
-        return new Date();
+        gamesRecyclerView.setAdapter(gamesAdapter);
     }
 
     @Override

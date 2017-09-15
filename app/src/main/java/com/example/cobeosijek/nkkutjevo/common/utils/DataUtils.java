@@ -69,4 +69,15 @@ public class DataUtils {
         }
         return nextGame;
     }
+
+    public static Date convertStringToDate(String date) {
+        DateFormat formater = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault());
+        try {
+            return formater.parse(date);
+        } catch (ParseException e) {
+            if (BuildConfig.DEBUG)
+                e.printStackTrace();
+        }
+        return new Date();
+    }
 }

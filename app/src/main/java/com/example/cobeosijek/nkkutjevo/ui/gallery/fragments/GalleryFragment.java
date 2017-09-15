@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -46,8 +45,6 @@ public class GalleryFragment extends Fragment implements GalleryClickListener {
         galleryRecyclerView.setLayoutManager(gridLayoutManager);
         galleryRecyclerView.setItemAnimator(new DefaultItemAnimator());
         galleryRecyclerViewAdapter.setGalleryClickListener(this);
-        DividerItemDecoration decoration = new DividerItemDecoration(view.getContext(), gridLayoutManager.getOrientation());
-        galleryRecyclerView.addItemDecoration(decoration);
         galleryRecyclerView.setAdapter(galleryRecyclerViewAdapter);
         galleryRecyclerViewAdapter.setImageModelList(DummyDataFactory.loadImages());
     }

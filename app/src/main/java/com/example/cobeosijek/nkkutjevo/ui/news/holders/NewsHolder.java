@@ -36,7 +36,7 @@ public class NewsHolder extends RecyclerView.ViewHolder {
         this.position = position;
     }
 
-    public void setReponseTitle(String title) {
+    public void setResponseTitle(String title) {
         if (!title.equals("")) {
             this.title.setText(title);
         } else {

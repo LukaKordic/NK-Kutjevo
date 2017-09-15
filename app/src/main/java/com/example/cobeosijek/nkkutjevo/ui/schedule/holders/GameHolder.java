@@ -6,8 +6,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cobeosijek.nkkutjevo.R;
+import com.example.cobeosijek.nkkutjevo.common.utils.DataUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.GameModel;
+
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +32,12 @@ public class GameHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.game_date)
     TextView gameDate;
 
+    @BindView(R.id.home_team_goals)
+    TextView homeTeamGoals;
+
+    @BindView(R.id.away_team_goals)
+    TextView awayTeamGoals;
+
     public GameHolder(View itemView) {
         super(itemView);
 
@@ -48,6 +57,10 @@ public class GameHolder extends RecyclerView.ViewHolder {
             team2Name.setText(gameModel.getAwayTeam());
             ImageUtils.loadSmallImage(team2Image, gameModel.getAwayLogo());
             gameDate.setText(gameModel.getDate());
+            if (DataUtils.convertStringToDate(gameModel.getDate()).before(new Date())) {
+                homeTeamGoals.setText(String.valueOf(gameModel.getHomeTeamGoals()));
+                awayTeamGoals.setText(String.valueOf(gameModel.getAwayTeamGoals()));
+            }
         }
     }
 }

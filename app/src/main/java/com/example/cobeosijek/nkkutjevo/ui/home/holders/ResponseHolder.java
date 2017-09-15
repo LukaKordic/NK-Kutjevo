@@ -5,6 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cobeosijek.nkkutjevo.R;
+import com.example.cobeosijek.nkkutjevo.common.Constants;
 import com.example.cobeosijek.nkkutjevo.common.DummyDataFactory;
 import com.example.cobeosijek.nkkutjevo.common.utils.ImageUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.reponses.FeedResponse;
@@ -42,6 +43,8 @@ public class ResponseHolder {
     public void setResponseTitle() {
         if (!fbResponse.getData().get(position).getName().equals("")) {
             responseTitle.setText(fbResponse.getData().get(position).getName());
+        } else {
+            responseTitle.setText(Constants.DEFAULT_TITLE);
         }
     }
 
@@ -54,7 +57,7 @@ public class ResponseHolder {
     }
 
     @OnClick(R.id.pager_item_layout)
-    public void onClaick() {
+    public void onClick() {
         if (pagerClickListener != null) {
             pagerClickListener.onItemClick(position);
         }

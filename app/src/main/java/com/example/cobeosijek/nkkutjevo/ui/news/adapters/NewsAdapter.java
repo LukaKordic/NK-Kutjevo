@@ -37,7 +37,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsHolder> {
     @Override
     public void onBindViewHolder(NewsHolder holder, int position) {
         holder.setPosition(position);
-        holder.setReponseTitle(dataList.get(position).getName());
+        holder.setResponseTitle(dataList.get(position).getName());
         holder.setResponseImage(dataList.get(position).getFullPicture());
     }
 

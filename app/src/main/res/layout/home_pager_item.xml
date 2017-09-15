@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@id/pager_item_layout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="20dp"
-    android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@id/pager_item_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
 
     <ImageView
         android:id="@id/home_pager_item_image"
         android:layout_width="match_parent"
         android:layout_height="270dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/stadion" />
+        android:src="@drawable/stadion"/>
 
     <TextView
         android:id="@id/home_pager_item_title"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="Title"
-        android:textSize="16sp" />
-</LinearLayout>
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="220dp"
+        android:maxLines="2"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:typeface="sans"/>
+</RelativeLayout>

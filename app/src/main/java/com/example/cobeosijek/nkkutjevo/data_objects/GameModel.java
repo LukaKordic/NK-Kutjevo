@@ -11,11 +11,13 @@ public class GameModel extends BaseModel implements Comparable<GameModel> {
     private double lon;
     private String homeLogo;
     private String awayLogo;
+    private int homeTeamGoals;
+    private int awayTeamGoals;
 
     public GameModel() {
     }
 
-    public GameModel(String homeTeam, String awayTeam, String date, double lat, double lon, String homeLogo, String awayLogo) {
+    public GameModel(String homeTeam, String awayTeam, String date, double lat, double lon, String homeLogo, String awayLogo, int homeTeamGoals, int awayTeamGoals) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.date = date;
@@ -23,6 +25,8 @@ public class GameModel extends BaseModel implements Comparable<GameModel> {
         this.lon = lon;
         this.homeLogo = homeLogo;
         this.awayLogo = awayLogo;
+        this.homeTeamGoals = homeTeamGoals;
+        this.awayTeamGoals = awayTeamGoals;
     }
 
     public double getLat() {
@@ -31,6 +35,22 @@ public class GameModel extends BaseModel implements Comparable<GameModel> {
 
     public void setLat(float lat) {
         this.lat = lat;
+    }
+
+    public int getHomeTeamGoals() {
+        return homeTeamGoals;
+    }
+
+    public void setHomeTeamGoals(int homeTeamGoals) {
+        this.homeTeamGoals = homeTeamGoals;
+    }
+
+    public int getAwayTeamGoals() {
+        return awayTeamGoals;
+    }
+
+    public void setAwayTeamGoals(int awayTeamGoals) {
+        this.awayTeamGoals = awayTeamGoals;
     }
 
     public double getLon() {

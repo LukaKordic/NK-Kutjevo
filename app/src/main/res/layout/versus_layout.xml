@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
     <ImageView
         android:id="@id/team1_image"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_centerVertical="true"
-        android:layout_margin="8dp" />
+        android:layout_margin="8dp"/>
 
     <TextView
         android:id="@id/team1_name"
@@ -18,7 +18,7 @@
         android:layout_margin="8dp"
         android:layout_toEndOf="@id/team1_image"
         android:maxLines="2"
-        android:textSize="15sp" />
+        android:textSize="15sp"/>
 
     <TextView
         android:id="@id/versus_text"
@@ -28,7 +28,7 @@
         android:layout_centerVertical="true"
         android:layout_margin="8dp"
         android:text="@string/versus"
-        android:textSize="15sp" />
+        android:textSize="15sp"/>
 
     <TextView
         android:id="@id/game_date"
@@ -36,16 +36,16 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/versus_text"
         android:layout_centerHorizontal="true"
-        android:layout_margin="5dp" />
+        android:layout_margin="5dp"/>
 
     <TextView
         android:id="@id/team2_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toStartOf="@id/team2_image"
         android:layout_centerVertical="true"
+        android:layout_toStartOf="@id/team2_image"
         android:maxLines="2"
-        android:textSize="15sp" />
+        android:textSize="15sp"/>
 
     <ImageView
         android:id="@id/team2_image"
@@ -54,6 +54,23 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_margin="8dp"
-        android:textAlignment="textEnd" />
+        android:textAlignment="textEnd"/>
+
+    <TextView
+        android:id="@id/home_team_goals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/team1_name"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@id/away_team_goals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/versus_text"
+        android:layout_marginEnd="70dp"
+        android:layout_marginTop="5dp"/>
 
 </RelativeLayout>

@@ -89,5 +89,7 @@
     <item name="team2_name" type="id" />
     <item name="games_recycler" type="id" />
     <item name="game_date" type="id" />
+    <item name="home_team_goals" type="id" />
+    <item name="away_team_goals" type="id" />
 
 </resources>
