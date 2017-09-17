@@ -19,7 +19,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="20dp"
         android:layout_toEndOf="@id/table_header_team"
-        android:text="@string/games_played"
+        android:text="@string/points_won"
         android:textColor="@color/tableHeaderColor"
         android:textSize="15sp"/>
 

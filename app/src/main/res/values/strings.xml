@@ -20,7 +20,7 @@
     <string name="next_game_text">Next Game</string>
     <string name="calendar">Kalendar</string>
     <string name="table_header_team_text">Team</string>
-    <string name="games_played">GP</string>
+    <string name="points_won">PTS</string>
     <string name="won">W</string>
     <string name="games_lost">L</string>
     <string name="games_draw">D</string>

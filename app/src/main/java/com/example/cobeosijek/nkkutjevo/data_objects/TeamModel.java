@@ -3,16 +3,16 @@ package com.example.cobeosijek.nkkutjevo.data_objects;
 public class TeamModel  {
 
     private String teamName;
-    private int gamesPlayed;
+    private int pointsWon;
     private int gamesWon;
     private int gamesLost;
     private int gamesDraw;
     private int goalsFor;
     private int goalsAgainst;
 
-    public TeamModel(String teamName, int gamesPlayed, int gamesWon, int gamesLost, int gamesDraw, int goalsFor, int goalsAgainst) {
+    public TeamModel(String teamName, int pointsWon, int gamesWon, int gamesLost, int gamesDraw, int goalsFor, int goalsAgainst) {
         this.teamName = teamName;
-        this.gamesPlayed = gamesPlayed;
+        this.pointsWon = pointsWon;
         this.gamesWon = gamesWon;
         this.gamesLost = gamesLost;
         this.gamesDraw = gamesDraw;
@@ -31,12 +31,12 @@ public class TeamModel  {
         this.teamName = teamName;
     }
 
-    public int getGamesPlayed() {
-        return gamesPlayed;
+    public int getPointsWon() {
+        return pointsWon;
     }
 
-    public void setGamesPlayed(int gamesPlayed) {
-        this.gamesPlayed = gamesPlayed;
+    public void setPointsWon(int pointsWon) {
+        this.pointsWon = pointsWon;
     }
 
     public int getGamesWon() {

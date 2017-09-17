@@ -79,7 +79,7 @@ public class ScheduleFragment extends Fragment implements ValueEventListener {
     }
 
     private void initRankingRecyclerView() {
-        rankingRecyclerAdapter.setTeamModelList(DummyDataFactory.getteamModelList());
+        rankingRecyclerAdapter.setTeamModelList(DummyDataFactory.getTeamModelList());
         rankingRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         rankingRecyclerView.setItemAnimator(new DefaultItemAnimator());
         rankingRecyclerView.setAdapter(rankingRecyclerAdapter);

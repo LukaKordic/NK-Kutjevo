@@ -12,10 +12,6 @@ import com.example.cobeosijek.nkkutjevo.ui.schedule.holders.GameHolder;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Luka Kordić on 13.9.2017..
- */
-
 public class GamesAdapter extends RecyclerView.Adapter<GameHolder> {
 
     private final List<GameModel> gameModelList = new ArrayList<>();

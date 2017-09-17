@@ -51,7 +51,7 @@ public class TeamHolder extends RecyclerView.ViewHolder {
     public void showTeamInfo(){
         if(teamModel != null){
             teamName.setText(teamModel.getTeamName());
-            gamesPlayed.setText(String.valueOf(teamModel.getGamesPlayed()));
+            gamesPlayed.setText(String.valueOf(teamModel.getPointsWon()));
             gamesWon.setText(String.valueOf(teamModel.getGamesWon()));
             gamesLost.setText(String.valueOf(teamModel.getGamesLost()));
             gamesDraw.setText(String.valueOf(teamModel.getGamesDraw()));
