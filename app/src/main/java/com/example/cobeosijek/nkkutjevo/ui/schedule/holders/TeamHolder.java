@@ -1,6 +1,7 @@
 package com.example.cobeosijek.nkkutjevo.ui.schedule.holders;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 

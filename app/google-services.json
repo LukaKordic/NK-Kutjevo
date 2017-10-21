@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "128522125020-5bdf3un1g8t8p8ij5qd1qi8b3qf6ekdc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cobeosijek.nkkutjevo",
+            "certificate_hash": "813d7732dbd5afe3a537c170cefe93efb506d633"
+          }
+        },
+        {
           "client_id": "128522125020-f4bp8beco4ltk3v2gr7c91u9m4fhjs9c.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

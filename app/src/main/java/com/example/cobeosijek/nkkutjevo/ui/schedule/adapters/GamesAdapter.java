@@ -16,7 +16,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GameHolder> {
 
     private final List<GameModel> gameModelList = new ArrayList<>();
 
-    public void setGameModelList(List<GameModel> list) {
+    public void setGameList(List<GameModel> list) {
         gameModelList.clear();
         gameModelList.addAll(list);
         notifyDataSetChanged();

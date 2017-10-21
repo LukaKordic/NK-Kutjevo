@@ -116,10 +116,6 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         }
     }
 
-    private Date getCurrentDate() {
-        return new Date();
-    }
-
     private void setResponse() {
         homePagerAdapter.setResponse(RealmUtils.loadFeedResponse());
     }
@@ -220,7 +216,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         List<GameModel> notPlayedList = new ArrayList<>();
         DateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT, Locale.getDefault());
 
-        for (DataSnapshot child : dataSnapshot.getChildren()) {
+        for (DataSnapshot child : dataSnapshot.child(Constants.GAMES).getChildren()) {
             GameModel kolo = child.getValue(GameModel.class);
             if (kolo != null) {
                 gamesList.add(kolo);
@@ -230,7 +226,7 @@ public class HomeFragment extends Fragment implements FacebookCallback<LoginResu
         for (GameModel model : gamesList) {
             try {
                 Date date = dateFormat.parse(model.getDate());
-                if (date.after(getCurrentDate())) {
+                if (date.after(new Date())) {
                     notPlayedList.add(model);
                 }
             } catch (ParseException e) {
