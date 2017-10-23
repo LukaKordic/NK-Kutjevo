@@ -41,26 +41,6 @@ public class DummyDataFactory {
         return imageModelList;
     }
 
-    public static List<TeamModel> getTeamModelList() {
-        List<TeamModel> teamModels = new ArrayList<>();
-
-        teamModels.add(new TeamModel("Vidovci", 6, 2, 0, 0, 6, 0));
-        teamModels.add(new TeamModel("Lipik", 6, 2, 0, 0, 3, 1));
-        teamModels.add(new TeamModel("Kuzmica", 6, 2, 0, 0, 3, 1));
-        teamModels.add(new TeamModel("Pozega", 3, 1, 1, 0, 5, 2));
-        teamModels.add(new TeamModel("Buk", 3, 1, 1, 0, 1, 1));
-        teamModels.add(new TeamModel("Kaptol", 3, 1, 1, 0, 3, 3));
-        teamModels.add(new TeamModel("Kutjevo", 3, 1, 1, 0, 2, 2));
-        teamModels.add(new TeamModel("Mihaljevci", 3, 1, 1, 0, 1, 2));
-        teamModels.add(new TeamModel("Pavlovci", 3, 1, 1, 0, 1, 4));
-        teamModels.add(new TeamModel("Jaksic", 0, 0, 2, 0, 1, 3));
-        teamModels.add(new TeamModel("Papuk", 0, 0, 2, 0, 1, 3));
-        teamModels.add(new TeamModel("Gradac", 0, 0, 2, 0, 2, 7));
-
-
-        return teamModels;
-    }
-
     public static List<PlayerModel> getPlayerModelList() {
         List<PlayerModel> playerModels = new ArrayList<>();
 

@@ -1,6 +1,6 @@
 package com.example.cobeosijek.nkkutjevo.data_objects;
 
-public class TeamModel  {
+public class TeamModel {
 
     private String teamName;
     private int pointsWon;

@@ -4,6 +4,7 @@ import com.example.cobeosijek.nkkutjevo.BuildConfig;
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.Constants;
 import com.example.cobeosijek.nkkutjevo.data_objects.GameModel;
+import com.example.cobeosijek.nkkutjevo.data_objects.TeamModel;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -79,5 +80,16 @@ public class DataUtils {
                 e.printStackTrace();
         }
         return new Date();
+    }
+
+    public static List<TeamModel> sortByPoints(List<TeamModel> unsortedList) {
+        Collections.sort(unsortedList, new Comparator<TeamModel>() {
+            @Override
+            public int compare(TeamModel teamModel1, TeamModel teamModel2) {
+                return Integer.valueOf(teamModel1.getPointsWon()).compareTo(teamModel2.getPointsWon());
+            }
+        });
+        Collections.reverse(unsortedList);
+        return unsortedList;
     }
 }

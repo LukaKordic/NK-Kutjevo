@@ -16,9 +16,9 @@ public class RankingRecyclerAdapter extends RecyclerView.Adapter<TeamHolder> {
 
     private final List<TeamModel> teamModelList = new ArrayList<>();
 
-    public void setTeamModelList(List<TeamModel> list) {
+    public void setTeamModelList(List<TeamModel> teamList) {
         teamModelList.clear();
-        teamModelList.addAll(list);
+        teamModelList.addAll(teamList);
         notifyDataSetChanged();
     }
 

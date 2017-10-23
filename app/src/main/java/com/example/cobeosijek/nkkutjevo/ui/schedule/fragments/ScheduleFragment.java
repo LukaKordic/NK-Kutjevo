@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import com.example.cobeosijek.nkkutjevo.BuildConfig;
 import com.example.cobeosijek.nkkutjevo.R;
 import com.example.cobeosijek.nkkutjevo.common.Constants;
-import com.example.cobeosijek.nkkutjevo.common.DummyDataFactory;
 import com.example.cobeosijek.nkkutjevo.common.utils.DataUtils;
 import com.example.cobeosijek.nkkutjevo.common.utils.FirebaseUtils;
 import com.example.cobeosijek.nkkutjevo.data_objects.GameModel;
@@ -43,7 +42,7 @@ public class ScheduleFragment extends Fragment implements ValueEventListener {
 
     private List<GameModel> gamesList = new ArrayList<>();
     private List<GameModel> notPlayedList = new ArrayList<>();
-    private List<TeamModel> teamList = new ArrayList<>();
+    private List<TeamModel> teamModelList = new ArrayList<>();
 
     private final RankingRecyclerAdapter rankingRecyclerAdapter = new RankingRecyclerAdapter();
     private final GamesAdapter gamesAdapter = new GamesAdapter();
@@ -78,17 +77,17 @@ public class ScheduleFragment extends Fragment implements ValueEventListener {
         for (DataSnapshot snapshot : dataSnapshot.child(Constants.TEAMS).getChildren()) {
             TeamModel team = snapshot.getValue(TeamModel.class);
             if (team != null) {
-                teamList.add(team);
+                teamModelList.add(team);
             }
         }
+        DataUtils.sortByPoints(teamModelList);
         DataUtils.sortByDate(gamesList);
         initGamesRecyclerView(gamesList);
-        initRankingRecyclerView(teamList);
+        initRankingRecyclerView(teamModelList);
     }
 
-
-    private void initRankingRecyclerView(List<TeamModel> teamList) {
-        rankingRecyclerAdapter.setTeamModelList(teamList);
+    private void initRankingRecyclerView(List<TeamModel> teamModelList) {
+        rankingRecyclerAdapter.setTeamModelList(teamModelList);
         rankingRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         rankingRecyclerView.setItemAnimator(new DefaultItemAnimator());
         rankingRecyclerView.setAdapter(rankingRecyclerAdapter);
