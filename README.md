@@ -6,4 +6,10 @@ To get access to the facebook page users have to be singed in using Facebook log
 
 Data about games and teams is persisted in Firebase database, and info about players is saved into a local Realm database. 
 
+<img src="images/Screenshot_2017-09-19-01-11-52.png" width="100px"> <img src="images/Screenshot_2017-09-19-01-12-35.png" width="100px">
+<img src="images/Screenshot_2017-09-19-01-12-45.png" width="100px"> <img src="images/Screenshot_2017-09-19-01-13-03.png" width="100px">
 
+<img src="images/Screenshot_2017-09-19-01-13-15.png" width="100px"> <img src="images/Screenshot_2017-09-19-01-13-24.png" width="100px">
+<img src="images/Screenshot_2017-09-19-01-13-54.png" width="100px"> <img src="images/Screenshot_2017-09-19-01-14-36.png" width="100px">
+
+<img src="images/Screenshot_2017-09-19-01-28-53.png" width="100px">
